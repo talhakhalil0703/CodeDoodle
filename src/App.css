@@ -1,0 +1,28 @@
+.App {
+  width: 100%;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 48px 1fr;
+}
+
+.header {
+  background-color: #202020;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  width: 100%;
+  height: 48px;
+}
+
+.drawing-panel {
+  background-color: #ccc;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 100%;
+}
+
+.drawing-area {
+  background-color: white;
+  grid-column-start: 2;
+  grid-column-end: 8;
+  width: 100%;
+}
