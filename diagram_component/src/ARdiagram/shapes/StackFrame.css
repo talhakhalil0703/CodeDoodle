@@ -1,0 +1,19 @@
+.frame {
+    min-width: 30vw;
+    max-width: 30vw;
+    align-self: center;
+}
+
+.local {
+    background: cyan; 
+}
+
+.arguments {
+    background: lime;
+}
+
+input{
+    width: 29vw;
+    align-self: center;
+    text-align: center;
+}
