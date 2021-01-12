@@ -1,0 +1,26 @@
+#drawArea {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+.drawSection {
+    width: 33%;
+    height: 100%;
+    overflow:hidden;
+    text-align: center;
+    background: teal;
+}
+
+#stackArea {
+    background:gray;
+    width: 40vw !important;
+}
+
+#heapArea {
+    background: silver;
+}
+
+.drawSection h1 {
+    text-decoration: underline;
+}
