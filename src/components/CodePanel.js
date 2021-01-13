@@ -157,6 +157,7 @@ class CodePanel extends Component {
     render() {
         return (
             <div className='code-panel'>
+
                 <div className='code-panel-header'>
                     <button className='lang-btn' onClick={this.handleLanguageChange.bind(this, 'c')} autoFocus>C</button>
                     <button className='lang-btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
