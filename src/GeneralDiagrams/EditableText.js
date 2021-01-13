@@ -37,7 +37,9 @@ export default class EditableText extends React.Component{
             onChange={event=>{
                 this.setState({value:event.target.value})
             }}
-
+            onBlur={event=>{
+                this.setState({edit:false})
+            }}
             onKeyDown={event=>{
                 if(event.key=='Enter'){
                     this.setState({edit:false})
