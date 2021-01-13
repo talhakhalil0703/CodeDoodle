@@ -10,13 +10,13 @@ export default class ARStackArea extends React.Component {
 
     LayoutStackFrames = () => {
         return(
-            <React.Fragment>
+            <div className="stackFrameArea">
                 {this.state.stackFrameList.map(stackFrame =>
                         <div key={stackFrame.name} className="stackFrame">
                             <StackFrame name={stackFrame.name}/>
                         </div>
                 )}
-            </ React.Fragment>
+            </ div>
         )
     };
     
@@ -31,11 +31,8 @@ export default class ARStackArea extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <div id="stackAreaTop">
-                    <h1>Stack</h1>
-                    <button id="stackAddButton" onClick={this.addStackFrame}>Add</button>
-                </ div>
-
+                <h1>Stack</h1>
+                <button onClick={this.addStackFrame}>Add</button>
                 <div id="allStackFrames">
                     <this.LayoutStackFrames />
                 </div>

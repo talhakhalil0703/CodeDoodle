@@ -4,10 +4,6 @@ import CodePanel from './CodePanel';
 import DownloadButton from './DownloadButton';
 import UploadButton from './UploadButton';
 
-import DrawingIcons from './DrawingIcons';
-
-import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
-
 /*
     TODO:
      - Fix syntax highlighting 
@@ -33,8 +29,6 @@ class CodeDoodle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editorOpen: true,
-            drawOpen: true,
             user_c_code: `#include <stdio.h>
 int main() {
    // printf() displays the string inside quotation
@@ -62,20 +56,6 @@ int main() {
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
-        this.toggleEditor = this.toggleEditor.bind(this);
-        this.toggleDraw = this.toggleDraw.bind(this);
-    }
-
-    toggleEditor() {
-        this.setState(state => ({
-            editorOpen: !state.editorOpen
-        }));
-    }
-
-    toggleDraw() {
-        this.setState(state => ({
-            drawOpen: !state.drawOpen
-        }));
     }
 
     /* 
@@ -188,8 +168,7 @@ ${val}`;
                         <div className='drop'>
                             <button className='drop-btn'>View</button>
                             <div className='drop-content'>
-                                <button onClick={this.toggleEditor}>Hide Editor</button>
-                                <button onClick={this.toggleDraw}>Hide Draw</button>
+
                             </div>
                         </div>
 
@@ -202,30 +181,22 @@ ${val}`;
                     </ul>
                 </div>
 
-                <div className='base'>
-                    {/* <DrawingPanel /> */}
+                <div className='drawing-panel'></div>
 
-                    <DrawingIcons />
+                <div className='drawing-area'></div>
 
-                    {this.state.drawOpen ? (
-                        <ARDiagramDrawArea />
-                    ) : null}
+                <CodePanel
+                    c={user_c_code}
+                    cpp={user_cpp_code}
+                    language={language}
+                    value={value}
+                    onChange={this.handleEditorChange}
+                    onClick={this.handleLanguageChange}
+                    onKeyDown={this.handleKeyDown}
+                    onUpload={this.handleFileUpload}
+                />
 
-                    {this.state.editorOpen ? (
-                        <CodePanel
-                            c={user_c_code}
-                            cpp={user_cpp_code}
-                            language={language}
-                            value={value}
-                            onChange={this.handleEditorChange}
-                            onClick={this.handleLanguageChange}
-                            onKeyDown={this.handleKeyDown}
-                            onUpload={this.handleFileUpload}
-                        />
-                    ) : null}
-                </div>
-
-            </div >
+            </div>
         );
     }
 }

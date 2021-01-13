@@ -1,6 +1,6 @@
 #stackFrameArea {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
     max-width: 100vw;
@@ -10,16 +10,6 @@
 .stackFrame {
     display: flex;
     flex-direction: column;
-    padding-bottom: 60px;
+    padding-top: 60px;
     max-width: 90vw;
-}
-
-#allStackFrames {
-    overflow-y: scroll;
-    max-height: 90vh;
-}
-
-#stackAreaTop {
-    max-height: 10vh;
-    margin-bottom: 10px;
 }
