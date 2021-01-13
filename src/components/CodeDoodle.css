@@ -68,3 +68,7 @@ button {
 .drop:hover .drop-content {
     display: block;
 }
+
+.base {
+    display: flex;
+}

@@ -1,0 +1,19 @@
+.stack-frame {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin: auto;
+    background-color: #ccc;
+    width: 50%;
+    min-height: 100px;
+}
+
+.add-var {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border: none;
+}
+
+.local-variables li {
+    margin-bottom: 10px;
+}
