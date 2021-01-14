@@ -2,6 +2,7 @@ import React from "react";
 
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
+import ARArray from "./ARArray" 
 
 export default class ARStackArea extends React.Component {
     state = {
@@ -39,6 +40,8 @@ export default class ARStackArea extends React.Component {
                 <div id="allStackFrames">
                     <this.LayoutStackFrames />
                 </div>
+
+                <ARArray name={"tst"}/> {/*TODO: Remove this is for testing only */}
             </React.Fragment>
         );
     }
