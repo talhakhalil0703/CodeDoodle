@@ -14,6 +14,7 @@ class DrawingIcons extends Component {
                     <li id='stack' draggable={true} onDragStart={this.handleDrag}>Stack Frame</li>
                     <li id='int' draggable={true} onDragStart={this.handleDrag}>Int</li>
                     <li id='double' draggable={true} onDragStart={this.handleDrag}>Double</li>
+                    <li id='array' draggable={true} onDragStart={this.handleDrag}>Array</li>
                 </ul>
             </div>
         );
