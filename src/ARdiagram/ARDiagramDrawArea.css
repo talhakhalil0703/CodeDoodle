@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 #drawArea {
     width: 100%;
     display:flex;
     flex-direction: row;
+}
+
+#drawArea * {
+    font-family: 'Indie Flower', cursive;
 }
 
 .drawSection {
@@ -9,16 +15,16 @@
     height: 100%;
     overflow:hidden;
     text-align: center;
-    background: teal;
+    background: #fee2e3;
 }
 
 #stackArea {
-    background:gray;
+    background: #b8ebe9;
     width: 40vw !important;
 }
 
 #heapArea {
-    background: silver;
+    background: #cfe5f2;
 }
 
 .drawSection h1 {
