@@ -3,6 +3,7 @@
     max-width: 30vw;
     width: 30vw;
     align-self: center;
+    margin: 0 auto;
 }
 
 h3{
@@ -14,6 +15,15 @@ h3{
     max-width: 30vw;
     width: 30vw;
 }
+
+.local {
+    background: cyan;
+}
+
+.arguments {
+    background: lime;
+}
+
 
 input{
     width: 29vw;
