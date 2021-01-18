@@ -1,31 +1,19 @@
 .stack-frame {
+    margin-bottom: 10px;
     border-radius: 5px;
     margin: auto;
     background-color: #ccc;
-    width: 80%;
-    min-height: 200px;
-}
-
-.local-variables {
+    width: 50%;
     min-height: 100px;
-    background-color: #bbb;
 }
 
-.args-variables {
-    min-height: 100px;
-    background-color: #aaa;
-    margin-bottom: 10px;
-}
-
-.stack-name {
-    text-align: center;
-    background-color: #ccc;
+.add-var {
+    background-color: black;
+    width: 10px;
+    height: 10px;
     border: none;
-    max-height: 30px;
 }
 
-h5 {
-    text-align: center;
-    padding: 0;
-    margin: auto 0;
+.local-variables li {
+    margin-bottom: 10px;
 }

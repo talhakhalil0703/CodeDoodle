@@ -1,16 +1,18 @@
 .frame {
     min-width: 30vw;
     max-width: 30vw;
+    width: 30vw;
     align-self: center;
-    margin: 0 auto;
 }
 
-.local {
-    background: cyan;
+h3{
+    text-decoration: underline;
 }
 
-.arguments {
-    background: lime;
+.stackbox {
+    min-width: 30vw;
+    max-width: 30vw;
+    width: 30vw;
 }
 
 input{

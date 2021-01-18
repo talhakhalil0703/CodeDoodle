@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import './StackFrame.css';
-import Variable from './Variable';
+import './DrawingPanel.css';
+import StackFrame from '../ARdiagram/shapes/StackFrame';
+import DrawingIcons from './DrawingIcons';
 
-class StackFrame extends Component {
+class DrawingPanel extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            local: [],
-            args: [],
-        };
+            stacks: []
+        }
 
-        this.handleAddLocalVar = this.handleAddLocalVar.bind(this);
-        this.handleDrop = this.handleDrop.bind(this);
         this.dropRef = React.createRef();
+        this.handleDrag = this.handleDrag.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
     }
 
     componentDidMount() {
@@ -34,22 +34,21 @@ class StackFrame extends Component {
 
         var text = e.dataTransfer.getData('Text');
 
-        if (text === 'stack') {
-            alert('stack frames cant be dropped here...')
+        if (text !== 'stack') {
+            alert('only stack frames can be dropped here...')
         } else {
+            console.log(text);
 
-            var new_var = {
-                type: text,
-                name: 'a',
-                value: '0'
+            var st = this.state.stacks;
+            var new_frame = {
+                name: 'untitled'
             };
-            var loc = this.state.local;
-            loc.push(new_var);
+
+            st.push(new_frame);
 
             this.setState(state => ({
-                local: loc
+                stacks: st
             }));
-
         }
     }
 
@@ -58,25 +57,27 @@ class StackFrame extends Component {
     }
 
     render() {
-        const local = this.state.local;
+        const { stacks } = this.state;
         return (
-            <div ref={this.dropRef} className='stack-frame'>
-                <ul className='local-variables'>
-                    {local.map((variable, index) => {
+            <div ref={this.dropRef} className='drawing-area'>
+
+                <DrawingIcons />
+
+                <ul>
+                    {stacks.map((stack, index) => {
                         return (
                             <li key={index}>
-                                <Variable
-                                    type={variable.type}
-                                    name={variable.name}
-                                    value={variable.value}
+                                <StackFrame
+                                    name={stack.name}
                                 />
                             </li>
                         );
                     })}
                 </ul>
+
             </div>
         );
     }
 }
 
-export default StackFrame;
+export default DrawingPanel;

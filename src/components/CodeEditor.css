@@ -1,15 +1,14 @@
 .editor-panel {
     width: 100%;
-    height: 100%;
+    height: 92.6%;
     display: flex;
     flex-direction: row;
-    background-color: #202020;
-    border: 1px solid #606060;
+    margin-top: 1px;
 }
 
 .editor {
     position: relative;
-    width: 100%;
+    width: 93%;
     height: 100%;
     overflow: hidden;
 }
@@ -21,6 +20,7 @@ textarea {
     box-sizing: border-box;
     resize: none;
     outline: none;
+    background-color: #202020;
     color: #606060;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     font-family: Consolas,
@@ -59,14 +59,14 @@ textarea {
 }
 
 pre {
-    height: 91.5%;
-    overflow: auto !important;
+    height: 100%;
+    overflow: hidden !important;
     white-space: pre-wrap;
 }
 
 .code-output {
-    height: 100%;
-    width: 100%;
+    height: 96%;
+    width: 96%;
     pointer-events: none;
     z-index: 3;
 }

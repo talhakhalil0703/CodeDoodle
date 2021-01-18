@@ -28,6 +28,7 @@ class CodeEditor extends Component {
         this.handleBreakpoint = this.handleBreakpoint.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
 
+        // this.populateLines = this.populateLines.bind(this);
         this.getLineCount = this.getLineCount.bind(this);
         this.onScroll = this.onScroll.bind(this);
         this.editorRef = React.createRef();
