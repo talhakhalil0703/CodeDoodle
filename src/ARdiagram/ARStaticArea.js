@@ -1,12 +1,10 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-
+import React from "react";
 
 function ARStaticArea() {
-return (
-  <React.Fragment>
-    <h1>Static</h1>
-  </React.Fragment>
+  return (
+    <React.Fragment>
+      <h1>Static</h1>
+    </React.Fragment>
   );
 }
 

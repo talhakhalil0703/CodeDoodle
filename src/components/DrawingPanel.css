@@ -1,8 +1,0 @@
-.drawing-area {
-    position: relative;
-    background-color: white;
-    grid-column-start: 1;
-    grid-column-end: 8;
-    width: 100%;
-    height: 100%;
-}

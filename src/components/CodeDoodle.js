@@ -4,28 +4,24 @@ import CodePanel from './CodePanel';
 import DownloadButton from './DownloadButton';
 import UploadButton from './UploadButton';
 
-import DrawingIcons from './DrawingIcons';
+import DrawingPanel from '../depreciated/DrawingPanel';
 
 import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
 
 /*
-    TODO:
-     - Fix syntax highlighting 
-        - kind of done, i think its good enough for now
-     - improve code editor 
-        - tab now indents instead
-        - maybe make undo better?
-            - might have to a copy of previous state to do so
-     - fill out more dropdowns
-
     The main component.
     Manages all the state as of now and displays the entire application.
 
     State:
+     - editorOpen: whether or not the code editor should be displayed
+     - drawOpen: whether or not the draw editor should be displayed
      - user_c_code: c code the user has inputed
      - user_cpp_code: c++ code the user has inputed
      - language: the currently selected language
      - value: the code currently displayed in the code editor
+     - stack: all info in the stack section
+     - stat: all info in the static section
+     - heap: all info in the heap section
 */
 
 class CodeDoodle extends Component {
@@ -55,23 +51,31 @@ int main() {
    // printf() displays the string inside quotation
    printf("Hello, World!");
    return 0;
-}`
+}`,
+            stack: [],
+            heap: [],
+            stat: []
         };
 
         this.handleEditorChange = this.handleEditorChange.bind(this);
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
         this.handleFileUpload = this.handleFileUpload.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
+
         this.toggleEditor = this.toggleEditor.bind(this);
         this.toggleDraw = this.toggleDraw.bind(this);
+
+        this.handleStack = this.handleStack.bind(this);
     }
 
+    /* toggles the code editor */
     toggleEditor() {
         this.setState(state => ({
             editorOpen: !state.editorOpen
         }));
     }
 
+    /* toggles the drawing editor */
     toggleDraw() {
         this.setState(state => ({
             drawOpen: !state.drawOpen
@@ -151,8 +155,15 @@ ${val}`;
         );
     }
 
+    /* updates state of the stack section */
+    handleStack(frames) {
+        this.setState(state => ({
+            stack: frames
+        }));
+    }
+
     render() {
-        const { user_c_code, user_cpp_code, language, value } = this.state;
+        const { user_c_code, user_cpp_code, language, value, stack, heap, stat } = this.state;
         return (
             <div className="App">
                 <div className='header'>
@@ -203,12 +214,22 @@ ${val}`;
                 </div>
 
                 <div className='base'>
-                    {/* <DrawingPanel /> */}
-
-                    <DrawingIcons />
+                    {/* {this.state.drawOpen ? (
+                        <DrawingPanel
+                            stack={stack}
+                            heap={heap}
+                            stat={stat}
+                            onStackChange={this.handleStack}
+                        />
+                    ) : null} */}
 
                     {this.state.drawOpen ? (
-                        <ARDiagramDrawArea />
+                        <ARDiagramDrawArea
+                            stack={stack}
+                            heap={heap}
+                            stat={stat}
+                            onStackChange={this.handleStack}
+                        />
                     ) : null}
 
                     {this.state.editorOpen ? (
