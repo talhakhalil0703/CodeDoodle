@@ -43,7 +43,6 @@ class ARArray extends Component {
         this.setState(newElement)
     }
 
-
     render() {
         return (
             <div>

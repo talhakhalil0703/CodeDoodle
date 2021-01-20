@@ -1,6 +1,7 @@
 .drawing-icons {
     background-color: #ccc;
-    width: 100%;
-    max-width: 10%;
+    width: 150px;
     height: 100%;
+    text-align: center;
+    border: 1px solid #606060;
 }

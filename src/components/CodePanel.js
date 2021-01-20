@@ -159,9 +159,9 @@ class CodePanel extends Component {
             <div className='code-panel'>
 
                 <div className='code-panel-header'>
-                    <button className='lang-btn' onClick={this.handleLanguageChange.bind(this, 'c')} autoFocus>C</button>
-                    <button className='lang-btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
-                    <button className='convert-btn' onClick={this.handleConvert}>Create Diagram</button>
+                    <button className='btn' onClick={this.handleLanguageChange.bind(this, 'c')} autoFocus>C</button>
+                    <button className='btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
+                    <button className='btn' onClick={this.handleConvert}>Create Diagram</button>
                 </div>
 
                 <CodeEditor

@@ -1,48 +1,132 @@
-import React from "react";
+import React, { Component } from "react";
 
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
-import ARArray from "./ARArray" 
 
-export default class ARStackArea extends React.Component {
-    state = {
-        stackFrameList:[{name:"main"}]
+/* 
+    Component makes up the stack section of the application, displays and populates all stackframes
+    Manages no state
+    
+    Receives props:
+     - stack: all info in the stack section
+     - onStackChange: access to ARDiagramDrawArea onStackChange function
+*/
+class ARStackArea extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleLocalChange = this.handleLocalChange.bind(this);
+        this.handleArgsChange = this.handleArgsChange.bind(this);
     }
 
-    LayoutStackFrames = () => {
-        return(
-            <React.Fragment>
-                {this.state.stackFrameList.map(stackFrame =>
-                        <div key={stackFrame.name} className="stackFrame">
-                            <StackFrame name={stackFrame.name}/>
-                        </div>
-                )}
-            </ React.Fragment>
-        )
-    };
-    
+    /* handles drag and drop of stackframes onto stack area (not currently used) */
+    handleDrop(text, value) {
+
+        var st = value;
+
+        /* checks if its a stackframe */
+        if (text !== 'stack') {
+            alert('only stack frames can be dropped here...')
+        } else {
+
+            var name = 'untitled';
+
+            /* make the first stackframe main always */
+            if (st.length === 0) {
+                name = 'main';
+            }
+
+            var new_frame = {
+                name: name,
+                local: [],
+                args: []
+            };
+
+            st.push(new_frame);
+        }
+        return st;
+    }
+
+    /* handles changing a stackframes name */
+    handleNameChange(id, name) {
+
+        var frames = this.props.value;
+        frames[id].name = name;
+
+        this.props.handleChange(frames);
+    }
+
+    /* handles changing a local variable in a stackframe */
+    handleLocalChange(id, loc) {
+
+        var frames = this.props.value;
+        frames[id].local = loc;
+
+        this.props.handleChange(frames);
+    }
+
+    /* handles changing arguments of a stackframe */
+    handleArgsChange(id, arg) {
+
+        var frames = this.props.value;
+        frames[id].args = arg;
+
+        this.props.handleChange(frames);
+    }
+
+    /* creates a new stack frame */
     addStackFrame = () => {
-        console.log("adding stack frame")
-    
-        this.setState(() => ({
-            stackFrameList: this.state.stackFrameList.concat([{name:"unnamed"}])
-        }));
+
+        var st = this.props.value;
+        var name = 'untitled';
+
+        if (st.length === 0) {
+            name = 'main';
+        }
+
+        var new_frame = {
+            name: name,
+            local: [],
+            args: []
+        };
+
+        st.push(new_frame);
+
+        this.props.handleChange(st);
     }
 
-    render(){
+    render() {
+        const stack = this.props.value;
         return (
             <React.Fragment>
-                <div id="stackAreaTop">
-                    <h1>Stack</h1>
-                    <button id="stackAddButton" onClick={this.addStackFrame}>Add</button>
-                </ div>
-
+                <h1>Stack</h1>
+                <button onClick={this.addStackFrame}>Add</button>
                 <div id="allStackFrames">
-                    <this.LayoutStackFrames />
+                    <div className="stackFrameArea">
+                        <ul>
+                            {stack.map((stack, index) => {
+                                return (
+                                    <li key={index}>
+                                        <StackFrame
+                                            id={index}
+                                            name={stack.name}
+                                            local={stack.local}
+                                            args={stack.args}
+                                            onNameChange={this.handleNameChange}
+                                            onLocalChange={this.handleLocalChange}
+                                            onArgsChange={this.handleArgsChange}
+                                        />
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </ div>
                 </div>
-
-                <ARArray name={"tst"}/> {/*TODO: Remove this is for testing only */}
             </React.Fragment>
         );
     }
 }
+
+export default ARStackArea;

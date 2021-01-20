@@ -5,6 +5,10 @@
   grid-template-rows: 48px 1fr;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .header {
   background-color: #202020;
   grid-column-start: 1;
