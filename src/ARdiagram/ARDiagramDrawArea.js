@@ -65,7 +65,7 @@ class ARDiagramDrawArea extends Component {
   }
 
   render() {
-    const { stack, heap, stat } = this.props;
+    const { stack, heap, stat, classes, onClassesChange } = this.props;
     return (
       <div id="drawArea" >
 
@@ -74,7 +74,11 @@ class ARDiagramDrawArea extends Component {
         </div>
 
         <div className='drawing-panel'>
-          <DrawingIcons />
+          <DrawingIcons 
+            classList={classes} 
+            onClassListChange={onClassesChange}
+            showButton={true}
+          />
           <div className='drawing-area'>
             <div className="drawSection" id="stackArea">
               <StackArea

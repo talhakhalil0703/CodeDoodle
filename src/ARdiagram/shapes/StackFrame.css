@@ -1,9 +1,15 @@
 .frame {
-    min-width: 30vw;
-    max-width: 30vw;
-    width: 30vw;
+    max-width: 28vw;
+    width: 28vw;
     align-self: center;
     margin: 0 auto;
+}
+
+.stackBox{
+    background:#fff;
+    border: solid black;
+    border-color: black; 
+    width: 30vw;
 }
 
 h3{
@@ -15,15 +21,6 @@ h3{
     max-width: 30vw;
     width: 30vw;
 }
-
-.local {
-    background: cyan;
-}
-
-.arguments {
-    background: lime;
-}
-
 
 input{
     width: 29vw;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './StackFrame.css'
 import '../../GeneralDiagrams/HandDrawnBoxes.css'
 import ARHalfFrame from './shapeComponents/ARHalfFrame'
@@ -139,19 +138,23 @@ export default class StackFrame extends React.Component {
     return (
       <React.Fragment>
         <EditableText onChange={this.handleNameChange} value={this.props.name} editClassName="stackframeName" />
-        <div ref={this.local} className="frame local">
-          <ARHalfFrame
-            name="Local"
-            value={local}
-            onChange={this.handleLocalVarChange}
-          />
-        </div>
-        <div ref={this.args} className="frame arguments">
-          <ARHalfFrame
-            name="Arguments"
-            value={args}
-            onChange={this.handleArgsVarChange}
-          />
+        <div className="stackBox handDrawnBox3">
+          <div className="handDrawnBox3inner">
+            <div ref={this.local} className="frame local">
+              <ARHalfFrame
+                name="Local"
+                value={local}
+                onChange={this.handleLocalVarChange}
+              />
+            </div>
+            <div ref={this.args} className="frame arguments">
+              <ARHalfFrame
+                name="Arguments"
+                value={args}
+                onChange={this.handleArgsVarChange}
+              />
+            </div>
+          </div>
         </div>
       </React.Fragment>
     );

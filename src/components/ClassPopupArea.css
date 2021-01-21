@@ -1,11 +1,17 @@
-#customClassCreationContainer{
+#ClassPopup-container {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center
+    flex-direction: row;
+    background: white;
 }
 
 .classCreatorName {
     text-align: center;
 }
 
+.objectBox{
+    background:#fff;
+    border: solid black;
+    border-color: black; 
+    width: 30vw;
+    min-height: 200px;
+}

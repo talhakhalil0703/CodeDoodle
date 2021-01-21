@@ -14,7 +14,6 @@ import EditableText from '../GeneralDiagrams/EditableText'
      - onChange: access to ARHalfFrame onChange function (handles variable changes)
 */
 class Variable extends Component {
-
     constructor(props) {
         super(props);
 

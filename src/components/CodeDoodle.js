@@ -27,7 +27,7 @@ class CodeDoodle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editorOpen: true,
+            editorOpen: false,
             drawOpen: true,
             user_c_code: `#include <stdio.h>
 int main() {
@@ -52,7 +52,8 @@ int main() {
 }`,
             stack: [],
             heap: [],
-            stat: []
+            stat: [],
+            classes: []
         };
 
         this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -160,8 +161,18 @@ ${val}`;
         }));
     }
 
+    /* updates the classes */
+    handleClasses(classList) {
+        this.setState(state => ({
+            classes: classList
+        }));
+
+        console.log("classes: ")
+        console.log(this.state.classes)
+    }
+
     render() {
-        const { user_c_code, user_cpp_code, language, value, stack, heap, stat } = this.state;
+        const { user_c_code, user_cpp_code, language, value, stack, heap, stat, classes} = this.state;
         return (
             <div className="App">
                 <div className='header'>
@@ -226,7 +237,9 @@ ${val}`;
                             stack={stack}
                             heap={heap}
                             stat={stat}
+                            classes={classes}
                             onStackChange={this.handleStack}
+                            onClassesChange={this.handleClasses}
                         />
                     ) : null}
 
