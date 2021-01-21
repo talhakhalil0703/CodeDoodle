@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './ARDiagramDrawArea.css';
-import HeapArea from './ARHeapArea';
-import StackArea from './ARStackArea';
-import StaticArea from './ARStaticArea';
+
+import ARHeapArea from './ARHeapArea';
+import ARStackArea from './ARStackArea';
+import ARStaticArea from './ARStaticArea';
+
 import DrawingIcons from '../components/DrawingIcons';
+import Droppable from '../components/Droppable';
+import Toggalable from '../components/Toggalable'
 
 /* 
     ARDiagramDrawArea has the:
@@ -20,18 +24,33 @@ import DrawingIcons from '../components/DrawingIcons';
      - onHeapChange: access to CodeDoodles onHeapChange function (not yet implemented)
      - onStatChange: access to CodeDoodles onStatChange function (not yet implemented)
 */
+
+const DroppableStack = Droppable(ARStackArea);
+const DroppableHeap = Droppable(ARHeapArea);
+const DroppableStatic = Droppable(ARStaticArea);
+
 class ARDiagramDrawArea extends Component {
 
   constructor(props) {
     super(props);
 
     this.handleStackChange = this.handleStackChange.bind(this);
+    this.handleHeapChange = this.handleHeapChange.bind(this);
+    this.handleStaticChange = this.handleStaticChange.bind(this);
     this.generateDiagram = this.generateDiagram.bind(this);
   }
 
   /* sends all stack info to parent to be updated */
   handleStackChange(frames) {
     this.props.onStackChange(frames);
+  }
+
+  handleHeapChange(heap) {
+    console.log(heap);
+  }
+
+  handleStaticChange(stat) {
+    console.log(stat);
   }
 
   /* formats stack information for alert, this will very likely be changed entirely */
@@ -65,7 +84,7 @@ class ARDiagramDrawArea extends Component {
   }
 
   render() {
-    const { stack, heap, stat, classes, onClassesChange } = this.props;
+    const { stack, heap, stat, stackOpen, heapOpen, staticOpen, classes, onClassesChange } = this.props;
     return (
       <div id="drawArea" >
 
@@ -80,22 +99,35 @@ class ARDiagramDrawArea extends Component {
             showButton={true}
           />
           <div className='drawing-area'>
-            <div className="drawSection" id="stackArea">
-              <StackArea
-                stack={stack}
-                onStackChange={this.handleStackChange}
-              />
-            </div>
-            <div className="drawSection" id="heapArea">
-              <HeapArea
-                heap={heap}
-              />
-            </div>
-            <div className="drawSection" id="staticArea">
-              <StaticArea
-                stat={stat}
-              />
-            </div>
+
+            <Toggalable toggle={stackOpen} alt={null}>
+              <div className="drawSection" id="stackArea">
+                <DroppableStack
+                  value={stack}
+                  handleDrop={this.handleStackChange}
+                  handleChange={this.handleStackChange}
+                />
+              </div>
+            </Toggalable>
+
+            <Toggalable toggle={heapOpen} alt={null}>
+              <div className="drawSection" id="heapArea">
+                <DroppableHeap
+                  heap={heap}
+                  handleDrop={this.handleHeapChange}
+                />
+              </div>
+            </Toggalable>
+
+            <Toggalable toggle={staticOpen} alt={null}>
+              <div className="drawSection" id="staticArea">
+                <DroppableStatic
+                  stat={stat}
+                  handleDrop={this.handleStaticChange}
+                />
+              </div>
+            </Toggalable>
+
           </div>
         </div>
       </div>

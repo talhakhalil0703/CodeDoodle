@@ -6,6 +6,12 @@ import DrawingIcons from '../components/DrawingIcons';
 import Stack from './Stack';
 import Heap from './Heap';
 import Static from './Static';
+import Toggalable from '../components/Toggalable';
+import Droppable from '../components/Droppable';
+
+const DroppableStack = Droppable(Stack);
+const DroppableHeap = Droppable(Heap);
+const DroppableStatic = Droppable(Static);
 
 class DrawingPanel extends Component {
 
@@ -13,11 +19,21 @@ class DrawingPanel extends Component {
         super(props);
 
         this.handleStackChange = this.handleStackChange.bind(this);
+        this.handleHeapChange = this.handleHeapChange.bind(this);
+        this.handleStaticChange = this.handleStaticChange.bind(this);
         this.generateDiagram = this.generateDiagram.bind(this);
     }
 
-    handleStackChange(frames) {
-        this.props.onStackChange(frames);
+    handleStackChange(data) {
+        this.props.onStackChange(data);
+    }
+
+    handleHeapChange(data) {
+        console.log(data);
+    }
+
+    handleStaticChange(data) {
+        console.log(data);
     }
 
     generateDiagram() {
@@ -41,7 +57,8 @@ class DrawingPanel extends Component {
             stack.args.forEach(arg => {
                 str += `            Type: ${arg.type}
             Name: ${arg.name}
-            Value: ${arg.value}`;
+            Value: ${arg.value}
+`;
             });
         });
 
@@ -49,7 +66,7 @@ class DrawingPanel extends Component {
     }
 
     render() {
-        const { stack, heap, stat } = this.props;
+        const { stack, heap, stat, stackOpen, heapOpen, staticOpen } = this.props;
         return (
             <div className='diagram-panel'>
 
@@ -60,16 +77,29 @@ class DrawingPanel extends Component {
                 <div className='drawing-panel'>
                     <DrawingIcons />
                     <div className='drawing-area'>
-                        <Stack
-                            stack={stack}
-                            onStackChange={this.handleStackChange}
-                        />
-                        <Heap
-                            heap={heap}
-                        />
-                        <Static
-                            stat={stat}
-                        />
+
+                        <Toggalable toggle={stackOpen}>
+                            <DroppableStack
+                                value={stack}
+                                handleDrop={this.handleStackChange}
+                                handleChange={this.handleStackChange}
+                            />
+                        </Toggalable>
+
+                        <Toggalable toggle={heapOpen}>
+                            <DroppableHeap
+                                value={heap}
+                                handleDrop={this.handleHeapChange}
+                            />
+                        </Toggalable>
+
+                        <Toggalable toggle={staticOpen}>
+                            <DroppableStatic
+                                stat={stat}
+                                handleDrop={this.handleStaticChange}
+                            />
+                        </Toggalable>
+
                     </div>
                 </div>
 

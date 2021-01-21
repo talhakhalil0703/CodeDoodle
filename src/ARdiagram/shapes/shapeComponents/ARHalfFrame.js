@@ -15,12 +15,41 @@ export default class ARHalfFrame extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleVarChange = this.handleVarChange.bind(this);
     }
 
-    /* sends variables information up to StackFrame */
-    handleChange(var_id, name, val) {
-        this.props.onChange(var_id, name, val);
+    getDefaultName(c, length) {
+        return String.fromCharCode(c.charCodeAt(0) + length);
+    }
+
+    handleDrop(text, value) {
+
+        var val = value;
+
+        if (text === 'stack') {
+            alert('stack frames cant be dropped here...')
+        } else {
+
+            var name = this.getDefaultName('a', val.length);
+
+            var new_var = {
+                type: text,
+                name: name,
+                value: '???'
+            };
+
+            val.push(new_var);
+        }
+        return val;
+    }
+
+    handleVarChange(var_id, name, val) {
+        var value = this.props.value;
+
+        value[var_id].name = name;
+        value[var_id].value = val;
+
+        this.props.handleChange(value);
     }
 
     render() {
@@ -38,7 +67,7 @@ export default class ARHalfFrame extends React.Component {
                                     type={variable.type}
                                     name={variable.name}
                                     value={variable.value}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleVarChange}
                                 />
                             </li>
                         );

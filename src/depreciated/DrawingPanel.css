@@ -28,20 +28,20 @@
 
 .stack {
     background-color: #202020;
-    width: 33.33%;
+    width: 100%;
     height: 100%;
     border: 1px solid #606060;
 }
 .heap {
     background-color: #202020;
-    width: 33.33%;
+    width: 100%;
     height: 100%;
     border: 1px solid #606060;
 }
 
 .static {
     background-color: #202020;
-    width: 33.33%;
+    width: 100%;
     height: 100%;
     border: 1px solid #606060;
 }

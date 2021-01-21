@@ -1,42 +1,26 @@
 import React, { Component } from 'react';
 
 import './DrawingPanel.css';
-import StackFrame from '../components/StackFrame';
+import StackFrame from './StackFrame';
 
 class Stack extends Component {
 
     constructor(props) {
         super(props);
 
-        this.dropRef = React.createRef();
-        this.handleDrop = this.handleDrop.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleLocalChange = this.handleLocalChange.bind(this);
         this.handleArgsChange = this.handleArgsChange.bind(this);
     }
 
-    componentDidMount() {
-        const drop = this.dropRef.current;
-        drop.addEventListener('dragover', this.handleDragOver);
-        drop.addEventListener('drop', this.handleDrop);
-    }
+    handleDrop(text, stack) {
 
-    handleDragOver(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
-    handleDrop(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        var text = e.dataTransfer.getData('Text');
+        var st = stack;
 
         if (text !== 'stack') {
             alert('only stack frames can be dropped here...')
         } else {
 
-            var st = this.props.stack;
             var name = 'untitled';
 
             if (st.length === 0) {
@@ -50,44 +34,42 @@ class Stack extends Component {
             };
 
             st.push(new_frame);
-
-            this.props.onStackChange(st);
         }
+        return st;
     }
 
     handleNameChange(id, name) {
 
-        var frames = this.props.stack;
-        frames[id].name = name;
+        var value = this.props.value;
+        value[id].name = name;
 
-        this.props.onStackChange(frames);
+        this.props.handleChange(value);
     }
 
     handleLocalChange(id, loc) {
 
-        var frames = this.props.stack;
-        frames[id].local = loc;
+        var value = this.props.value;
+        value[id].local = loc;
 
-        this.props.onStackChange(frames);
+        this.props.handleChange(value);
     }
 
     handleArgsChange(id, arg) {
 
-        var frames = this.props.stack;
-        frames[id].args = arg;
+        var value = this.props.value;
+        value[id].args = arg;
 
-        this.props.onStackChange(frames);
+        this.props.handleChange(value);
     }
 
     render() {
-        const { stack } = this.props;
+        const { value } = this.props;
         return (
-            <div ref={this.dropRef} className='stack'>
-
+            <div className='stack'>
                 <h3>Stack</h3>
 
                 <ul>
-                    {stack.map((stack, index) => {
+                    {value.map((stack, index) => {
                         return (
                             <li key={index}>
                                 <StackFrame
@@ -103,7 +85,7 @@ class Stack extends Component {
                         );
                     })}
                 </ul>
-            </div>
+            </div >
         );
     }
 }
