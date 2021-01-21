@@ -29,6 +29,7 @@ class CodeDoodle extends Component {
 
     constructor(props) {
         super(props);
+        
         this.state = {
             editorOpen: false,
             drawOpen: true,
