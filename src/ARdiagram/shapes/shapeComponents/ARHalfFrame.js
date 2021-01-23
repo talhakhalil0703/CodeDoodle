@@ -23,7 +23,6 @@ export default class ARHalfFrame extends React.Component {
     }
 
     handleDrop(text, value) {
-
         var val = value;
 
         if (text === 'stack') {

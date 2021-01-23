@@ -84,7 +84,8 @@ class ARDiagramDrawArea extends Component {
   }
 
   render() {
-    const { stack, heap, stat, stackOpen, heapOpen, staticOpen, classes, onClassesChange } = this.props;
+    const { stack, heap, stat, classes } = this.props;
+    const { stackOpen, heapOpen, staticOpen, onClassesChange } = this.props;
     return (
       <div id="drawArea" >
 

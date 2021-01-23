@@ -53,22 +53,34 @@ export default class StackFrame extends Component {
     const { name, local, args } = this.props;
     return (
       <React.Fragment>
-        <EditableText onChange={this.handleNameChange} value={name} editClassName="stackframeName" />
-        <div ref={this.local} className="frame local">
-          <DroppableHalfFrame
-            name="Local"
-            value={local}
-            handleDrop={this.handleLocal}
-            handleChange={this.handleLocal}
-          />
-        </div>
-        <div ref={this.args} className="frame arguments">
-          <DroppableHalfFrame
-            name="Arguments"
-            value={args}
-            handleDrop={this.handleArgs}
-            handleChange={this.handleArgs}
-          />
+        <EditableText 
+              onChange={this.handleNameChange} 
+              value={name} 
+              editClassName="stackframeName" 
+        />
+
+        <div className="handDrawnBox3">
+          <div className="inner3">
+            
+
+            <div ref={this.local} className="frame local">
+              <DroppableHalfFrame
+                name="Local"
+                value={local}
+                handleDrop={this.handleLocal}
+                handleChange={this.handleLocal}
+              />
+            </div>
+
+            <div ref={this.args} className="frame arguments">
+              <DroppableHalfFrame
+                name="Arguments"
+                value={args}
+                handleDrop={this.handleArgs}
+                handleChange={this.handleArgs}
+              />
+            </div>
+          </div>
         </div>
       </React.Fragment>
     );

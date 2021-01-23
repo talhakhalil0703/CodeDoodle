@@ -17,15 +17,16 @@
   padding-right: 10px;
   border-width: 5px 3px 3px 5px;
   border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
-  transform: rotate(2deg);
+  background: white;
+  transform: rotate(1deg);
 }
 
-.handDrawnBox3inner{
+.inner3 {
   margin:15px;
-  transform: rotate(-2deg);
+  transform: rotate(-1deg);
 }
 
-.handDrawnBox1inner{
+.inner1{
   margin:15px;
   transform: rotate(-1deg);
 }

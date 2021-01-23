@@ -7,7 +7,9 @@ import ObjectFrame from '../ARdiagram/shapes/ObjectFrame'
 
 export default class ClassPopupArea extends React.Component {
     state = {
-        popupOpen: false
+        popupOpen: false,
+        variables:[],
+        name:"unnamed",
     }
 
     setOpen = () => {
@@ -22,9 +24,37 @@ export default class ClassPopupArea extends React.Component {
         }));
     }
 
-    addNewClassDefinition = (theClass) => {
-        console.log("Adding this class")
+    saveQuit = () => {
+        console.log("saving")
+
+        var newClassItem = {
+            name:this.state.name,
+            variables:this.state.variables,
+            type:"class"
+        }
+
+        this.setState(() => ({
+            variables:[],
+            name:"unnamed",
+        }));
+
+        var updatedClassList = this.props.classList
+        updatedClassList.push(newClassItem)
+        this.props.onClassListChange(updatedClassList)
+
         this.onModalClose()
+    }
+
+    handleClass = (vars) => {
+        this.setState(() => ({
+            variables: vars
+        }));
+    } 
+
+    handleClassNameChange = (newName) => {
+        this.setState(() => ({
+            name: newName
+        }));
     }
 
     render() {
@@ -47,14 +77,17 @@ export default class ClassPopupArea extends React.Component {
                                 <div id="ClassPopup_Object-Container">
                                     <h3>Define a class</h3>
                                     <div id="ClassPopup_ObjectBox-Container">
-                                        <ObjectFrame 
+                                        <ObjectFrame
                                             id={"CustomClassCreationObject"}
+                                            value={this.state.variables}
+                                            handleDrop={this.handleClass}
+                                            handleChange={this.handleClass}
                                             name={this.state.name}
-                                            onNameChange={this.handleNameChange}
+                                            onNameChange={this.handleClassNameChange}
                                         />
                                     </div>
 
-                                    <button className="saveClassButton" onClick={this.addNewClassDefinition}>Save</button>
+                                    <button className="saveClassButton" onClick={this.saveQuit}>Save</button>
                                 </div>
 
                                 <div id="ClassPopup_Dropbar-Container">

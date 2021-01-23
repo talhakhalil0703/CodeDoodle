@@ -4,9 +4,6 @@ import CodePanel from './CodePanel';
 import DownloadButton from './DownloadButton';
 import UploadButton from './UploadButton';
 import Toggalable from './Toggalable';
-
-import DrawingPanel from '../depreciated/DrawingPanel';
-
 import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
 
 /*
@@ -29,7 +26,7 @@ class CodeDoodle extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             editorOpen: false,
             drawOpen: true,
@@ -198,9 +195,6 @@ ${val}`;
         this.setState(state => ({
             classes: classList
         }));
-
-        console.log("classes: ")
-        console.log(this.state.classes)
     }
 
     render() {
