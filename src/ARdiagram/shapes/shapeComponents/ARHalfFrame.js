@@ -1,6 +1,7 @@
 import React from 'react';
 import Variable from '../../../components/Variable';
-
+import ARArrayDrop from "../../ARArrayDrop"
+import ARArray from "../../ARArray"
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -28,7 +29,23 @@ export default class ARHalfFrame extends React.Component {
 
         if (text === 'stack') {
             alert('stack frames cant be dropped here...')
-        } else {
+        } else if (text === "array") {
+            var name = this.getDefaultName('a', val.length);
+
+            var new_var = {
+                type: text,
+                name: name,
+                value: { element: [{
+                    elementID: [1],
+                    elementValue: [" "]
+                }]}
+            };
+
+            val.push(new_var);
+
+            console.log(text)
+        }
+        else {
 
             var name = this.getDefaultName('a', val.length);
 
@@ -40,7 +57,7 @@ export default class ARHalfFrame extends React.Component {
 
             val.push(new_var);
         }
-        return val;
+        return 
     }
 
     handleVarChange(var_id, name, val) {
@@ -60,17 +77,34 @@ export default class ARHalfFrame extends React.Component {
 
                 <ul className='local-variables'>
                     {value.map((variable, index) => {
-                        return (
-                            <li key={index}>
-                                <Variable
+                        if (variable.type === 'array') {
+                            return (
+                                <li key={index}>
+                                    <ARArrayDrop 
                                     id={index}
                                     type={variable.type}
                                     name={variable.name}
                                     value={variable.value}
                                     onChange={this.handleVarChange}
-                                />
-                            </li>
-                        );
+                                    />
+                                </li>
+                            );
+                        } else {
+                            return (
+
+                                <li key={index}>
+                                    <Variable
+                                        id={index}
+                                        type={variable.type}
+                                        name={variable.name}
+                                        value={variable.value}
+                                        onChange={this.handleVarChange}
+                                    />
+
+                                </li>
+                            );
+                        }
+
                     })}
                 </ul>
             </div>
