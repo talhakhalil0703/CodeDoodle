@@ -101,9 +101,15 @@ class DrawingPanel extends Component {
                         </Toggalable>
 
                     </div>
+<<<<<<< HEAD
                 </div >
 
             </div >
+=======
+                </div>
+
+            </div>
+>>>>>>> 17_General_UI
         );
     }
 }

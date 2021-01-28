@@ -24,7 +24,6 @@ export default class ARHalfFrame extends React.Component {
     }
 
     handleDrop(text, value) {
-
         var val = value;
 
         if (text === 'stack') {
@@ -57,7 +56,7 @@ export default class ARHalfFrame extends React.Component {
 
             val.push(new_var);
         }
-        return 
+        return val;
     }
 
     handleVarChange(var_id, name, val) {

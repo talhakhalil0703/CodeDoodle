@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './DrawingIcons.css';
-
+import ClassPopupArea from "./ClassPopupArea"
+import Pointer from "./Pointer"
 /* 
     Component makes up the drawing tools part of the application
     To add more items to the panel add to <ul> in this format:
@@ -22,9 +23,21 @@ class DrawingIcons extends Component {
         return (
             <div className='drawing-icons'>
                 <ul>
-                    <li id='stack' draggable={true} onDragStart={this.handleDrag}>Stack Frame</li>
                     <li id='int' draggable={true} onDragStart={this.handleDrag}>Int</li>
                     <li id='double' draggable={true} onDragStart={this.handleDrag}>Double</li>
+
+                    <li><h4>Classes</h4></li> 
+                    {this.props.classList.map((item,index) =>
+                        <li key={index} id={item.name} draggable={true} onDragStart={this.handleDrag}>{item.name}</li>
+                    )}
+
+                    {this.props.showButton ? 
+                    <ClassPopupArea
+                        classList={this.props.classList} 
+                        onClassListChange={this.props.onClassListChange} 
+                        showButton={this.props.showButton}
+                    />:<React.Fragment/>}
+                    
                 </ul>
             </div>
         );
