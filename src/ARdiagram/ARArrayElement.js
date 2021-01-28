@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import './ARArray.css'
+
 
 class ARArrayElement extends Component {
 
@@ -10,7 +12,6 @@ class ARArrayElement extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
-        console.log("created " + this.props.id)
 
     }
 
@@ -23,7 +24,7 @@ class ARArrayElement extends Component {
     render() {
 
         return (
-            <div>
+            <div className = "element">
                 <input type="text" value={this.state.name} onChange={this.handleChange} />
                 <button onClick={() => this.props.removeElement(this.state.id)}>-</button> {/*You need to use ()=>f() as then it won't get called in creation*/}
 

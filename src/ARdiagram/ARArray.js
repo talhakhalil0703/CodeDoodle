@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import './ARArray.css'
 import ARArrayElement from "./ARArrayElement"
 
 class ARArray extends Component {
@@ -7,12 +7,6 @@ class ARArray extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            element: [{
-                elementID: [1],
-                elementValue: [" "]
-            }]
-        }
         this.addElement = this.addElement.bind(this)
         this.removeElement = this.removeElement.bind(this)
         this.changeElementValue = this.changeElementValue.bind(this)
@@ -20,50 +14,53 @@ class ARArray extends Component {
     }
 
     addElement() {
-        console.log(this.props.value)
-        this.props.value.element = [...this.props.value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
-        this.setState({element: this.props.value.element})    
+        let value = this.props.value
+        let newElement = [...value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+        value.element = newElement;  
+        this.props.onChange(value)
     }
 
     removeElement(id) {
-        const newElement = this.state.element.filter(element => element.elementID !== id)
-        console.log("new")
-        console.log(newElement)
+        let value = this.props.value
+        const newElement = value.element.filter(element => element.elementID !== id)
         this.props.value.element = newElement
-        this.setState({element: newElement})
+        this.props.onChange(value)
     }
 
-    changeElementValue(id, value) {
-        let newElement = this.state.element
-        newElement.forEach(element => {
+    changeElementValue(id, elementValue) {
+        let value = this.props.value
+        value.element.forEach(element => {
             if (element.elementID === id) {
-                element.elementValue = value
+                element.elementValue = elementValue
             }
         })
-        this.props.value.element = newElement
-        this.setState(newElement)
-        console.log(this.props.value)
+        this.props.onChange(value)
+        
     }
 
-    handleDrop(text, value){
+    handleDrop(text, value){ //Reminder child's handleDrop does not have access to the this pointer
+        console.log('ARArray handleDrop props');
+        
         if (text === "int"){
             console.log("Dropping int")
-            this.addElement();
+            let newElement = [...value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+            value.element = newElement;            
         } else if (text === 'double'){
             console.log("Dropping double")
         }
-
-        //this.props.handleDrop(this.props.value)
+        return text // Returns to parent of droppable
+        
     }
 
     render() {
         return (
-            <div style = {{backgroundColor: "blue"}}>
-                {console.log(this.state.element)}
-                <div>
-                    {this.state.element.map((item) => (<ARArrayElement key={item.elementID} id={item.elementID} name={item.elementValue} removeElement={this.removeElement} changeElement={this.changeElementValue} />))}
-                </div>
-                <button onClick={() => this.addElement()}>AddItem</button> {/*You need to use ()=>f() as then it won't get called in creation*/}
+            <div className="array">
+                {this.props.value.element.map((item) => (<ARArrayElement key={item.elementID}
+                                                                            id={item.elementID} 
+                                                                            name={item.elementValue} 
+                                                                            removeElement={this.removeElement} 
+                                                                            changeElement={this.changeElementValue} 
+                                                                            />))}
             </div>
         )
     }

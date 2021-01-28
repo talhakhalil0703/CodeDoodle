@@ -1,7 +1,6 @@
 import React from 'react';
 import Variable from '../../../components/Variable';
 import ARArrayDrop from "../../ARArrayDrop"
-import ARArray from "../../ARArray"
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -17,6 +16,7 @@ export default class ARHalfFrame extends React.Component {
         super(props);
 
         this.handleVarChange = this.handleVarChange.bind(this);
+        this.handleArrayDrop = this.handleArrayDrop.bind(this);
     }
 
     getDefaultName(c, length) {
@@ -35,14 +35,12 @@ export default class ARHalfFrame extends React.Component {
                 type: text,
                 name: name,
                 value: { element: [{
-                    elementID: [1],
-                    elementValue: [" "]
+                    elementID: 1,
+                    elementValue: " "
                 }]}
             };
 
             val.push(new_var);
-
-            console.log(text)
         }
         else {
 
@@ -67,6 +65,14 @@ export default class ARHalfFrame extends React.Component {
 
         this.props.handleChange(value);
     }
+   
+    handleArrayDrop(id, name, val){
+        var value = this.props.value;
+        value[id].name = name;
+        value[id].value = val;
+
+        this.props.handleChange(value);
+    }
 
     render() {
         const { value } = this.props;
@@ -85,6 +91,7 @@ export default class ARHalfFrame extends React.Component {
                                     name={variable.name}
                                     value={variable.value}
                                     onChange={this.handleVarChange}
+                                    handleDrop={this.handleArrayDrop}
                                     />
                                 </li>
                             );

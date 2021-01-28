@@ -25,7 +25,7 @@ class DrawingIcons extends Component {
                 <ul>
                     <li id='int' draggable={true} onDragStart={this.handleDrag}>Int</li>
                     <li id='double' draggable={true} onDragStart={this.handleDrag}>Double</li>
-
+                    <li id='array' draggable={true} onDragStart={this.handleDrag}>Array</li>
                     <li><h4>Classes</h4></li> 
                     {this.props.classList.map((item,index) =>
                         <li key={index} id={item.name} draggable={true} onDragStart={this.handleDrag}>{item.name}</li>
