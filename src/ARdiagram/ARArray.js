@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import ARArrayElement from "./ARArrayItem"
+import ARArrayElement from "./ARArrayElement"
 
 class ARArray extends Component {
 

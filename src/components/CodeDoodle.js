@@ -4,12 +4,6 @@ import CodePanel from './CodePanel';
 import DownloadButton from './DownloadButton';
 import UploadButton from './UploadButton';
 import Toggalable from './Toggalable';
-<<<<<<< HEAD
-
-import DrawingPanel from '../depreciated/DrawingPanel';
-
-=======
->>>>>>> 17_General_UI
 import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
 
 /*
@@ -62,12 +56,8 @@ int main() {
 }`,
             stack: [],
             heap: [],
-<<<<<<< HEAD
-            stat: []
-=======
             stat: [],
             classes: []
->>>>>>> 17_General_UI
         };
 
         this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -82,10 +72,7 @@ int main() {
         this.toggleStatic = this.toggleStatic.bind(this);
 
         this.handleStack = this.handleStack.bind(this);
-<<<<<<< HEAD
-=======
         this.handleClasses = this.handleClasses.bind(this);
->>>>>>> 17_General_UI
     }
 
     /* toggles the code editor */
@@ -203,12 +190,6 @@ ${val}`;
         }));
     }
 
-<<<<<<< HEAD
-    render() {
-        const { user_c_code, user_cpp_code, language, value } = this.state;
-        const { stack, heap, stat } = this.state;
-        const { editorOpen, drawOpen, stackOpen, heapOpen, staticOpen } = this.state;
-=======
     /* updates the classes */
     handleClasses(classList) {
         this.setState(state => ({
@@ -221,7 +202,6 @@ ${val}`;
         const { stack, heap, stat, classes } = this.state;
         const { editorOpen, drawOpen, stackOpen, heapOpen, staticOpen } = this.state;
 
->>>>>>> 17_General_UI
         return (
             <div className="App">
                 <div className='header'>
@@ -262,41 +242,18 @@ ${val}`;
                 </div>
 
                 <div className='base'>
-<<<<<<< HEAD
-
-                    {/* <Toggalable toggle={drawOpen}>
-                        <DrawingPanel
-                            stack={stack}
-                            stackOpen={stackOpen}
-                            heap={heap}
-                            heapOpen={heapOpen}
-                            stat={stat}
-                            staticOpen={staticOpen}
-                            onStackChange={this.handleStack}
-                        />
-                    </Toggalable> */}
-
-                    <Toggalable toggle={drawOpen} alt={null}>
-                        <ARDiagramDrawArea
-=======
                     <Toggalable toggle={drawOpen} alt={null}>
                         <ARDiagramDrawArea
                             static={stat}
                             staticOpen={staticOpen}
->>>>>>> 17_General_UI
                             stack={stack}
                             stackOpen={stackOpen}
                             heap={heap}
                             heapOpen={heapOpen}
                             stat={stat}
-<<<<<<< HEAD
-                            staticOpen={staticOpen}
-                            onStackChange={this.handleStack}
-=======
                             classes={classes}
                             onStackChange={this.handleStack}
                             onClassesChange={this.handleClasses}
->>>>>>> 17_General_UI
                         />
                     </Toggalable>
 

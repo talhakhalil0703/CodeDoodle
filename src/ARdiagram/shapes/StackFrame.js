@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-
-=======
->>>>>>> 17_General_UI
 import './StackFrame.css'
 import '../../GeneralDiagrams/HandDrawnBoxes.css'
 import ARHalfFrame from './shapeComponents/ARHalfFrame'
 import EditableText from '../../GeneralDiagrams/EditableText'
 import Droppable from '../../components/Droppable';
-<<<<<<< HEAD
 
 /*  
   StackFrame component makes up a stackframe on the application, creates a local and argument half-frame
@@ -36,35 +31,6 @@ export default class StackFrame extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
   }
 
-=======
-
-/*  
-  StackFrame component makes up a stackframe on the application, creates a local and argument half-frame
-  Manages no state
-
-  Receives props:
-   - id: a unique identifier of this stackframe
-   - name: the name of this stackframe
-   - local: the local variables of this stackframe
-   - args: the arguments of this stackframe
-   - onNameChange: access to ARStackAreas onNameChange function
-   - onLocalChange: access to ARStackAreas onLocalChange functionv
-   - onArgsChange: access to ARStackAreas onArgsChange function
-*/
-
-const DroppableHalfFrame = Droppable(ARHalfFrame);
-
-export default class StackFrame extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.handleLocal = this.handleLocal.bind(this);
-    this.handleArgs = this.handleArgs.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-  }
-
->>>>>>> 17_General_UI
   /* handles dropping a new variable into the local variable area */
   handleLocal(local) {
     const id = this.props.id;
@@ -87,24 +53,6 @@ export default class StackFrame extends Component {
     const { name, local, args } = this.props;
     return (
       <React.Fragment>
-<<<<<<< HEAD
-        <EditableText onChange={this.handleNameChange} value={name} editClassName="stackframeName" />
-        <div ref={this.local} className="frame local">
-          <DroppableHalfFrame
-            name="Local"
-            value={local}
-            handleDrop={this.handleLocal}
-            handleChange={this.handleLocal}
-          />
-        </div>
-        <div ref={this.args} className="frame arguments">
-          <DroppableHalfFrame
-            name="Arguments"
-            value={args}
-            handleDrop={this.handleArgs}
-            handleChange={this.handleArgs}
-          />
-=======
         <EditableText 
               onChange={this.handleNameChange} 
               value={name} 
@@ -133,7 +81,6 @@ export default class StackFrame extends Component {
               />
             </div>
           </div>
->>>>>>> 17_General_UI
         </div>
       </React.Fragment>
     );

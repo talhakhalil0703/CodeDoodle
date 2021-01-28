@@ -56,13 +56,9 @@ export default class EditableText extends React.Component {
                     this.setState({ backup: this.state.value })
                 }}
                 onChange={this.handleChange}
-<<<<<<< HEAD
-
-=======
                 onBlur={event=>{
                 this.setState({edit:false})
                 }}
->>>>>>> 17_General_UI
                 onKeyDown={event => {
                     if (event.key === 'Enter') {
                         this.setState({ edit: false })
