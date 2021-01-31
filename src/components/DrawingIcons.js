@@ -23,6 +23,7 @@ class DrawingIcons extends Component {
         return (
             <div className='drawing-icons'>
                 <ul>
+<<<<<<< HEAD
                     <li id='stack' draggable={true} onDragStart={this.handleDrag}>Stack Frame</li>
                     <li id='int' draggable={true} onDragStart={this.handleDrag}>Int</li>
                     <li id='double' draggable={true} onDragStart={this.handleDrag}>Double</li>
@@ -41,6 +42,23 @@ class DrawingIcons extends Component {
                             showButton={this.props.showButton}
                         /> : <React.Fragment />}
 
+=======
+                    <li id='int' draggable={true} onDragStart={this.handleDrag}>Int</li>
+                    <li id='double' draggable={true} onDragStart={this.handleDrag}>Double</li>
+
+                    <li><h4>Classes</h4></li> 
+                    {this.props.classList.map((item,index) =>
+                        <li key={index} id={item.name} draggable={true} onDragStart={this.handleDrag}>{item.name}</li>
+                    )}
+
+                    {this.props.showButton ? 
+                    <ClassPopupArea
+                        classList={this.props.classList} 
+                        onClassListChange={this.props.onClassListChange} 
+                        showButton={this.props.showButton}
+                    />:<React.Fragment/>}
+                    
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
                 </ul>
             </div>
         );

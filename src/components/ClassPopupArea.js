@@ -8,8 +8,13 @@ import ObjectFrame from '../ARdiagram/shapes/ObjectFrame'
 export default class ClassPopupArea extends React.Component {
     state = {
         popupOpen: false,
+<<<<<<< HEAD
         variables: [],
         name: "Unnamed",
+=======
+        variables:[],
+        name:"unnamed",
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
     }
 
     setOpen = () => {
@@ -28,6 +33,7 @@ export default class ClassPopupArea extends React.Component {
         console.log("saving")
 
         var newClassItem = {
+<<<<<<< HEAD
             name: this.state.name,
             variables: this.state.variables,
             type: 'class'
@@ -36,6 +42,16 @@ export default class ClassPopupArea extends React.Component {
         this.setState(() => ({
             variables: [],
             name: "Unnamed",
+=======
+            name:this.state.name,
+            variables:this.state.variables,
+            type:"class"
+        }
+
+        this.setState(() => ({
+            variables:[],
+            name:"unnamed",
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
         }));
 
         var updatedClassList = this.props.classList
@@ -49,6 +65,7 @@ export default class ClassPopupArea extends React.Component {
         this.setState(() => ({
             variables: vars
         }));
+<<<<<<< HEAD
     }
 
     handleClassNameChange = (newName) => {
@@ -57,6 +74,11 @@ export default class ClassPopupArea extends React.Component {
             newName = newName.replace(/^./, newName[0].toUpperCase());
         }
 
+=======
+    } 
+
+    handleClassNameChange = (newName) => {
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
         this.setState(() => ({
             name: newName
         }));
@@ -85,7 +107,10 @@ export default class ClassPopupArea extends React.Component {
                                         <ObjectFrame
                                             id={"CustomClassCreationObject"}
                                             value={this.state.variables}
+<<<<<<< HEAD
                                             classes={this.props.classList}
+=======
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
                                             handleDrop={this.handleClass}
                                             handleChange={this.handleClass}
                                             name={this.state.name}
@@ -98,8 +123,13 @@ export default class ClassPopupArea extends React.Component {
 
                                 <div id="ClassPopup_Dropbar-Container">
                                     <DrawingIcons
+<<<<<<< HEAD
                                         onClassListChange={this.props.onClassListChange}
                                         classList={this.props.classList}
+=======
+                                        onClassListChange={this.props.onClassListChange} 
+                                        classList={this.props.classList} 
+>>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
                                         showButton={false}
                                     />
                                 </div>
