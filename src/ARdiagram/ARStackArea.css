@@ -12,6 +12,7 @@
     flex-direction: column;
     padding-top: 60px;
     max-width: 90vw;
+<<<<<<< HEAD
 }
 
 .stackFrameArea ul {
@@ -20,4 +21,6 @@
 
 .stackFrameArea ul>li {
     transform: rotate(-180deg);
+=======
+>>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 
 class ARStaticArea extends Component {
 
@@ -20,6 +21,17 @@ class ARStaticArea extends Component {
       </React.Fragment >
     );
   }
+=======
+import { render } from "react-dom";
+
+
+function ARStaticArea() {
+return (
+  <React.Fragment>
+    <h1>Static</h1>
+  </React.Fragment>
+  );
+>>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
 }
 
 export default ARStaticArea;
