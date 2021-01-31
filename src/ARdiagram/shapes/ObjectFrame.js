@@ -25,7 +25,6 @@ export default class ObjectFrame extends React.Component {
   render() {
     return (
       <React.Fragment>
-<<<<<<< HEAD
         <EditableText
           onChange={this.props.onNameChange}
           value={this.props.name}
@@ -44,25 +43,6 @@ export default class ObjectFrame extends React.Component {
               />
             </div>
           </div>
-=======
-        <EditableText 
-          onChange={this.props.onNameChange} 
-          value={this.props.name} 
-          editClassName="classCreatorName" 
-        />
-
-        <div className="objectBox handDrawnBox3">
-            <div className="inner3">
-              <div ref={this.halfFrame} className="objectInnerDroppableArea">
-                <DroppableHalfFrame
-                  name=""
-                  value={this.props.value}
-                  handleDrop={this.props.handleDrop}
-                  handleChange={this.props.handleChange}
-                />
-              </div>
-            </div>
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
         </div>
       </React.Fragment>
     );

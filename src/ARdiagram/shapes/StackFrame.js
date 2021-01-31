@@ -50,7 +50,6 @@ export default class StackFrame extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     const { name, local, args, classes, drawInfoOpen } = this.props;
     return (
       <React.Fragment>
@@ -58,33 +57,17 @@ export default class StackFrame extends Component {
           onChange={this.handleNameChange}
           value={name}
           editClassName="stackframeName"
-=======
-    const { name, local, args } = this.props;
-    return (
-      <React.Fragment>
-        <EditableText 
-              onChange={this.handleNameChange} 
-              value={name} 
-              editClassName="stackframeName" 
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
         />
 
         <div className="handDrawnBox3">
           <div className="inner3">
-<<<<<<< HEAD
-=======
-            
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
 
             <div ref={this.local} className="frame local">
               <DroppableHalfFrame
                 name="Local"
                 value={local}
-<<<<<<< HEAD
                 classes={classes}
                 drawInfoOpen={drawInfoOpen}
-=======
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
                 handleDrop={this.handleLocal}
                 handleChange={this.handleLocal}
               />
@@ -94,11 +77,8 @@ export default class StackFrame extends Component {
               <DroppableHalfFrame
                 name="Arguments"
                 value={args}
-<<<<<<< HEAD
                 classes={classes}
                 drawInfoOpen={false}
-=======
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
                 handleDrop={this.handleArgs}
                 handleChange={this.handleArgs}
               />

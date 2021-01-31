@@ -10,14 +10,10 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     "reactjs-popup": "^2.0.4",
-=======
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
-=======
     "reactjs-popup": "^2.0.4",
->>>>>>> f13cdb2ac4c8e59720c7d0e1487b305cf0af06f8
+    "reactjs-popup": "^2.0.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
