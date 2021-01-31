@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 .header * {
   font-family: 'Indie Flower', cursive;
 }
 
-=======
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
 .App {
   width: 100%;
   display: grid;
@@ -14,14 +11,11 @@
   grid-template-rows: 48px 1fr;
 }
 
-<<<<<<< HEAD
 body {
   overflow-x: hidden;
   tab-size: 4;
 }
 
-=======
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
 .header {
   background-color: #202020;
   grid-column-start: 1;

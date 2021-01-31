@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
-=======
-import React from "react";
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
 
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
 
-<<<<<<< HEAD
 /* 
     Component makes up the stack section of the application, displays and populates all stackframes
     Manages no state
@@ -104,40 +99,11 @@ class ARStackArea extends Component {
 
     render() {
         const { value, classes, drawInfoOpen } = this.props;
-=======
-export default class ARStackArea extends React.Component {
-    state = {
-        stackFrameList:[{name:"main"}]
-    }
-
-    LayoutStackFrames = () => {
-        return(
-            <div className="stackFrameArea">
-                {this.state.stackFrameList.map(stackFrame =>
-                        <div key={stackFrame.name} className="stackFrame">
-                            <StackFrame name={stackFrame.name}/>
-                        </div>
-                )}
-            </ div>
-        )
-    };
-    
-    addStackFrame = () => {
-        console.log("adding stack frame")
-    
-        this.setState(() => ({
-            stackFrameList: this.state.stackFrameList.concat([{name:"unnamed"}])
-        }));
-    }
-
-    render(){
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
         return (
             <React.Fragment>
                 <h1>Stack</h1>
                 <button onClick={this.addStackFrame}>Add</button>
                 <div id="allStackFrames">
-<<<<<<< HEAD
                     <div className="stackFrameArea">
                         <ul>
                             {value.map((stack, index) => {
@@ -159,17 +125,10 @@ export default class ARStackArea extends React.Component {
                             })}
                         </ul>
                     </ div>
-=======
-                    <this.LayoutStackFrames />
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
-<<<<<<< HEAD
 }
 
 export default ARStackArea;
-=======
-}
->>>>>>> 3f7fd5cfee57ed86b4f531337f440f7de46cce10
