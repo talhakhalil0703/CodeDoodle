@@ -1,0 +1,23 @@
+#stackFrameArea {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.stackFrame {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    max-width: 90vw;
+}
+
+.stackFrameArea ul {
+    transform: rotate(180deg);
+}
+
+.stackFrameArea ul>li {
+    transform: rotate(-180deg);
+}
