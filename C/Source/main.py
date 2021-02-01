@@ -1,6 +1,7 @@
 import gdb
 import json
 import copy
+import sys
 '''
 {
     stack: [
@@ -107,7 +108,7 @@ class StackParse (gdb.Command):
         address = int(str(value.address), 0)
         type = value.type
         if(type.code == gdb.TYPE_CODE_STRUCT):
-            #print('{} : {}'.format(name, address))
+            # print('{} : {}'.format(name, address))
             fields = type.fields()
             object.append({"id": address, "identifier": name, "size": type.sizeof, "type": "class",
                            "value": {"member_values": []}})
@@ -115,10 +116,10 @@ class StackParse (gdb.Command):
                 self.stack_parse(
                     field.name, value[field.name], object[-1]["value"]["member_values"], heap)
         elif(type.code == gdb.TYPE_CODE_PTR):
-            #print('{} = {} : {}'.format(name, value, address))
+            # print('{} = {} : {}'.format(name, value, address))
             object.append(
-                {"id": address, "identifier": name, "value": int(str(value), 0), "size": type.sizeof, "type": "pointer"})
-            pointed_address = int(str(value), 0)
+                {"id": address, "identifier": name, "value": int(str(value).split()[0], 0), "size": type.sizeof, "type": "pointer"})
+            pointed_address = int(str(value).split()[0], 0)
             if((self.heap_lower <= pointed_address <= self.heap_upper)):
                 heap_object = value.dereference()
                 self.heap_parse(str(value), heap_object, heap)
@@ -190,6 +191,7 @@ class StackParse (gdb.Command):
         return next_index
 
     def invoke(self, arg, from_tty):
+        # try:
         procmapping = gdb.execute("info proc mapping", to_string=True)
         gdb.execute("set print repeats 0")
         proclines = procmapping.splitlines()
@@ -228,6 +230,13 @@ class StackParse (gdb.Command):
         output = {"stack": stack, "heap": organized_heap}
         with open("test.json", "w") as f:
             json.dump(output, f)
+        print("{}{}{}".format("(JSONDUMPSTART)",
+                              json.dumps(output), "(JSONDUMPEND)"))
+        # except:
+        # print("{}".format("(ERROR)"))
+        # finally:
+        # gdb.execute("quit")
+        # print("Exiting")
 
 
 StackParse()
