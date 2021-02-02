@@ -20,14 +20,14 @@ class ARArray extends Component {
         this.props.onChange(value)
     }
 
-    removeElement(id) {
+    removeElement(id) { // Need to do double array traversal... mighe be slow?
         let value = this.props.value
         const newElement = value.element.filter(element => element.elementID !== id)
         this.props.value.element = newElement
         this.props.onChange(value)
     }
 
-    changeElementValue(id, elementValue) {
+    changeElementValue(id, elementValue) { // Need to do double array traversal... might be slow?
         let value = this.props.value
         value.element.forEach(element => {
             if (element.elementID === id) {
@@ -46,7 +46,7 @@ class ARArray extends Component {
         if (text === 'array'){
             console.log("Dropping int")
             let newArray = [...value.array, [ {
-                elementID: 1,
+                elementID: Math.floor(Math.random() * 1000),
                 elementValue: " "
             }]]
             value.array = newArray
@@ -58,7 +58,7 @@ class ARArray extends Component {
             index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
         }
       
-        if (text === "int"){
+        if (text === "int"){ //TODO: instead check if text equals type we have, if so add, else don't add, add type checking into Element
             console.log("Dropping int")
             console.log(value.array[index])
             let newArray = [...value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
@@ -73,10 +73,13 @@ class ARArray extends Component {
     render() {
         return (
             <div className="array">
-                {this.props.value.array.map((item) => (
+                {this.props.value.array.map((item) => ( //Map only works with arrays, you can nest maps
                     <div className="mainArray">
                     {item.map((ele) => (<ARArrayElement key={ele.elementID}
-
+                                                        id = {ele.elementID}
+                                                        name = {item.elementValue}
+                                                        removeElement = {this.removeElement}
+                                                        changeElement={this.changeElementValue}                
                     />))}
                     </div>
                                                                             ))}
@@ -85,5 +88,7 @@ class ARArray extends Component {
     }
 
 }
+
+
 
 export default ARArray
