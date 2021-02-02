@@ -52,9 +52,12 @@ class ARArray extends Component {
             value.array = newArray
             return text // Return here as we don't need to send prompt for array index
         } 
-
-        let index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
         
+        let index = 0
+        if (value.array.length >= 2){
+            index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
+        }
+      
         if (text === "int"){
             console.log("Dropping int")
             console.log(value.array[index])
