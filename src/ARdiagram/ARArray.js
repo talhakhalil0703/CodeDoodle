@@ -40,14 +40,23 @@ class ARArray extends Component {
 
     handleDrop(text, value){ //Reminder child's handleDrop does not have access to the this pointer
         console.log('ARArray handleDrop props');
-        
+        console.log(value)
         if (text === "int"){
             console.log("Dropping int")
-            let newElement = [...value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
-            value.element = newElement;            
-        } else if (text === 'double'){
-            console.log("Dropping double")
+            console.log(value.array[0])
+            let newArray = [...value.array[0], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+            value.array[0] = newArray;            
+        } else if (text === 'array'){
+            console.log("Dropping int")
+            let newArray = [...value.array, [ {
+                elementID: 1,
+                elementValue: " "
+            }] ]
+            value.array = newArray
         }
+        else if (text === 'double'){
+            console.log("Dropping double")
+        } 
         return text // Returns to parent of droppable
         
     }
@@ -55,12 +64,11 @@ class ARArray extends Component {
     render() {
         return (
             <div className="array">
-                {this.props.value.element.map((item) => (<ARArrayElement key={item.elementID}
-                                                                            id={item.elementID} 
-                                                                            name={item.elementValue} 
-                                                                            removeElement={this.removeElement} 
-                                                                            changeElement={this.changeElementValue} 
-                                                                            />))}
+                {this.props.value.array.map((item) => (
+                    <div className="mainArray">
+                    {item.map((ele) => (<ARArrayElement key={ele.elementID}/>))}
+                    </div>
+                                                                            ))}
             </div>
         )
     }

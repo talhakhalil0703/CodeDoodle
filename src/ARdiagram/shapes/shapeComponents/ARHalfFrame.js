@@ -34,10 +34,10 @@ export default class ARHalfFrame extends React.Component {
             var new_var = {
                 type: text,
                 name: name,
-                value: { element: [{
+                value: { array: [ [ {
                     elementID: 1,
                     elementValue: " "
-                }]}
+                }] ]}
             };
 
             val.push(new_var);
