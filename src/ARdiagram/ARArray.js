@@ -41,20 +41,26 @@ class ARArray extends Component {
     handleDrop(text, value){ //Reminder child's handleDrop does not have access to the this pointer
         console.log('ARArray handleDrop props');
         console.log(value)
-        if (text === "int"){
-            console.log("Dropping int")
-            console.log(value.array[0])
-            let newArray = [...value.array[0], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
-            value.array[0] = newArray;            
-        } else if (text === 'array'){
+        
+
+        if (text === 'array'){
             console.log("Dropping int")
             let newArray = [...value.array, [ {
                 elementID: 1,
                 elementValue: " "
-            }] ]
+            }]]
             value.array = newArray
-        }
-        else if (text === 'double'){
+            return text // Return here as we don't need to send prompt for array index
+        } 
+
+        let index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
+        
+        if (text === "int"){
+            console.log("Dropping int")
+            console.log(value.array[index])
+            let newArray = [...value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+            value.array[index] = newArray;            
+        } else if (text === 'double'){
             console.log("Dropping double")
         } 
         return text // Returns to parent of droppable
@@ -66,7 +72,9 @@ class ARArray extends Component {
             <div className="array">
                 {this.props.value.array.map((item) => (
                     <div className="mainArray">
-                    {item.map((ele) => (<ARArrayElement key={ele.elementID}/>))}
+                    {item.map((ele) => (<ARArrayElement key={ele.elementID}
+
+                    />))}
                     </div>
                                                                             ))}
             </div>
