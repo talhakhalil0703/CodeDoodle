@@ -26,7 +26,7 @@ class ARArrayDrop extends Component {
         const { id, name } = this.props;
         this.props.onChange(id, name, value)
         console.log('ARArrayDrop onChange value:');
-        console.log(value.element)
+        console.log(value.array)
     }
 
     render() {

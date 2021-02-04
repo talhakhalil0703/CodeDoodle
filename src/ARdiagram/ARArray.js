@@ -27,12 +27,14 @@ class ARArray extends Component {
         this.props.onChange(value)
     }
 
-    changeElementValue(id, elementValue) { // Need to do double array traversal... might be slow?
+    changeElementValue(id, elementValue) { // Need to do double array traversal... might be slow? Not too many elements for it to be slow
         let value = this.props.value
-        value.element.forEach(element => {
-            if (element.elementID === id) {
-                element.elementValue = elementValue
-            }
+        value.array.forEach(array => {
+            array.forEach(element =>{
+                if (element.elementID === id) {
+                    element.elementValue = elementValue
+                }
+            })
         })
         this.props.onChange(value)
         
@@ -44,7 +46,6 @@ class ARArray extends Component {
         
 
         if (text === 'array'){
-            console.log("Dropping int")
             let newArray = [...value.array, [ {
                 elementID: Math.floor(Math.random() * 1000),
                 elementValue: " "
