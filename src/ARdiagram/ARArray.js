@@ -22,9 +22,12 @@ class ARArray extends Component {
 
     removeElement(id) { // Need to do double array traversal... mighe be slow?
         let value = this.props.value
-        const newElement = value.element.filter(element => element.elementID !== id)
-        this.props.value.element = newElement
+        // value.array[0] = value.array[0].filter(element => element.elementID !== id)
+        value.array.forEach((singleArray, index, arrays) => {arrays[index] = arrays[index].filter(element => element.elementID !== id);})//foreach takes three arguments, the element, index, and the array itself
+        console.log(value)
         this.props.onChange(value)
+        value.array.forEach((singleArray, index, arrays) => {if(singleArray.length === 0){arrays = arrays.splice(index, 1);}})
+        //TODO: Remove array if all elements are removed from it
     }
 
     changeElementValue(id, elementValue) { // Need to do double array traversal... might be slow? Not too many elements for it to be slow
@@ -72,13 +75,16 @@ class ARArray extends Component {
     }
 
     render() {
+        console.log("Render props")
+        console.log(this.props)
+
         return (
             <div className="array">
                 {this.props.value.array.map((item) => ( //Map only works with arrays, you can nest maps
                     <div className="mainArray">
                     {item.map((ele) => (<ARArrayElement key={ele.elementID}
                                                         id = {ele.elementID}
-                                                        name = {item.elementValue}
+                                                        name = {ele.elementValue}
                                                         removeElement = {this.removeElement}
                                                         changeElement={this.changeElementValue}                
                     />))}
