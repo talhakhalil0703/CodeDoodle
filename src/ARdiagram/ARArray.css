@@ -5,8 +5,6 @@
   border-width: 3px 4px 3px 5px;
   border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
   transform: rotate(1deg);
-  align-self: center;
-
   box-shadow: 3px 3px 0 #222;
 }
 
@@ -17,20 +15,16 @@
   border-width: 3px 4px 3px 5px;
   border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
   transform: rotate(1deg);
-  align-self: center;
-
   box-shadow: 3px 3px 0 #222;
 }
 .element {
   background: rgb(12, 207, 241);
   border-color: black;
-  width: 10vw;
+  width: 5vw;
+  padding: 1vw;
   border-width: 3px 4px 3px 5px;
   border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
   transform: rotate(1deg);
-  align-items: center;
-  align-self: center;
-
   box-shadow: 3px 3px 0 #222;
 }
 

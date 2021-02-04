@@ -25,14 +25,15 @@ class ARArrayDrop extends Component {
     onChange(value){
         const { id, name } = this.props;
         this.props.onChange(id, name, value)
-        console.log('ARArrayDrop onChange value:');
-        console.log(value.array)
     }
 
     render() {
         return (
             <div>
                 <DroppableArray 
+                id = {this.props.id}
+                name = {this.props.name}
+                type = {this.props.type}
                 value = {this.props.value}
                 handleDrop={this.handleDrop}
                 onChange = {this.onChange}
