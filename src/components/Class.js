@@ -7,6 +7,7 @@ import Toggalable from  './Toggalable'
 import Arrow from "../GeneralDiagrams/Arrow"
 import Xarrow from 'react-xarrows'
 import ClickMenu from '../GeneralDiagrams/SmallMenu'
+import ARArrayDrop from "../ARdiagram/ARArrayDrop"
 
 /* Can display nested classes, but cannot handle dropping of classes onto classes right now */
 class Class extends React.Component {
@@ -17,6 +18,7 @@ class Class extends React.Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleVarChange = this.handleVarChange.bind(this);
         this.handleNestedDrops = this.handleNestedDrops.bind(this);
+        this.handleArrayDrop = this.handleArrayDrop.bind(this);
         this.convertTo = this.convertTo.bind(this);
 
         this.classRef = React.createRef()
@@ -42,7 +44,19 @@ class Class extends React.Component {
 
         if (text === 'stack') {
             alert('stack frames cant be dropped here...')
-        } else if (!primitives.includes(text)) {
+        }  else if (text === "array") {
+            var new_var = {
+                type: text,
+                name: name,
+                value: { array: [ [ {
+                    elementID: 1,
+                    elementValue: " "
+                }] ]}
+            };
+
+            val.push(new_var);
+        }
+        else if (!primitives.includes(text)) {
 
             var the_class = classes.find(item => item.name === text);
 
@@ -98,10 +112,20 @@ class Class extends React.Component {
     handleNestedDrops(val, nest_id) {
 
         console.log('in handleNestedDrops...');
-
+        console.log(val)
+        console.log(nest_id)
         var { id, value } = this.props;
 
         value[nest_id].value = val;
+
+        this.props.handleChange(value, id);
+    }
+
+
+    handleArrayDrop(id, name, val){
+        var value = this.props.value;
+        value[id].name = name;
+        value[id].value = val;
 
         this.props.handleChange(value, id);
     }
@@ -111,7 +135,7 @@ class Class extends React.Component {
         const primitives = ['int', 'double', 'boolean', 'float', 'char'];
         const { hasArrow, targetDiv } = this.state
         const DroppableClass = Droppable(Class);
-        
+              
 
         return (
             <div ref={this.classRef} className='class' id={'object-' + name + id}>
@@ -151,7 +175,22 @@ class Class extends React.Component {
                                         />
                                     </li>
                                 );
-                            } else {
+                            } else if (item.type === 'array') {
+                                return (
+                                    <li key={index}>
+                                         <ARArrayDrop 
+                                            id={index}
+                                            type={item.type}
+                                            name={item.name}
+                                            value={item.value}
+                                            onChange={this.handleVarChange}
+                                            handleDrop={this.handleArrayDrop}
+                                            handleChange={this.handleArrayDrop}
+
+                                    />
+                                    </li>
+                                );
+                            }else {
                                 return (
                                     <li key={index}>
                                         <DroppableClass
