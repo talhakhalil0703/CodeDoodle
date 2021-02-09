@@ -50,7 +50,7 @@ export default class StackFrame extends Component {
   }
 
   render() {
-    const { name, local, args, classes, drawInfoOpen } = this.props;
+    const { name, local, args, classes, drawInfoOpen, arrowConnectionPointsOpen } = this.props;
     return (
       <React.Fragment>
         <EditableText
@@ -68,6 +68,8 @@ export default class StackFrame extends Component {
                 value={local}
                 classes={classes}
                 drawInfoOpen={drawInfoOpen}
+                arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                 handleDrop={this.handleLocal}
                 handleChange={this.handleLocal}
               />
@@ -79,6 +81,8 @@ export default class StackFrame extends Component {
                 value={args}
                 classes={classes}
                 drawInfoOpen={false}
+                arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                 handleDrop={this.handleArgs}
                 handleChange={this.handleArgs}
               />

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Variable.css';
 import EditableText from '../GeneralDiagrams/EditableText';
 import Toggalable from './Toggalable';
+import ClickMenu from '../GeneralDiagrams/SmallMenu'
+import Arrow from "../GeneralDiagrams/Arrow"
 
 /* 
     Component that makes up the variables of the application
@@ -22,6 +24,14 @@ class Variable extends Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
         this.handleReturnChange = this.handleReturnChange.bind(this);
+        this.convertTo = this.convertTo.bind(this);
+
+        this.variableRef = React.createRef()
+
+        this.state = {
+            hasArrow:false, 
+            targetDiv:''
+        }
     }
 
     /* handles changing the name of a variable */
@@ -43,10 +53,30 @@ class Variable extends Component {
         this.props.onChange(id, name, value, ret);
     }
 
+    // turns type to pointer/reference then changes type to current type + pointer/reference (doesn't do this yet)
+    // and connects an pointer/reference arrow to the target
+    convertTo(newType, target) {
+        // ToDo: change the type
+
+        this.setState(state => ({
+            hasArrow: true,
+            targetDiv: target,
+        }));
+    }
+
     render() {
-        const { name, type, value, ret, drawInfoOpen } = this.props;
+        const { name, type, value, ret, drawInfoOpen, id, arrowConnectionPointsOpen } = this.props;
+        const { hasArrow, targetDiv } = this.state
+
         return (
-            <div className='variable'>
+            // this id is used to connect it to other arrows
+            <div ref={this.variableRef} id={ type + '-' + name + id } className='variable'>
+                <ClickMenu 
+                    id={name+id} 
+                    arrowConnectionPointsOpen={arrowConnectionPointsOpen} 
+                    toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
+                    convertTo={this.convertTo}
+                />
 
                 <Toggalable toggle={drawInfoOpen} alt={null}>
                     <div className='return-container'>
@@ -61,6 +91,12 @@ class Variable extends Component {
                     </div>
                     <textarea className='var-value' value={value} onChange={this.handleValueChange} />
                 </div>
+
+                <Toggalable toggle={arrowConnectionPointsOpen} alt={null}>
+                    <p>{type + '-' + name + id}</p>
+                </Toggalable>
+
+                {hasArrow ?  <Arrow start={this.variableRef} end={targetDiv} path={"grid"} />:<React.Fragment/>}
             </div>
         );
     }

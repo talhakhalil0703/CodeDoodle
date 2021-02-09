@@ -83,7 +83,7 @@ export default class ARHalfFrame extends React.Component {
     }
 
     render() {
-        const { value, drawInfoOpen, classes } = this.props;
+        const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = this.props;
         const primitives = ['int', 'double', 'boolean', 'float', 'char'];
         return (
             <div>
@@ -102,6 +102,8 @@ export default class ARHalfFrame extends React.Component {
                                         ret={item.return}
                                         drawInfoOpen={drawInfoOpen}
                                         onChange={this.handleVarChange}
+                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                     />
                                 </li>
                             );
@@ -119,6 +121,8 @@ export default class ARHalfFrame extends React.Component {
                                         onChange={this.handleVarChange}
                                         handleDrop={this.handleClassDrops}
                                         handleChange={this.handleClassDrops}
+                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                     />
                                 </li>
                             );

@@ -8,6 +8,7 @@ import ARStaticArea from './ARStaticArea';
 import DrawingIcons from '../components/DrawingIcons';
 import Droppable from '../components/Droppable';
 import Toggalable from '../components/Toggalable'
+import Draggable from 'react-draggable'
 
 /* 
     ARDiagramDrawArea has the:
@@ -51,7 +52,7 @@ class ARDiagramDrawArea extends Component {
   }
 
   handleStaticChange(stat) {
-    console.log(stat);
+    this.props.onStaticChange(stat)
   }
 
   /* Helper function to reverse an array without destroying the original (array from arg) */
@@ -59,6 +60,13 @@ class ARDiagramDrawArea extends Component {
     var temp = Array.from(array);
     temp.reverse();
     return temp;
+  }
+
+  /* handles dropping Anchors onto the draw area */
+  handleDrop(text, value) {
+    if(text !== 'anchor'){
+      alert('(in arDraw) only anchors can be dropped here...')
+    }
   }
 
   getStackArgs(stackframe) {
@@ -378,7 +386,7 @@ class ARDiagramDrawArea extends Component {
 
   render() {
     const { stack, heap, stat, classes } = this.props;
-    const { stackOpen, heapOpen, staticOpen, drawInfoOpen, onClassesChange } = this.props;
+    const { stackOpen, heapOpen, staticOpen, drawInfoOpen, arrowConnectionPointsOpen, onClassesChange } = this.props;
     return (
       <div id="drawArea" >
 
@@ -394,11 +402,25 @@ class ARDiagramDrawArea extends Component {
 
         <div className='drawing-panel'>
           <DrawingIcons
+            spawnAnchor={this.props.spawnAnchor}
             classList={classes}
             onClassListChange={onClassesChange}
             showButton={true}
           />
           <div className='drawing-area'>
+
+            <Toggalable toggle={heapOpen} alt={null}>
+              <div className="drawSection" id="heapArea">
+                <DroppableHeap
+                  heap={heap}
+                  classes={classes}
+                  handleDrop={this.handleHeapChange}
+                  drawInfoOpen={drawInfoOpen}
+                  arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                  toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
+                />
+              </div>
+            </Toggalable>
 
             <Toggalable toggle={stackOpen} alt={null}>
               <div className="drawSection" id="stackArea">
@@ -408,17 +430,8 @@ class ARDiagramDrawArea extends Component {
                   handleDrop={this.handleStackChange}
                   handleChange={this.handleStackChange}
                   drawInfoOpen={drawInfoOpen}
-                />
-              </div>
-            </Toggalable>
-
-            <Toggalable toggle={heapOpen} alt={null}>
-              <div className="drawSection" id="heapArea">
-                <DroppableHeap
-                  heap={heap}
-                  classes={classes}
-                  handleDrop={this.handleHeapChange}
-                  drawInfoOpen={drawInfoOpen}
+                  arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                  toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                 />
               </div>
             </Toggalable>
@@ -429,12 +442,21 @@ class ARDiagramDrawArea extends Component {
                   stat={stat}
                   handleDrop={this.handleStaticChange}
                   drawInfoOpen={drawInfoOpen}
+                  arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                  toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                 />
               </div>
             </Toggalable>
 
           </div>
         </div>
+        {/* <Draggable defaultPosition={{x:220,y:220}}>
+              <span>
+                <div >
+                    Wordup
+                </div>
+              </span>
+          </Draggable> */}
       </div>
     );
   }

@@ -3,9 +3,12 @@ import Variable from './Variable';
 import EditableText from '../GeneralDiagrams/EditableText';
 import './Class.css';
 import Droppable from './Droppable';
+import Toggalable from  './Toggalable'
+import Arrow from "../GeneralDiagrams/Arrow"
+import Xarrow from 'react-xarrows'
+import ClickMenu from '../GeneralDiagrams/SmallMenu'
 
 /* Can display nested classes, but cannot handle dropping of classes onto classes right now */
-
 class Class extends React.Component {
 
     constructor(props) {
@@ -14,6 +17,14 @@ class Class extends React.Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleVarChange = this.handleVarChange.bind(this);
         this.handleNestedDrops = this.handleNestedDrops.bind(this);
+        this.convertTo = this.convertTo.bind(this);
+
+        this.classRef = React.createRef()
+
+        this.state = {
+            hasArrow:false, 
+            targetDiv:''
+        }
     }
 
     getDefaultName(c, length) {
@@ -58,6 +69,14 @@ class Class extends React.Component {
         return val;
     }
 
+    convertTo(newType, target) {
+        // ToDo: change the type
+        this.setState(state => ({
+            hasArrow: true,
+            targetDiv: target,
+        }));
+    }
+
     /* handles changing the name of a variable */
     handleNameChange(new_name) {
         const { id, value, ret } = this.props;
@@ -88,16 +107,29 @@ class Class extends React.Component {
     }
 
     render() {
-        const { value, type, name, drawInfoOpen, classes } = this.props;
+        const { value, type, name, drawInfoOpen, classes, arrowConnectionPointsOpen,id } = this.props;
         const primitives = ['int', 'double', 'boolean', 'float', 'char'];
-
+        const { hasArrow, targetDiv } = this.state
         const DroppableClass = Droppable(Class);
+        
 
         return (
-            <div className='class'>
+            <div ref={this.classRef} className='class' id={'object-' + name + id}>
                 <div className='class-name'>
+                    <ClickMenu 
+                        id={name+id} 
+                        arrowConnectionPointsOpen={arrowConnectionPointsOpen} 
+                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
+                        convertTo={this.convertTo}
+                    />
+
                     {`${type} `}
+                    &nbsp;
                     <EditableText onChange={this.handleNameChange} value={name} editClassName="stackframeName" />
+                    &nbsp;
+                    <Toggalable toggle={arrowConnectionPointsOpen} alt={null}>
+                        {'object-' + name + id}
+                    </Toggalable>        
                 </div>
 
                 <div className='variables'>
@@ -114,6 +146,8 @@ class Class extends React.Component {
                                             ret={item.return}
                                             drawInfoOpen={drawInfoOpen}
                                             onChange={this.handleVarChange}
+                                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                            toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                         />
                                     </li>
                                 );
@@ -138,6 +172,7 @@ class Class extends React.Component {
                         })}
                     </ul>
                 </div>
+                {hasArrow ?  <Arrow start={this.classRef} end={targetDiv} path={"grid"}/>:<React.Fragment/>}    
             </div>
         );
     }

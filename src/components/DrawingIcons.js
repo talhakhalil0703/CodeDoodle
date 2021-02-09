@@ -41,6 +41,13 @@ class DrawingIcons extends Component {
                             showButton={this.props.showButton}
                         /> : <React.Fragment />}
 
+                    <li><h4>Convert</h4></li>
+                    <li id='pointer' draggable={true} onDragStart={this.handleDrag}>Pointer</li>
+                    <li id='reference' draggable={true} onDragStart={this.handleDrag}>Reference</li>
+
+                    <li><h4>General</h4></li>
+                    <li id='anchor' onClick={this.props.spawnAnchor}><button>Anchor</button></li>
+                    
                 </ul>
             </div>
         );

@@ -97,7 +97,7 @@ class ARStackArea extends Component {
     }
 
     render() {
-        const { value, classes, drawInfoOpen } = this.props;
+        const { value, classes, drawInfoOpen, arrowConnectionPointsOpen } = this.props;
         return (
             <React.Fragment>
                 <h1>Stack</h1>
@@ -115,9 +115,11 @@ class ARStackArea extends Component {
                                             args={stack.args}
                                             classes={classes}
                                             drawInfoOpen={drawInfoOpen}
+                                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                                             onNameChange={this.handleNameChange}
                                             onLocalChange={this.handleLocalChange}
                                             onArgsChange={this.handleArgsChange}
+                                            toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                         />
                                     </li>
                                 );
