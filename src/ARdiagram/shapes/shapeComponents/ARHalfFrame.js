@@ -2,6 +2,7 @@ import React from 'react';
 import Variable from '../../../components/Variable';
 import Class from '../../../components/Class';
 import Droppable from '../../../components/Droppable';
+import ARArrayDrop from "../../ARArrayDrop"
 
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
@@ -22,6 +23,7 @@ export default class ARHalfFrame extends React.Component {
 
         this.handleVarChange = this.handleVarChange.bind(this);
         this.handleClassDrops = this.handleClassDrops.bind(this);
+        this.handleArrayDrop = this.handleArrayDrop.bind(this);
     }
 
     getDefaultName(c, length) {
@@ -36,7 +38,18 @@ export default class ARHalfFrame extends React.Component {
 
         if (text === 'stack') {
             alert('stack frames cant be dropped here...')
-        } else if (!primitives.includes(text)) {
+        } else if (text === "array") {
+            var new_var = {
+                type: text,
+                name: name,
+                value: { array: [ [ {
+                    elementID: 1,
+                    elementValue: " "
+                }] ]}
+            };
+
+            val.push(new_var);
+        }else if (!primitives.includes(text)) {
 
             var the_class = classes.find(item => item.name === text);
 
@@ -51,7 +64,7 @@ export default class ARHalfFrame extends React.Component {
 
         } else {
 
-            var new_var = {
+             new_var = {
                 type: text,
                 name: name,
                 value: '???',
@@ -115,7 +128,20 @@ export default class ARHalfFrame extends React.Component {
                                     />
                                 </li>
                             );
-                        } else {
+                        }   if (item.type === 'array') {
+                            return (
+                                <li key={index}>
+                                    <ARArrayDrop 
+                                    id={index}
+                                    type={item.type}
+                                    name={item.name}
+                                    value={item.value}
+                                    onChange={this.handleVarChange}
+                                    handleDrop={this.handleArrayDrop}
+                                    />
+                                </li>
+                            );
+                        }else {
                             return (
                                 <li key={index}>
                                     <DroppableClass
