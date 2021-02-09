@@ -69,7 +69,7 @@ class ARArray extends Component {
         } else if (text === 'double'){
             console.log("Dropping double")
         } 
-        return text // Returns to parent of droppable
+        return value // Returns to parent of droppable
         
     }
 

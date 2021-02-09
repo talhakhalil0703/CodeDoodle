@@ -87,7 +87,9 @@ export default class ARHalfFrame extends React.Component {
     }
 
     handleClassDrops(val, id) {
-
+        console.log("in halfframe class drop")
+        console.log(val)
+        console.log(id)
         var value = this.props.value;
 
         value[id].value = val;
@@ -128,7 +130,7 @@ export default class ARHalfFrame extends React.Component {
                                     />
                                 </li>
                             );
-                        }   if (item.type === 'array') {
+                        }else if (item.type === 'array') {
                             return (
                                 <li key={index}>
                                     <ARArrayDrop 
@@ -138,6 +140,8 @@ export default class ARHalfFrame extends React.Component {
                                     value={item.value}
                                     onChange={this.handleVarChange}
                                     handleDrop={this.handleArrayDrop}
+                                    handleChange={this.handleArrayDrop}
+
                                     />
                                 </li>
                             );
