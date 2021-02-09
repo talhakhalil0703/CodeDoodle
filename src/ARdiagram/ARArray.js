@@ -85,7 +85,8 @@ class ARArray extends Component {
                                                             id = {element.elementID}
                                                             name = {element.elementValue}
                                                             removeElement = {this.removeElement}
-                                                            changeElement={this.changeElementValue}                
+                                                            changeElement={this.changeElementValue}
+                                                            className="element"                
                         />))}
                     </div>
                 ))}
