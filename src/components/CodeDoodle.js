@@ -5,6 +5,10 @@ import DownloadButton from './DownloadButton';
 import UploadButton from './UploadButton';
 import Toggalable from './Toggalable';
 import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
+import Droppable from './Droppable';
+import Draggable from 'react-draggable'
+import Anchor from './Anchor'
+import Xarrow from 'react-xarrows'
 
 /*
     The main component.
@@ -20,7 +24,11 @@ import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
      - stack: all info in the stack section
      - stat: all info in the static section
      - heap: all info in the heap section
+
+    Xarrows must be rendered last in the DOM in order to show up on top of everything else
 */
+
+const DroppableDrawArea = Droppable(ARDiagramDrawArea);
 
 class CodeDoodle extends Component {
 
@@ -30,6 +38,8 @@ class CodeDoodle extends Component {
         this.state = {
             editorOpen: false,
             drawOpen: true,
+            drawInfoOpen: false,
+            arrowConnectionPointsOpen: false,
             stackOpen: true,
             heapOpen: true,
             staticOpen: true,
@@ -57,7 +67,9 @@ int main() {
             stack: [],
             heap: [],
             stat: [],
-            classes: []
+            classes: [],
+            anchors: [{number:1}],
+            arrows: [{fromRef:'var-b0', toDivID:'var-a0'}],
         };
 
         this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -67,12 +79,17 @@ int main() {
 
         this.toggleEditor = this.toggleEditor.bind(this);
         this.toggleDraw = this.toggleDraw.bind(this);
+        this.toggleDrawInfo = this.toggleDrawInfo.bind(this);
+        this.toggleArrowConnectionPoints = this.toggleArrowConnectionPoints.bind(this);
         this.toggleStack = this.toggleStack.bind(this);
         this.toggleHeap = this.toggleHeap.bind(this);
         this.toggleStatic = this.toggleStatic.bind(this);
 
         this.handleStack = this.handleStack.bind(this);
         this.handleClasses = this.handleClasses.bind(this);
+        this.handleArrows = this.handleArrows.bind(this);
+        this.spawnAnchor = this.spawnAnchor.bind(this);
+        this.generateCode = this.generateCode.bind(this);
     }
 
     /* toggles the code editor */
@@ -108,6 +125,23 @@ int main() {
         this.setState(state => ({
             staticOpen: !state.staticOpen
         }));
+    }
+
+    toggleDrawInfo() {
+        this.setState(state => ({
+            drawInfoOpen: !state.drawInfoOpen
+        }));
+    }
+
+    toggleArrowConnectionPoints() {
+        this.setState(state => ({
+            arrowConnectionPointsOpen: !state.arrowConnectionPointsOpen
+        }));
+    }
+
+    /*handles something being dropped on the ARDrawArea */
+    handleARDrawAreaDrop(item) {
+        // alert("(in codedoodle) anchor dropped item: " + item);
     }
 
     /* 
@@ -190,6 +224,12 @@ ${val}`;
         }));
     }
 
+    handleStatic(frames) {
+        this.setState(state => ({
+            stat: frames
+        }));
+    }
+
     /* updates the classes */
     handleClasses(classList) {
         this.setState(state => ({
@@ -197,10 +237,31 @@ ${val}`;
         }));
     }
 
+    // might delete not currently in use
+    handleArrows(arrowList){
+        this.setState(state => ({
+            arrows: arrowList
+        }));
+    }
+
+    spawnAnchor() {
+        alert('spawning anchor')
+    }
+
+    generateCode(data) {
+        this.setState(state => ({
+            user_c_code: data,
+            value: data,
+            editorOpen: true,
+            drawOpen: false,
+            drawInfoOpen: false,
+        }));
+    }
+
     render() {
         const { user_c_code, user_cpp_code, language, value } = this.state;
-        const { stack, heap, stat, classes } = this.state;
-        const { editorOpen, drawOpen, stackOpen, heapOpen, staticOpen } = this.state;
+        const { stack, heap, stat, classes, arrows, anchors } = this.state;
+        const { editorOpen, drawOpen, stackOpen, heapOpen, staticOpen, drawInfoOpen, arrowConnectionPointsOpen } = this.state;
 
         return (
             <div className="App">
@@ -243,7 +304,9 @@ ${val}`;
 
                 <div className='base'>
                     <Toggalable toggle={drawOpen} alt={null}>
-                        <ARDiagramDrawArea
+                        <DroppableDrawArea
+                            drawInfoOpen={drawInfoOpen}
+                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                             static={stat}
                             staticOpen={staticOpen}
                             stack={stack}
@@ -253,7 +316,13 @@ ${val}`;
                             stat={stat}
                             classes={classes}
                             onStackChange={this.handleStack}
+                            onStaticChange={this.handleStatic}
                             onClassesChange={this.handleClasses}
+                            generateCode={this.generateCode}
+                            toggleDrawInfo={this.toggleDrawInfo}
+                            toggleArrowConnectionPoints={this.toggleArrowConnectionPoints}
+                            handleDrop={this.handleARDrawAreaDrop}
+                            spawnAnchor={this.spawnAnchor}
                         />
                     </Toggalable>
 
@@ -270,6 +339,12 @@ ${val}`;
                         />
                     </Toggalable>
                 </div>
+
+                {anchors.map((index) =>
+                    <Anchor key={index} number={1} >
+                        <h2 id={'anchor-1'} className='anchor'>anchor-1</h2>
+                    </Anchor>
+                )}
 
             </div >
         );

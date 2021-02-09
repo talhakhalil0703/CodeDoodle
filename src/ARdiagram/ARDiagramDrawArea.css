@@ -1,7 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */
 
 #drawArea {
-    font-family: 'Indie Flower', cursive;
+    /* font-family: 'Indie Flower', cursive; */
+    width: 100%;
+    height: 100%;
+}
+
+.drawSection {
+    width: 33.3%;
+    height: 100%;
+    overflow:hidden;
+    text-align: center;
+    background: #fee2e3;
+}
+
+#drawArea {
+    /* font-family: 'Indie Flower', cursive; */
     width: 100%;
     height: 100%;
 }

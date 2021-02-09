@@ -93,16 +93,17 @@ function Droppable(WrappedComponent) {
             var text = e.dataTransfer.getData('Text');
 
             /* information that is to be handled by Y's unique handleDrop function */
-            var value = this.props.value;
+            var { value, classes, id } = this.props;
 
             /* 
                 This is why step 3. is important!
                 This calls Y's handleDrop function and gets the new state from it
             */
-            value = WrappedComponent.prototype.handleDrop(text, value);
+            value = WrappedComponent.prototype.handleDrop(text, value, classes);
 
+            console.log('returned....');
             /* Passes the new state up to component X to be handled  */
-            this.props.handleDrop(value);
+            this.props.handleDrop(value, id);
         }
 
         /* 

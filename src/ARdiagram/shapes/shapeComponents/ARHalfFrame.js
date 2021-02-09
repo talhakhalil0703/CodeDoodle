@@ -1,6 +1,8 @@
 import React from 'react';
 import Variable from '../../../components/Variable';
-import ARArrayDrop from "../../ARArrayDrop"
+import Class from '../../../components/Class';
+import Droppable from '../../../components/Droppable';
+
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -10,46 +12,50 @@ import ARArrayDrop from "../../ARArrayDrop"
      - value: the variables to be displayed
      - onChange: access to StackFrames onChange function (handles changing variables)
 */
+
+const DroppableClass = Droppable(Class);
+
 export default class ARHalfFrame extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.handleVarChange = this.handleVarChange.bind(this);
-        this.handleArrayDrop = this.handleArrayDrop.bind(this);
+        this.handleClassDrops = this.handleClassDrops.bind(this);
     }
 
     getDefaultName(c, length) {
         return String.fromCharCode(c.charCodeAt(0) + length);
     }
 
-    handleDrop(text, value) {
+    handleDrop(text, value, classes) {
+
         var val = value;
+        var primitives = ['int', 'double', 'boolean', 'float', 'char'];
+        var name = this.getDefaultName('a', val.length);
 
         if (text === 'stack') {
             alert('stack frames cant be dropped here...')
-        } else if (text === "array") {
-            var name = this.getDefaultName('a', val.length);
+        } else if (!primitives.includes(text)) {
 
-            var new_var = {
-                type: text,
+            var the_class = classes.find(item => item.name === text);
+
+            var new_class = {
+                type: the_class.name,
                 name: name,
-                value: { array: [ [ {
-                    elementID: 1,
-                    elementValue: " "
-                }] ]}
+                value: the_class.variables,
+                return: '',
             };
 
-            val.push(new_var);
-        }
-        else {
+            val.push(new_class);
 
-            var name = this.getDefaultName('a', val.length);
+        } else {
 
             var new_var = {
                 type: text,
                 name: name,
-                value: '???'
+                value: '???',
+                return: ''
             };
 
             val.push(new_var);
@@ -57,11 +63,21 @@ export default class ARHalfFrame extends React.Component {
         return val;
     }
 
-    handleVarChange(var_id, name, val) {
+    handleVarChange(var_id, name, val, ret) {
         var value = this.props.value;
 
         value[var_id].name = name;
         value[var_id].value = val;
+        value[var_id].return = ret;
+
+        this.props.handleChange(value);
+    }
+
+    handleClassDrops(val, id) {
+
+        var value = this.props.value;
+
+        value[id].value = val;
 
         this.props.handleChange(value);
     }
@@ -75,42 +91,50 @@ export default class ARHalfFrame extends React.Component {
     }
 
     render() {
-        const { value } = this.props;
+        const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = this.props;
+        const primitives = ['int', 'double', 'boolean', 'float', 'char'];
         return (
             <div>
                 <h3>{this.props.name}</h3>
 
                 <ul className='local-variables'>
-                    {value.map((variable, index) => {
-                        if (variable.type === 'array') {
+                    {value.map((item, index) => {
+                        if (primitives.includes(item.type)) {
                             return (
                                 <li key={index}>
-                                    <ARArrayDrop 
-                                    id={index}
-                                    type={variable.type}
-                                    name={variable.name}
-                                    value={variable.value}
-                                    onChange={this.handleVarChange}
-                                    handleDrop={this.handleArrayDrop}
+                                    <Variable
+                                        id={index}
+                                        type={item.type}
+                                        name={item.name}
+                                        value={item.value}
+                                        ret={item.return}
+                                        drawInfoOpen={drawInfoOpen}
+                                        onChange={this.handleVarChange}
+                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                     />
                                 </li>
                             );
                         } else {
                             return (
-
                                 <li key={index}>
-                                    <Variable
+                                    <DroppableClass
                                         id={index}
-                                        type={variable.type}
-                                        name={variable.name}
-                                        value={variable.value}
+                                        type={item.type}
+                                        name={item.name}
+                                        value={item.value}
+                                        ret={item.return}
+                                        classes={classes}
+                                        drawInfoOpen={drawInfoOpen}
                                         onChange={this.handleVarChange}
+                                        handleDrop={this.handleClassDrops}
+                                        handleChange={this.handleClassDrops}
+                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                     />
-
                                 </li>
                             );
                         }
-
                     })}
                 </ul>
             </div>

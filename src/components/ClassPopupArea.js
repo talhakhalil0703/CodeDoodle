@@ -8,8 +8,8 @@ import ObjectFrame from '../ARdiagram/shapes/ObjectFrame'
 export default class ClassPopupArea extends React.Component {
     state = {
         popupOpen: false,
-        variables:[],
-        name:"unnamed",
+        variables: [],
+        name: "Unnamed",
     }
 
     setOpen = () => {
@@ -28,14 +28,14 @@ export default class ClassPopupArea extends React.Component {
         console.log("saving")
 
         var newClassItem = {
-            name:this.state.name,
-            variables:this.state.variables,
-            type:"class"
+            name: this.state.name,
+            variables: this.state.variables,
+            type: 'class'
         }
 
         this.setState(() => ({
-            variables:[],
-            name:"unnamed",
+            variables: [],
+            name: "Unnamed",
         }));
 
         var updatedClassList = this.props.classList
@@ -49,9 +49,14 @@ export default class ClassPopupArea extends React.Component {
         this.setState(() => ({
             variables: vars
         }));
-    } 
+    }
 
     handleClassNameChange = (newName) => {
+
+        if (newName.length > 0) {
+            newName = newName.replace(/^./, newName[0].toUpperCase());
+        }
+
         this.setState(() => ({
             name: newName
         }));
@@ -80,6 +85,7 @@ export default class ClassPopupArea extends React.Component {
                                         <ObjectFrame
                                             id={"CustomClassCreationObject"}
                                             value={this.state.variables}
+                                            classes={this.props.classList}
                                             handleDrop={this.handleClass}
                                             handleChange={this.handleClass}
                                             name={this.state.name}
@@ -92,8 +98,8 @@ export default class ClassPopupArea extends React.Component {
 
                                 <div id="ClassPopup_Dropbar-Container">
                                     <DrawingIcons
-                                        onClassListChange={this.props.onClassListChange} 
-                                        classList={this.props.classList} 
+                                        onClassListChange={this.props.onClassListChange}
+                                        classList={this.props.classList}
                                         showButton={false}
                                     />
                                 </div>

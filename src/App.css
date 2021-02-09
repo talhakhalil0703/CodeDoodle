@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 .header * {
   font-family: 'Indie Flower', cursive;
-}
+} */
 
 .App {
   width: 100%;
   display: grid;
   min-height: 100vh;
   grid-template-rows: 48px 1fr;
+}
+
+body {
+  overflow-x: hidden;
+  tab-size: 4;
 }
 
 body {

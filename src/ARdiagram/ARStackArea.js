@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
 
@@ -31,11 +30,11 @@ class ARStackArea extends Component {
             alert('only stack frames can be dropped here...')
         } else {
 
-            var name = 'untitled';
+            var name = 'void untitled';
 
             /* make the first stackframe main always */
             if (st.length === 0) {
-                name = 'main';
+                name = 'int main';
             }
 
             var new_frame = {
@@ -80,10 +79,10 @@ class ARStackArea extends Component {
     addStackFrame = () => {
 
         var st = this.props.value;
-        var name = 'untitled';
+        var name = 'void untitled';
 
         if (st.length === 0) {
-            name = 'main';
+            name = 'int main';
         }
 
         var new_frame = {
@@ -98,7 +97,7 @@ class ARStackArea extends Component {
     }
 
     render() {
-        const stack = this.props.value;
+        const { value, classes, drawInfoOpen, arrowConnectionPointsOpen } = this.props;
         return (
             <React.Fragment>
                 <h1>Stack</h1>
@@ -106,7 +105,7 @@ class ARStackArea extends Component {
                 <div id="allStackFrames">
                     <div className="stackFrameArea">
                         <ul>
-                            {stack.map((stack, index) => {
+                            {value.map((stack, index) => {
                                 return (
                                     <li key={index}>
                                         <StackFrame
@@ -114,9 +113,13 @@ class ARStackArea extends Component {
                                             name={stack.name}
                                             local={stack.local}
                                             args={stack.args}
+                                            classes={classes}
+                                            drawInfoOpen={drawInfoOpen}
+                                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                                             onNameChange={this.handleNameChange}
                                             onLocalChange={this.handleLocalChange}
                                             onArgsChange={this.handleArgsChange}
+                                            toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                                         />
                                     </li>
                                 );
