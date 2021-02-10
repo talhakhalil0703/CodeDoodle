@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import ReactDOM from 'react-dom'
 import Draggable from 'react-draggable';
+import './Anchor.css'
 
 /*
 // uses xArrow, but renders this element in another root div called arrow-root, this is in public/index.html after root
@@ -14,30 +16,25 @@ import Draggable from 'react-draggable';
 const arrowRoot = document.getElementById('arrow-root')
 
 const Anchor = (props) => {
-    // const [resizing, setResizing] = React.useState(false)
-
+    const dispatch = useDispatch()
     const el = document.createElement('div')
 
     useEffect(() => {
-        console.log('in anchor id: ' + props.number)
-        // const handleResize = () => {
-        //     console.log('resized')
-        //     setResizing(true)
-        // }
-
-        // window.addEventListener('resize', handleResize)
-
         arrowRoot.appendChild(el)
 
         return function cleanup() {
             arrowRoot.removeChild(el)
-            // window.removeEventListener('resize', handleResize)
-            // setResizing(false)
         }
     })
 
+    const handleDrag = () => {
+        console.log('dragging anchor')
+        
+        dispatch({type: 'anchor_moved'})
+    }
+
     return ReactDOM.createPortal(
-        <Draggable {...props}>
+        <Draggable className="anchor" {...props} onStop={handleDrag} >
             {props.children}
         </Draggable>,el
     )

@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import ReactDOM from 'react-dom'
 import Xarrow from "react-xarrows"
+import { useSelector } from 'react-redux'
 
 /*
 // uses xArrow, but renders this element in another root div called arrow-root, this is in public/index.html after root
@@ -15,25 +16,24 @@ import Xarrow from "react-xarrows"
 
 const arrowRoot = document.getElementById('arrow-root')
 
-const Arrow = (props) => {
+const Arrow = (props) => { 
     const [resizing, setResizing] = React.useState(false)
 
+    const anchorOnMoveToggle = useSelector(state => state.anchorOnMoveToggle)
     const el = document.createElement('div')
 
     const handleResize = () => {
+        alert(anchorOnMoveToggle)
         setResizing(true)
     }
 
     useEffect(() => {
         window.addEventListener('resize', handleResize)
-        // window.addEventListener('anchorDragging', handleResize)
-
         arrowRoot.appendChild(el)
 
         return function cleanup() {
             arrowRoot.removeChild(el)
             window.removeEventListener('resize', handleResize)
-            // window.removeEventListener('anchorDragging', handleResize)
             setResizing(false)
         }
     })
