@@ -6,9 +6,7 @@ import UploadButton from './UploadButton';
 import Toggalable from './Toggalable';
 import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
 import Droppable from './Droppable';
-import Draggable from 'react-draggable'
 import Anchor from './Anchor'
-import Xarrow from 'react-xarrows'
 
 /*
     The main component.
@@ -31,7 +29,6 @@ import Xarrow from 'react-xarrows'
 const DroppableDrawArea = Droppable(ARDiagramDrawArea);
 
 class CodeDoodle extends Component {
-
     constructor(props) {
         super(props);
 

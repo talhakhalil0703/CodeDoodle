@@ -34,7 +34,12 @@ const Anchor = (props) => {
     }
 
     return ReactDOM.createPortal(
-        <Draggable className="anchor" {...props} onStop={handleDrag} >
+        <Draggable 
+            {...props} 
+            defaultPosition={{x: 700, y: -300}} 
+            className="anchor" 
+            onStop={handleDrag} 
+        >
             {props.children}
         </Draggable>,el
     )

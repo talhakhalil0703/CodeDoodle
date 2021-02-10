@@ -11,14 +11,13 @@ import { useSelector } from 'react-redux'
 // also has event listener to change state of the arrow upon resizing of the window, this is simply to force the arrow to re-rener
 // so it shows up in the proper place 
 
-// need to make it listen for draggingAnchor event, to change state (which triggers re-render) to point to new anchor position
+<Xarrow headSize={0} {...props}/>,el -> this is for arrow without arrow head (reference arrow tyep)
 */
 
 const arrowRoot = document.getElementById('arrow-root')
 
 const Arrow = (props) => { 
     const [resizing, setResizing] = React.useState(false)
-
     const anchorOnMoveToggle = useSelector(state => state.anchorOnMoveToggle)
     const el = document.createElement('div')
 
@@ -39,7 +38,7 @@ const Arrow = (props) => {
     })
 
     return ReactDOM.createPortal(
-        <Xarrow {...props}/>,el
+        <Xarrow color='black' {...props}/>,el
     )
 
 }
