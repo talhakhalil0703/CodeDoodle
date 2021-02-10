@@ -3,7 +3,7 @@ const initialState = {
     anchors: [{divID:'anchor-1', initialPosition:{x:400,y:-300}}],
 };
 // anchors shows example of how to append payloads (upon clicking anchor button
-// )
+// new anchor is added to state.anchors (with divID=2) sent by DrawingIcons.js)
 
 function rootReducer(state = initialState, action) {
     if(state.anchors[1] !== undefined){alert(state.anchors[1].divID)}
