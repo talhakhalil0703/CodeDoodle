@@ -3,7 +3,7 @@ import './Variable.css';
 import EditableText from '../GeneralDiagrams/EditableText';
 import Toggalable from './Toggalable';
 import ClickMenu from '../GeneralDiagrams/SmallMenu'
-import Arrow from "../GeneralDiagrams/Arrow"
+import Arrow from "../GeneralDiagrams/Arrow/Arrow"
 
 /* 
     Component that makes up the variables of the application
