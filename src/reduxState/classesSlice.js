@@ -1,13 +1,12 @@
-// see arrows for explaination of slices
 import { createSlice } from '@reduxjs/toolkit';
 
-export const codeDoodleSlice = createSlice({
-    name: 'codeDoodle',
+export const classesSlice = createSlice({
+    name: 'classesSlice',
     initialState: {
-        classes: [],
+        classList: [],
     },
     reducers: {
-        addClass: state => {
+        addToList: state => {
             state.reRenderToggle = !state.reRenderToggle;
         }
     }

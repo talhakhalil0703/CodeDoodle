@@ -11,6 +11,7 @@ export const arrowSlice = createSlice({
         // when toggled, state changes for arrow, this causes a re-render
         // for now causes all arrows to re-render (easier) ????? how to make for each arrow
         reRenderToggle: true,
+        color: 'black',
     },
     reducers: {
         reRender: state => {
@@ -19,7 +20,7 @@ export const arrowSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
             state.reRenderToggle = !state.reRenderToggle;
-        }
+        },
     }
 });
 
