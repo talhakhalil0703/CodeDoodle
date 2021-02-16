@@ -8,6 +8,8 @@ import ARDiagramDrawArea from '../../ARdiagram/ARDiagramDrawArea';
 import Droppable from '../Droppable';
 import Anchor from '../anchor/Anchor'
 import { selectReRenderToggle } from '../../GeneralDiagrams/Arrow/arrowSlice';
+import { useDispatch,  useSelector} from 'react-redux'
+import {updateStack, selectStack} from "./stackSlice"
 
 /*
     The main component.
@@ -30,6 +32,8 @@ import { selectReRenderToggle } from '../../GeneralDiagrams/Arrow/arrowSlice';
 const DroppableDrawArea = Droppable(ARDiagramDrawArea);
 
 function CodeDoodle() {
+    const dispatch = useDispatch()
+
     const [render, setRender] = useState(false);
     const [editorOpen, setEditorOpen] = useState(false);
     const [drawOpen, setDrawOpen] = useState(true);
@@ -171,6 +175,7 @@ ${val}`;
     /* updates state of the stack section */
     const handleStack= (frames) => {
         setStack(frames);
+        // dispatch(updateStack(frames))
         toggleRender()
     }
 
@@ -248,7 +253,7 @@ ${val}`;
                         arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                         static={stat}
                         staticOpen={staticOpen}
-                        stack={stack}
+                        stack={useSelector(selectStack)}
                         stackOpen={stackOpen}
                         heap={heap}
                         heapOpen={heapOpen}
