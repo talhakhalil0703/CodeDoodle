@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './CodeDoodle.css';
 import CodePanel from '../CodePanel';
 import DownloadButton from '../DownloadButton';
@@ -7,6 +7,7 @@ import Toggalable from '../Toggalable';
 import ARDiagramDrawArea from '../../ARdiagram/ARDiagramDrawArea';
 import Droppable from '../Droppable';
 import Anchor from '../anchor/Anchor'
+import { selectReRenderToggle } from '../../GeneralDiagrams/Arrow/arrowSlice';
 
 /*
     The main component.
@@ -28,116 +29,81 @@ import Anchor from '../anchor/Anchor'
 
 const DroppableDrawArea = Droppable(ARDiagramDrawArea);
 
-class CodeDoodle extends Component {
-    constructor(props) {
-        super(props);
+function CodeDoodle() {
+    const [render, setRender] = useState(false);
+    const [editorOpen, setEditorOpen] = useState(false);
+    const [drawOpen, setDrawOpen] = useState(true);
+    const [drawInfoOpen, setDrawInfoOpen] = useState(false);
+    const [arrowConnectionPointsOpen, setArrowConnectionPointsOpen]= useState(false);
+    const [stackOpen, setStackOpen] = useState(true);
+    const [heapOpen, setHeapOpen] = useState(true);
+    const [staticOpen, setStaticOpen] = useState(true);
+    const [user_c_code, set_user_c_code] = useState(`#include <stdio.h>
+    int main() {
+    // printf() displays the string inside quotation
+    printf("Hello, World!");
+    return 0;
+    }`);
+    const [user_cpp_code, set_user_cpp_code] = useState( `// Your First C++ Program
 
-        this.state = {
-            editorOpen: false,
-            drawOpen: true,
-            drawInfoOpen: false,
-            arrowConnectionPointsOpen: false,
-            stackOpen: true,
-            heapOpen: true,
-            staticOpen: true,
-            user_c_code: `#include <stdio.h>
-int main() {
-   // printf() displays the string inside quotation
-   printf("Hello, World!");
-   return 0;
-}`,
-            user_cpp_code: `// Your First C++ Program
-
-#include <iostream>
-
-int main() {
+    #include <iostream>
+    
+    int main() {
     std::cout << "Hello World!";
     return 0;
-}`,
-            language: 'c',
-            value: `#include <stdio.h>
-int main() {
-   // printf() displays the string inside quotation
-   printf("Hello, World!");
-   return 0;
-}`,
-            stack: [],
-            heap: [],
-            stat: [],
-            classes: [],
-            anchors: [{number:1}],
-            arrows: [{fromRef:'var-b0', toDivID:'var-a0'}],
-        };
-
-        this.handleEditorChange = this.handleEditorChange.bind(this);
-        this.handleLanguageChange = this.handleLanguageChange.bind(this);
-        this.handleFileUpload = this.handleFileUpload.bind(this);
-        this.handleKeyDown = this.handleKeyDown.bind(this);
-
-        this.toggleEditor = this.toggleEditor.bind(this);
-        this.toggleDraw = this.toggleDraw.bind(this);
-        this.toggleDrawInfo = this.toggleDrawInfo.bind(this);
-        this.toggleArrowConnectionPoints = this.toggleArrowConnectionPoints.bind(this);
-        this.toggleStack = this.toggleStack.bind(this);
-        this.toggleHeap = this.toggleHeap.bind(this);
-        this.toggleStatic = this.toggleStatic.bind(this);
-
-        this.handleStack = this.handleStack.bind(this);
-        this.handleClasses = this.handleClasses.bind(this);
-        this.handleArrows = this.handleArrows.bind(this);
-        this.spawnAnchor = this.spawnAnchor.bind(this);
-        this.generateCode = this.generateCode.bind(this);
-    }
+    }`);
+    const [language, setLanguage] = useState('c');
+    const [value, setValue] = useState(`#include <stdio.h>
+    int main() {
+    // printf() displays the string inside quotation
+    printf("Hello, World!");
+    return 0;
+    }`);
+    const [stack, setStack] = useState([]);
+    const [heap, setHeap] = useState([]);
+    const [stat, setStat] = useState([]);
+    const [classes, setClasses] = useState([]);
+    const [anchors, setAnchors] = useState([{number:1}]);
+    const [arrows, setArrows] = useState([{fromRef:'var-b0', toDivID:'var-a0'}]);
 
     /* toggles the code editor */
-    toggleEditor() {
-        this.setState(state => ({
-            editorOpen: !state.editorOpen
-        }));
+    const toggleEditor = () => {
+        setEditorOpen(!editorOpen)
     }
 
     /* toggles the drawing editor */
-    toggleDraw() {
-        this.setState(state => ({
-            drawOpen: !state.drawOpen
-        }));
+    const toggleDraw = () => {
+        setDrawOpen(!drawOpen)
     }
 
     /* toggles the stack section */
-    toggleStack() {
-        this.setState(state => ({
-            stackOpen: !state.stackOpen
-        }));
+    const toggleStack = () => {
+        setStackOpen(!stackOpen)
     }
 
     /* toggles the heap section */
-    toggleHeap() {
-        this.setState(state => ({
-            heapOpen: !state.heapOpen
-        }));
+    const toggleHeap= () => {
+        setHeapOpen(!heapOpen)
+    }
+    const toggleRender= () => {
+        setRender(!render)
     }
 
     /* toggles the static section */
-    toggleStatic() {
-        this.setState(state => ({
-            staticOpen: !state.staticOpen
-        }));
+    const toggleStatic = () => {
+        setStaticOpen(!staticOpen)
     }
 
-    toggleDrawInfo() {
-        this.setState(state => ({
-            drawInfoOpen: !state.drawInfoOpen
-        }));
+    const toggleDrawInfo = () => {
+        setDrawInfoOpen(!drawInfoOpen)
     }
 
-    toggleArrowConnectionPoints() {
-        this.setState(state => ({
-            arrowConnectionPointsOpen: !state.arrowConnectionPointsOpen
-        }));
+    const toggleArrowConnectionPoints= () => {
+        setArrowConnectionPointsOpen(!arrowConnectionPointsOpen)
     }
 
     /*handles something being dropped on the ARDrawArea */
-    handleARDrawAreaDrop(item) {
+    const handleARDrawAreaDrop = (item) => {
         // alert("(in codedoodle) anchor dropped item: " + item);
     }
 
@@ -146,27 +112,21 @@ int main() {
         - value
         - user_c/cpp_code, whichever is currently selected
      */
-    handleEditorChange(val, lang) {
+    const handleEditorChange = (val, lang) => {
 
         switch (lang) {
             case 'c':
-                this.setState(state => ({
-                    user_c_code: val,
-                    value: val
-                }));
+                set_user_c_code(val)
+                setValue(val)
                 break;
 
             case 'cpp':
-                this.setState(state => ({
-                    user_cpp_code: val,
-                    value: val
-                }));
+                set_user_cpp_code(val)
+                setValue(val)
                 break;
-
             default:
                 alert('Something went wrong...')
                 break;
-
         }
     }
 
@@ -175,11 +135,9 @@ int main() {
          - language
          - value
     */
-    handleLanguageChange(val, lang) {
-        this.setState(state => ({
-            language: lang,
-            value: val
-        }));
+   const handleLanguageChange = (val, lang) => {
+        setLanguage(lang)
+        setValue(val)
     }
 
     /* 
@@ -187,165 +145,149 @@ int main() {
 
         * NOTE: the double space in final_val is intentional *
     */
-    handleFileUpload(val, lang, filename) {
+   const handleFileUpload = (val, lang, filename) => {
 
         var final_val = `/* Displaying contents of ${filename} */
         
 ${val}`;
 
-        this.handleEditorChange(final_val, lang);
+        handleEditorChange(final_val, lang);
     }
 
     /*
         Checks if tab was pressed on key down
         If tab was pressed indents content and cursor and updates state
     */
-    handleKeyDown(start, end, ref) {
-        this.setState(
-            prevState => ({
-                value:
-                    prevState.value.substring(0, start) + "    " + prevState.value.substring(end)
-            }),
-            /* Updates cursor position after state has been updated */
-            () => {
-                ref.selectionStart = ref.selectionEnd =
-                    start + 4;
-            }
-        );
+   //This might be broken
+   const handleKeyDown = (start, end, ref) =>{
+   
+        setValue(value.substring(0, start) + "    " + value.substring(end))
+        
+            ref.selectionStart = ref.selectionEnd =
+                start + 4;
+        
     }
 
     /* updates state of the stack section */
-    handleStack(frames) {
-        this.setState(state => ({
-            stack: frames
-        }));
+    const handleStack= (frames) => {
+        setStack(frames);
+        toggleRender()
     }
 
-    handleStatic(frames) {
-        this.setState(state => ({
-            stat: frames
-        }));
+    const handleStatic= (frames) => {
+        setStat(frames)
+        toggleRender()
     }
 
     /* updates the classes */
-    handleClasses(classList) {
-        this.setState(state => ({
-            classes: classList
-        }));
+    const handleClasses= (classList) => {
+        setClasses(classList)
+        toggleRender()
     }
 
     // might delete not currently in use
-    handleArrows(arrowList){
-        this.setState(state => ({
-            arrows: arrowList
-        }));
+    const handleArrows= (arrowList)=>{
+        setArrows(arrowList)
     }
 
-    spawnAnchor() {
+    const spawnAnchor=()=> {
         alert('spawning anchor')
     }
 
-    generateCode(data) {
-        this.setState(state => ({
-            user_c_code: data,
-            value: data,
-            editorOpen: true,
-            drawOpen: false,
-            drawInfoOpen: false,
-        }));
+    const generateCode= (data)=> {
+        set_user_c_code( data)
+        setValue(data)
+        setEditorOpen( true)
+        setDrawOpen(false)
+        setDrawInfoOpen( false)
     }
-
-    render() {
-        const { user_c_code, user_cpp_code, language, value } = this.state;
-        const { stack, heap, stat, classes, arrows, anchors } = this.state;
-        const { editorOpen, drawOpen, stackOpen, heapOpen, staticOpen, drawInfoOpen, arrowConnectionPointsOpen } = this.state;
-
-        return (
-            <div className="App">
-                <div className='header'>
-                    <ul>
-                        <div className='drop'>
-                            <button className='drop-btn'>File</button>
-                            <div className='drop-content'>
-                                <UploadButton onClick={this.handleFileUpload} />
-                                <DownloadButton extension='c' fileType='C' file={user_c_code} />
-                                <DownloadButton extension='cpp' fileType='C++' file={user_cpp_code} />
-                                {/* <DownloadButton fileType='Diagram' /> */}
-                            </div>
+    
+    return (
+        <div className="App">
+            <div className='header'>
+                <ul>
+                    <div className='drop'>
+                        <button className='drop-btn'>File</button>
+                        <div className='drop-content'>
+                            <UploadButton onClick={handleFileUpload} />
+                            <DownloadButton extension='c' fileType='C' file={user_c_code} />
+                            <DownloadButton extension='cpp' fileType='C++' file={user_cpp_code} />
+                            {/* <DownloadButton fileType='Diagram' /> */}
                         </div>
+                    </div>
 
-                        <div className='drop'>
-                            <button className='drop-btn'>Edit</button>
-                            <div className='drop-content'></div>
+                    <div className='drop'>
+                        <button className='drop-btn'>Edit</button>
+                        <div className='drop-content'></div>
+                    </div>
+
+                    <div className='drop'>
+                        <button className='drop-btn'>View</button>
+                        <div className='drop-content'>
+                            <button onClick={toggleEditor}><Toggalable toggle={editorOpen} alt={'View'}>Hide</Toggalable> Editor</button>
+                            <button onClick={toggleDraw}><Toggalable toggle={drawOpen} alt={'View'}>Hide</Toggalable> Draw</button>
+                            <button onClick={toggleStack}><Toggalable toggle={stackOpen} alt={'View'}>Hide</Toggalable> Stack</button>
+                            <button onClick={toggleHeap}><Toggalable toggle={heapOpen} alt={'View'}>Hide</Toggalable> Heap</button>
+                            <button onClick={toggleStatic}><Toggalable toggle={staticOpen} alt={'View'}>Hide</Toggalable> Static</button>
                         </div>
+                    </div>
 
-                        <div className='drop'>
-                            <button className='drop-btn'>View</button>
-                            <div className='drop-content'>
-                                <button onClick={this.toggleEditor}><Toggalable toggle={editorOpen} alt={'View'}>Hide</Toggalable> Editor</button>
-                                <button onClick={this.toggleDraw}><Toggalable toggle={drawOpen} alt={'View'}>Hide</Toggalable> Draw</button>
-                                <button onClick={this.toggleStack}><Toggalable toggle={stackOpen} alt={'View'}>Hide</Toggalable> Stack</button>
-                                <button onClick={this.toggleHeap}><Toggalable toggle={heapOpen} alt={'View'}>Hide</Toggalable> Heap</button>
-                                <button onClick={this.toggleStatic}><Toggalable toggle={staticOpen} alt={'View'}>Hide</Toggalable> Static</button>
-                            </div>
+                    <div className='drop'>
+                        <button className='drop-btn'>Help</button>
+                        <div className='drop-content'>
+
                         </div>
+                    </div>
+                </ul>
+            </div>
 
-                        <div className='drop'>
-                            <button className='drop-btn'>Help</button>
-                            <div className='drop-content'>
+            <div className='base'>
+                <Toggalable toggle={drawOpen} alt={null}>
+                    <DroppableDrawArea
+                        drawInfoOpen={drawInfoOpen}
+                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                        static={stat}
+                        staticOpen={staticOpen}
+                        stack={stack}
+                        stackOpen={stackOpen}
+                        heap={heap}
+                        heapOpen={heapOpen}
+                        stat={stat}
+                        classes={classes}
+                        onStackChange={handleStack}
+                        onStaticChange={handleStatic}
+                        onClassesChange={handleClasses}
+                        generateCode={generateCode}
+                        toggleDrawInfo={toggleDrawInfo}
+                        toggleArrowConnectionPoints={toggleArrowConnectionPoints}
+                        handleDrop={handleARDrawAreaDrop}
+                        spawnAnchor={spawnAnchor}
+                    />
+                </Toggalable>
 
-                            </div>
-                        </div>
-                    </ul>
-                </div>
+                <Toggalable toggle={editorOpen} alt={null}>
+                    <CodePanel
+                        c={user_c_code}
+                        cpp={user_cpp_code}
+                        language={language}
+                        value={value}
+                        onChange={handleEditorChange}
+                        onClick={handleLanguageChange}
+                        onKeyDown={handleKeyDown}
+                        onUpload={handleFileUpload}
+                    />
+                </Toggalable>
+            </div>
 
-                <div className='base'>
-                    <Toggalable toggle={drawOpen} alt={null}>
-                        <DroppableDrawArea
-                            drawInfoOpen={drawInfoOpen}
-                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                            static={stat}
-                            staticOpen={staticOpen}
-                            stack={stack}
-                            stackOpen={stackOpen}
-                            heap={heap}
-                            heapOpen={heapOpen}
-                            stat={stat}
-                            classes={classes}
-                            onStackChange={this.handleStack}
-                            onStaticChange={this.handleStatic}
-                            onClassesChange={this.handleClasses}
-                            generateCode={this.generateCode}
-                            toggleDrawInfo={this.toggleDrawInfo}
-                            toggleArrowConnectionPoints={this.toggleArrowConnectionPoints}
-                            handleDrop={this.handleARDrawAreaDrop}
-                            spawnAnchor={this.spawnAnchor}
-                        />
-                    </Toggalable>
+            {anchors.map((index) =>
+                <Anchor key={index} number={1} >
+                    <h2 id={'anchor-1'} className='anchor'>anchor-1</h2>
+                </Anchor>
+            )}
 
-                    <Toggalable toggle={editorOpen} alt={null}>
-                        <CodePanel
-                            c={user_c_code}
-                            cpp={user_cpp_code}
-                            language={language}
-                            value={value}
-                            onChange={this.handleEditorChange}
-                            onClick={this.handleLanguageChange}
-                            onKeyDown={this.handleKeyDown}
-                            onUpload={this.handleFileUpload}
-                        />
-                    </Toggalable>
-                </div>
-
-                {anchors.map((index) =>
-                    <Anchor key={index} number={1} >
-                        <h2 id={'anchor-1'} className='anchor'>anchor-1</h2>
-                    </Anchor>
-                )}
-
-            </div >
-        );
-    }
+        </div >
+    );
+    
 }
 
 export default CodeDoodle;
