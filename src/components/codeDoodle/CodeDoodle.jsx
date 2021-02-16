@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './CodeDoodle.css';
-import CodePanel from './CodePanel';
-import DownloadButton from './DownloadButton';
-import UploadButton from './UploadButton';
-import Toggalable from './Toggalable';
-import ARDiagramDrawArea from '../ARdiagram/ARDiagramDrawArea';
-import Droppable from './Droppable';
-import Anchor from './Anchor'
+import CodePanel from '../CodePanel';
+import DownloadButton from '../DownloadButton';
+import UploadButton from '../UploadButton';
+import Toggalable from '../Toggalable';
+import ARDiagramDrawArea from '../../ARdiagram/ARDiagramDrawArea';
+import Droppable from '../Droppable';
+import Anchor from '../anchor/Anchor'
 
 /*
     The main component.

@@ -1,7 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 import ReactDOM from 'react-dom'
-import Xarrow from "react-xarrows"
-import { useSelector } from 'react-redux'
+import Draggable from 'react-draggable';
+import './Anchor.css'
+import {
+    reRender as reRenderArrows,
+} from '../../GeneralDiagrams/Arrow/arrowSlice'
 
 /*
 // uses xArrow, but renders this element in another root div called arrow-root, this is in public/index.html after root
@@ -10,37 +14,39 @@ import { useSelector } from 'react-redux'
 
 // also has event listener to change state of the arrow upon resizing of the window, this is simply to force the arrow to re-rener
 // so it shows up in the proper place 
-
-<Xarrow headSize={0} {...props}/>,el -> this is for arrow without arrow head (reference arrow tyep)
 */
 
 const arrowRoot = document.getElementById('arrow-root')
 
-const Arrow = (props) => { 
-    const [resizing, setResizing] = React.useState(false)
-    const anchorOnMoveToggle = useSelector(state => state.anchorOnMoveToggle)
+const Anchor = (props) => {
+    const dispatch = useDispatch()
     const el = document.createElement('div')
 
-    const handleResize = () => {
-        alert(anchorOnMoveToggle)
-        setResizing(true)
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize)
         arrowRoot.appendChild(el)
 
         return function cleanup() {
             arrowRoot.removeChild(el)
-            window.removeEventListener('resize', handleResize)
-            setResizing(false)
         }
     })
 
+    const handleDrag = () => {
+        console.log('dragging anchor')
+        
+        dispatch(reRenderArrows())
+    }
+
     return ReactDOM.createPortal(
-        <Xarrow color='black' {...props}/>,el
+        <Draggable 
+            {...props} 
+            defaultPosition={{x: 700, y: -300}} 
+            className="anchor" 
+            onStop={handleDrag} 
+        >
+            {props.children}
+        </Draggable>,el
     )
 
 }
 
-export default Arrow
+export default Anchor

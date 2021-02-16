@@ -4,14 +4,13 @@ import EditableText from '../GeneralDiagrams/EditableText';
 import './Class.css';
 import Droppable from './Droppable';
 import Toggalable from  './Toggalable'
-import Arrow from "../GeneralDiagrams/Arrow"
-import Xarrow from 'react-xarrows'
+import Arrow from "../GeneralDiagrams/Arrow/Arrow"
 import ClickMenu from '../GeneralDiagrams/SmallMenu'
 import ARArrayDrop from "../ARdiagram/ARArrayDrop"
 
 /* Can display nested classes, but cannot handle dropping of classes onto classes right now */
 class Class extends React.Component {
-
+    
     constructor(props) {
         super(props);
 
