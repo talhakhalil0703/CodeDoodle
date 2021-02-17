@@ -424,6 +424,7 @@ class ARDiagramDrawArea extends Component {
 
             <Toggalable toggle={stackOpen} alt={null}>
               <div className="drawSection" id="stackArea">
+                
                 <DroppableStack
                   value={stack}
                   classes={classes}
@@ -433,6 +434,7 @@ class ARDiagramDrawArea extends Component {
                   arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                   toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
                 />
+                {console.log("ARdiagramDrawArea Stack")}
               </div>
             </Toggalable>
 

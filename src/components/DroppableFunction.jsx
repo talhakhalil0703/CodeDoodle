@@ -57,7 +57,7 @@ import React, { Component } from 'react';
 */
 
 /* Droppable receives a component as an argument (i.e. Y in running example)... */
-function Droppable(WrappedComponent) {
+function Droppable (WrappedComponent) {
     /* ... and will return another component (i.e. <NewComponentName> in step 1.)*/
     return class extends Component {
         constructor(props) {
@@ -99,16 +99,14 @@ function Droppable(WrappedComponent) {
                 This is why step 3. is important!
                 This calls Y's handleDrop function and gets the new state from it
             */
-            console.log("Droppable Regular")
-            // console.log(WrappedComponent().handleDrop(text, value, classes))
-            console.log(text)
-            console.log(value)
-            console.log(classes)
-            value = WrappedComponent.prototype.handleDrop(text, value, classes);
+            console.log("Droppable Function")
+            console.log(text);
+            this.props.handleDrop(this.props, text);
 
-            console.log('returned....');
-            /* Passes the new state up to component X to be handled  */
-            this.props.handleDrop(value, id);
+            // value = WrappedComponent.prototype.handleDrop(text, value, classes);
+            // console.log('returned....');
+            // /* Passes the new state up to component X to be handled  */
+            // this.props.handleDrop(value, id);
         }
 
         /* 
@@ -122,6 +120,8 @@ function Droppable(WrappedComponent) {
         render() {
             return (
                 <div className='droppable' ref={this.dropRef} >
+                    {console.log("DroppableFunction Return")}
+                    {console.log(this.props)}
                     <WrappedComponent {...this.props} />
                 </div >
             );

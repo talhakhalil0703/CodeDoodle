@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
+import { useDispatch,  useSelector} from 'react-redux'
+import {addStackFrame,addToSingleStack, selectStack} from "../components/codeDoodle/stackSlice"
 
 /* 
     Component makes up the stack section of the application, displays and populates all stackframes
@@ -10,18 +12,12 @@ import StackFrame from './shapes/StackFrame'
      - stack: all info in the stack section
      - onStackChange: access to ARDiagramDrawArea onStackChange function
 */
-class ARStackArea extends Component {
+const ARStackArea = (props) => {
 
-    constructor(props) {
-        super(props);
-
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleLocalChange = this.handleLocalChange.bind(this);
-        this.handleArgsChange = this.handleArgsChange.bind(this);
-    }
+    const dispatch = useDispatch()
 
     /* handles drag and drop of stackframes onto stack area (not currently used) */
-    handleDrop(text, value) {
+    const handleDrop = (text, value) => {
 
         var st = value;
 
@@ -49,87 +45,95 @@ class ARStackArea extends Component {
     }
 
     /* handles changing a stackframes name */
-    handleNameChange(id, name) {
+    const handleNameChange = (id, name) => {
 
-        var frames = this.props.value;
+        var frames = props.value;
         frames[id].name = name;
 
-        this.props.handleChange(frames);
+        props.handleChange(frames);
     }
 
     /* handles changing a local variable in a stackframe */
-    handleLocalChange(id, loc) {
+    const handleLocalChange = (text, local) => {
+        console.log("ARStackArea Local")
+        console.log(local)
+        console.log(text)
+        dispatch(addToSingleStack({local, text}))
+        // var frames = props.value;
+        // frames[id].local = loc;
 
-        var frames = this.props.value;
-        frames[id].local = loc;
-
-        this.props.handleChange(frames);
+        // props.handleChange(frames);
     }
 
     /* handles changing arguments of a stackframe */
-    handleArgsChange(id, arg) {
+    const handleArgsChange= (id, arg)=> {
 
-        var frames = this.props.value;
+        var frames = props.value;
         frames[id].args = arg;
 
-        this.props.handleChange(frames);
+        props.handleChange(frames);
     }
 
     /* creates a new stack frame */
-    addStackFrame = () => {
+    const incrementStack = () => {
 
-        var st = this.props.value;
-        var name = 'void untitled';
+        // var st = this.props.value;
+        // var name = 'void untitled';
 
-        if (st.length === 0) {
-            name = 'int main';
-        }
+        // if (st.length === 0) {
+        //     name = 'int main';
+        // }
 
-        var new_frame = {
-            name: name,
-            local: [],
-            args: []
-        };
+        // var new_frame = {
+        //     name: name,
+        //     local: [],
+        //     args: []
+        // };
 
-        st.push(new_frame);
+        // st.push(new_frame);
 
-        this.props.handleChange(st);
+        // this.props.handleChange(st);
+        console.log("incremeting stack")
+        dispatch(addStackFrame());
     }
 
-    render() {
-        const { value, classes, drawInfoOpen, arrowConnectionPointsOpen } = this.props;
-        return (
-            <React.Fragment>
-                <h1>Stack</h1>
-                <button onClick={this.addStackFrame}>Add</button>
-                <div id="allStackFrames">
-                    <div className="stackFrameArea">
-                        <ul>
-                            {value.map((stack, index) => {
-                                return (
-                                    <li key={index}>
-                                        <StackFrame
-                                            id={index}
-                                            name={stack.name}
-                                            local={stack.local}
-                                            args={stack.args}
-                                            classes={classes}
-                                            drawInfoOpen={drawInfoOpen}
-                                            arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                                            onNameChange={this.handleNameChange}
-                                            onLocalChange={this.handleLocalChange}
-                                            onArgsChange={this.handleArgsChange}
-                                            toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
-                                        />
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </ div>
-                </div>
-            </React.Fragment>
-        );
-    }
+   
+    const {  classes, drawInfoOpen, arrowConnectionPointsOpen } = props;
+    const value = useSelector(selectStack)
+    return (
+        <React.Fragment>
+            {console.log("ARStackArea Render")}
+            {console.log(value)}
+            <h1>Stack</h1>
+            <button onClick={()=>incrementStack()}>Add</button>
+            <div id="allStackFrames">
+                <div className="stackFrameArea">
+                    <ul>
+                        {value.map((stack, index) => {
+                            return (
+                                <li key={index}>
+                                    <StackFrame
+                                        id={index}
+                                        name={stack.name}
+                                        local={stack.local}
+                                        args={stack.args}
+                                        classes={classes}
+                                        drawInfoOpen={drawInfoOpen}
+                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                        onNameChange={()=>handleNameChange()}
+                                        onLocalChange={(id, loc)=>handleLocalChange(id, loc)}
+                                        onArgsChange={()=>handleArgsChange()}
+                                        toggleArrowConnectionPoints={props.toggleArrowConnectionPoints}
+                                    />
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </ div>
+            </div>
+        </React.Fragment>
+    );
+    
 }
 
 export default ARStackArea;

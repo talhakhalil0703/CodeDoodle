@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ARArray from "./ARArray"
-import Droppable from '../components/Droppable'
+import Droppable from '../components/DroppableFunction'
 
 
 const DroppableArray = Droppable(ARArray)
@@ -13,13 +13,23 @@ class ARArrayDrop extends Component {
         this.onChange = this.onChange.bind(this)
     }
 
-    handleDrop(text){ //In here we can handle what the drop type was and reject if it doesn't fit our data type
+    handleDrop(values, text){ //In here we can handle what the drop type was and reject if it doesn't fit our data type
         console.log('ARArrayDrop handleDrop value:');
-        console.log(this.props)
+        console.log(values);
+        console.log(text);
+        let index = 0
+        if (values.value.array.length >= 2){
+            index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
+        }
 
-        console.log(text)
-        const { id, name, value } = this.props;
-        this.props.handleDrop(id, name, value)
+        if (text === "int"){ //TODO: instead check if text equals type we have, if so add, else don't add, add type checking into Element
+            console.log("Dropping int")
+            
+            let newArray = [...values.value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+            values.value.array[index] = newArray;            
+        }
+        
+        this.props.handleDrop(values.id, values.name, values.value)
     }
 
     onChange(value){

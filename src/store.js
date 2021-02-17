@@ -7,4 +7,5 @@ export default configureStore({
         arrow: arrowReducer,
         stack: stackReducer
     },
+  
 })

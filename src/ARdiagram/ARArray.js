@@ -2,35 +2,26 @@ import React, { Component } from "react"
 import './ARArray.css'
 import ARArrayElement from "./ARArrayElement"
 
-class ARArray extends Component {
+const ARArray = (props) => {
 
-    constructor(props) {
-        super(props)
-
-        this.addElement = this.addElement.bind(this)
-        this.removeElement = this.removeElement.bind(this)
-        this.changeElementValue = this.changeElementValue.bind(this)
-        this.handleDrop = this.handleDrop.bind(this)
-    }
-
-    addElement() {
-        let value = this.props.value
+    const addElement = () => {
+        let value = props.value
         let newElement = [...value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
         value.element = newElement;  
-        this.props.onChange(value)
+        props.onChange(value)
     }
 
-    removeElement(id) { // Need to do double array traversal... mighe be slow?
-        let value = this.props.value
+    const  removeElement =(id) => { // Need to do double array traversal... mighe be slow?
+        let value = props.value
         value.array.forEach((singleArray, index, arrays) => {arrays[index] = arrays[index].filter(element => element.elementID !== id);})//foreach takes three arguments, the element, index, and the array itself
         console.log(value)
-        this.props.onChange(value)
+        props.onChange(value)
         value.array.forEach((singleArray, index, arrays) => {if(singleArray.length === 0){arrays = arrays.splice(index, 1);}})//If empty remove the array it self
         //TODO: Remove array if all elements are removed from it, need parent to do this
     }
 
-    changeElementValue(id, elementValue) { // Need to do double array traversal... might be slow? Not too many elements for it to be slow
-        let value = this.props.value
+    const changeElementValue = (id, elementValue) => { // Need to do double array traversal... might be slow? Not too many elements for it to be slow
+        let value = props.value
         value.array.forEach(array => {
             array.forEach(element =>{
                 if (element.elementID === id) {
@@ -38,11 +29,11 @@ class ARArray extends Component {
                 }
             })
         })
-        this.props.onChange(value)
+        props.onChange(value)
         
     }
 
-    handleDrop(text, value){ //Reminder child's handleDrop does not have access to the this pointer
+    const handleDrop = (text, value) => { //Reminder child's handleDrop does not have access to the this pointer
         console.log('ARArray handleDrop props');
         console.log(value)
         
@@ -73,26 +64,22 @@ class ARArray extends Component {
         
     }
 
-    render() {
-        console.log("Render props")
-        console.log(this.props)
-
-        return (
-            <div className="array">
-                {this.props.value.array.map((singleArray) => ( //Map only works with arrays, you can nest maps
-                    <div className="mainArray">
-                        {singleArray.map((element) => (<ARArrayElement key={element.elementID}
-                                                            id = {element.elementID}
-                                                            name = {element.elementValue}
-                                                            removeElement = {this.removeElement}
-                                                            changeElement={this.changeElementValue}
-                                                            className="element"                
-                        />))}
-                    </div>
-                ))}
-            </div>
-        )
-    }
+    return (
+        <div className="array">
+            {props.value.array.map((singleArray) => ( //Map only works with arrays, you can nest maps
+                <div className="mainArray" key = {Math.floor(Math.random() * 1000)}>
+                    {singleArray.map((element) => (<ARArrayElement key={element.elementID}
+                                                        id = {element.elementID}
+                                                        name = {element.elementValue}
+                                                        removeElement = {removeElement}
+                                                        changeElement={changeElementValue}
+                                                        className="element"                
+                    />))}
+                </div>
+            ))}
+        </div>
+    )
+    
 
 }
 

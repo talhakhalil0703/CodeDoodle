@@ -174,8 +174,8 @@ ${val}`;
 
     /* updates state of the stack section */
     const handleStack= (frames) => {
-        setStack(frames);
-        // dispatch(updateStack(frames))
+        // setStack(frames);
+        dispatch(updateStack(frames))   
         toggleRender()
     }
 
@@ -248,6 +248,14 @@ ${val}`;
 
             <div className='base'>
                 <Toggalable toggle={drawOpen} alt={null}>
+                    {
+                        //Remove me later
+                        console.log("Codedoodle")
+                       
+                    }
+                    {
+                         console.log(useSelector(selectStack))
+                    }
                     <DroppableDrawArea
                         drawInfoOpen={drawInfoOpen}
                         arrowConnectionPointsOpen={arrowConnectionPointsOpen}

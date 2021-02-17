@@ -1,7 +1,7 @@
 import React from 'react';
 import Variable from '../../../components/Variable';
 import Class from '../../../components/Class';
-import Droppable from '../../../components/Droppable';
+import Droppable from '../../../components/DroppableFunction';
 import ARArrayDrop from "../../ARArrayDrop"
 
 /* 
@@ -16,25 +16,21 @@ import ARArrayDrop from "../../ARArrayDrop"
 
 const DroppableClass = Droppable(Class);
 
-export default class ARHalfFrame extends React.Component {
+const ARHalfFrame = (props) => {
 
-    constructor(props) {
-        super(props);
-
-        this.handleVarChange = this.handleVarChange.bind(this);
-        this.handleClassDrops = this.handleClassDrops.bind(this);
-        this.handleArrayDrop = this.handleArrayDrop.bind(this);
-    }
-
-    getDefaultName(c, length) {
+    const getDefaultName = (c, length) => {
         return String.fromCharCode(c.charCodeAt(0) + length);
     }
 
-    handleDrop(text, value, classes) {
+    const handleDrop= (text, value, classes) => {
+        console.log("ARHalfFrame")
+        console.log(text)
+        console.log(value)
+        console.log(classes)
 
         var val = value;
         var primitives = ['int', 'double', 'boolean', 'float', 'char'];
-        var name = this.getDefaultName('a', val.length);
+        var name = getDefaultName('a', val.length);
 
         if (text === 'stack') {
             alert('stack frames cant be dropped here...')
@@ -71,104 +67,112 @@ export default class ARHalfFrame extends React.Component {
                 return: ''
             };
 
+            console.log(val);
+            console.log(new_var);
+
             val.push(new_var);
+            console.log(val);
         }
         return val;
     }
 
-    handleVarChange(var_id, name, val, ret) {
-        var value = this.props.value;
+    const handleVarChange= (var_id, name, val, ret) => {
+        var value = props.value;
 
         value[var_id].name = name;
         value[var_id].value = val;
         value[var_id].return = ret;
 
-        this.props.handleChange(value);
+        props.handleChange(value);
     }
 
-    handleClassDrops(val, id) {
+    const handleClassDrops = (val, id) => {
         console.log("in halfframe class drop")
         console.log(val)
         console.log(id)
-        var value = this.props.value;
+        var value = props.value;
 
         value[id].value = val;
 
-        this.props.handleChange(value);
+        props.handleChange(value);
     }
    
-    handleArrayDrop(id, name, val){
-        var value = this.props.value;
+    const handleArrayDrop = (id, name, val) =>{
+        var value = props.value;
         value[id].name = name;
         value[id].value = val;
 
-        this.props.handleChange(value);
+        props.handleChange(value);
     }
 
-    render() {
-        const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = this.props;
-        const primitives = ['int', 'double', 'boolean', 'float', 'char'];
-        return (
-            <div>
-                <h3>{this.props.name}</h3>
 
-                <ul className='local-variables'>
-                    {value.map((item, index) => {
-                        if (primitives.includes(item.type)) {
-                            return (
-                                <li key={index}>
-                                    <Variable
-                                        id={index}
-                                        type={item.type}
-                                        name={item.name}
-                                        value={item.value}
-                                        ret={item.return}
-                                        drawInfoOpen={drawInfoOpen}
-                                        onChange={this.handleVarChange}
-                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
-                                    />
-                                </li>
-                            );
-                        }else if (item.type === 'array') {
-                            return (
-                                <li key={index}>
-                                    <ARArrayDrop 
+    const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = props;
+    const primitives = ['int', 'double', 'boolean', 'float', 'char'];
+    return (
+        
+        <div>
+            {console.log("ARHalfFrame render")}
+            {console.log(props)}
+            <h3>{props.name}</h3>
+            <ul className='local-variables'>
+                {value.map((item, index) => {
+                    if (primitives.includes(item.type)) {
+                        return (
+                            <li key={index}>
+                                <Variable
                                     id={index}
                                     type={item.type}
                                     name={item.name}
                                     value={item.value}
-                                    onChange={this.handleVarChange}
-                                    handleDrop={this.handleArrayDrop}
-                                    handleChange={this.handleArrayDrop}
+                                    ret={item.return}
+                                    drawInfoOpen={drawInfoOpen}
+                                    onChange={() => handleVarChange()}
+                                    arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                    toggleArrowConnectionPoints={props.toggleArrowConnectionPoints}
+                                />
+                            </li>
+                        );
+                    }else if (item.type === 'array') {
+                        return (
+                            <li key={index}>
+                                <ARArrayDrop 
+                                id={index}
+                                type={item.type}
+                                name={item.name}
+                                value={item.value}
+                                onChange={() =>handleVarChange()}
+                                handleDrop={() =>handleArrayDrop()}
+                                handleChange={() =>handleArrayDrop()}
 
-                                    />
-                                </li>
-                            );
-                        }else {
-                            return (
-                                <li key={index}>
-                                    <DroppableClass
-                                        id={index}
-                                        type={item.type}
-                                        name={item.name}
-                                        value={item.value}
-                                        ret={item.return}
-                                        classes={classes}
-                                        drawInfoOpen={drawInfoOpen}
-                                        onChange={this.handleVarChange}
-                                        handleDrop={this.handleClassDrops}
-                                        handleChange={this.handleClassDrops}
-                                        arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                                        toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
-                                    />
-                                </li>
-                            );
-                        }
-                    })}
-                </ul>
-            </div>
-        );
-    }
+                                />
+                            </li>
+                        );
+                    }else {
+                        return (
+                            <li key={index}>
+                                <DroppableClass
+                                    id={index}
+                                    type={item.type}
+                                    name={item.name}
+                                    value={item.value}
+                                    ret={item.return}
+                                    classes={classes}
+                                    drawInfoOpen={drawInfoOpen}
+                                    onChange={() =>handleVarChange()}
+                                    handleDrop={() =>handleClassDrops()}
+                                    handleChange={() =>handleClassDrops()}
+                                    arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+                                    toggleArrowConnectionPoints={props.toggleArrowConnectionPoints}
+                                />
+                            </li>
+                        );
+                    }
+                })}
+            </ul>
+        </div>
+    );
+    
 
 }
+
+export default ARHalfFrame

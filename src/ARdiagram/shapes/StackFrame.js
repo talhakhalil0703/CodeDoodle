@@ -3,7 +3,7 @@ import './StackFrame.css'
 import '../../GeneralDiagrams/HandDrawnBoxes.css'
 import ARHalfFrame from './shapeComponents/ARHalfFrame'
 import EditableText from '../../GeneralDiagrams/EditableText'
-import Droppable from '../../components/Droppable';
+import Droppable from '../../components/DroppableFunction';
 
 /*  
   StackFrame component makes up a stackframe on the application, creates a local and argument half-frame
@@ -30,11 +30,14 @@ export default class StackFrame extends Component {
     this.handleArgs = this.handleArgs.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
   }
+  
 
   /* handles dropping a new variable into the local variable area */
-  handleLocal(local) {
+  handleLocal(local, text) {
+    console.log("StackFrame")
+    console.log(local)
     const id = this.props.id;
-    this.props.onLocalChange(id, local);
+    this.props.onLocalChange(text, local);
   }
 
   /* handles dropping a new variable into the args variable area */
@@ -65,6 +68,7 @@ export default class StackFrame extends Component {
             <div ref={this.local} className="frame local">
               <DroppableHalfFrame
                 name="Local"
+                id ={this.props.id}
                 value={local}
                 classes={classes}
                 drawInfoOpen={drawInfoOpen}
@@ -79,6 +83,8 @@ export default class StackFrame extends Component {
               <DroppableHalfFrame
                 name="Arguments"
                 value={args}
+                id ={this.props.id}
+
                 classes={classes}
                 drawInfoOpen={false}
                 arrowConnectionPointsOpen={arrowConnectionPointsOpen}
