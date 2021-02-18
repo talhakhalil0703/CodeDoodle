@@ -22,8 +22,10 @@ const ARArrayDrop = (props) => {
     }
 
     const onChange = (value) =>{
-        const { id, name } = this.props;
-        this.props.onChange(id, name, value)
+       console.log("ARArrayDrop onChange")
+       console.log(props)
+        // const { id, name } = this.props;
+        // this.props.onChange(id, name, value)
     }
 
     return (

@@ -15,17 +15,16 @@ const ARArray = (props) => {
     const changeElementValue = (id, elementValue) => { // Need to do double array traversal... might be slow? Not too many elements for it to be slow
         console.log("Array Element Change")
         console.log(id)
-        console.log(elementValue)
-        let value = props.value
-        value.array.forEach(array => {
-            array.forEach(element =>{
-                if (element.elementID === id) {
-                    element.elementValue = elementValue
-                }
-            })
-        })
-        props.onChange(value)
-        
+        console.log(props)
+        // let value = props.value
+        // value.array.forEach(array => {
+        //     array.forEach(element =>{
+        //         if (element.elementID === id) {
+        //             element.elementValue = elementValue
+        //         }
+        //     })
+        // })
+        props.onChange(props)
     }
 
     return (

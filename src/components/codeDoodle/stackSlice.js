@@ -87,7 +87,9 @@ export const stackSlice = createSlice({
             let variableID = action.payload.props.variableID
             let dropType = action.payload.text
             let index = action.payload.index
-            if (dropType === "int"){
+            var primitives = ['int', 'double', 'boolean', 'float', 'char'];
+
+            if (primitives.includes(dropType)){
                 state.stack.map((stackFrame)=>{
                     stackFrame.local.map((variable)=>{
                         if(variable.variableID === variableID){
@@ -118,6 +120,7 @@ export const stackSlice = createSlice({
                         }
                         return(variable)
                     })
+                    return stackFrame
                 })
             }
         }

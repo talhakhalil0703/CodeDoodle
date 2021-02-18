@@ -18,66 +18,9 @@ const DroppableClass = Droppable(Class);
 
 const ARHalfFrame = (props) => {
 
-    // const getDefaultName = (c, length) => {
-    //     return String.fromCharCode(c.charCodeAt(0) + length);
-    // }
-
-    const handleDrop= (text, value, classes) => {
-        console.log("ARHalfFrame")
-        console.log(text)
-        console.log(value)
-        console.log(classes)
-
-        // var val = value;
-        // var primitives = ['int', 'double', 'boolean', 'float', 'char'];
-        // var name = getDefaultName('a', val.length);
-
-        // if (text === 'stack') {
-        //     alert('stack frames cant be dropped here...')
-        // } else if (text === "array") {
-        //     var new_var = {
-        //         type: text,
-        //         name: name,
-        //         value: { array: [ [ {
-        //             elementID: 1,
-        //             elementValue: " "
-        //         }] ]}
-        //     };
-
-        //     val.push(new_var);
-        // }else if (!primitives.includes(text)) {
-
-        //     var the_class = classes.find(item => item.name === text);
-
-        //     var new_class = {
-        //         type: the_class.name,
-        //         name: name,
-        //         value: the_class.variables,
-        //         return: '',
-        //     };
-
-        //     val.push(new_class);
-
-        // } else {
-
-        //      new_var = {
-        //         type: text,
-        //         name: name,
-        //         value: '???',
-        //         return: ''
-        //     };
-
-        //     console.log(val);
-        //     console.log(new_var);
-
-        //     val.push(new_var);
-        //     console.log(val);
-        // }
-        // return val;
-    }
-
     const handleVarChange= (var_id, name, val, ret) => {
-        console.log("Variable Chagne")
+        console.log("Variable Change")
+        console.log(props)
         console.log(var_id)
         console.log(name)
         console.log(val)
@@ -92,9 +35,6 @@ const ARHalfFrame = (props) => {
     }
 
     const handleClassDrops = (val, id) => {
-        console.log("in halfframe class drop")
-        console.log(val)
-        console.log(id)
         var value = props.value;
 
         value[id].value = val;
@@ -116,8 +56,6 @@ const ARHalfFrame = (props) => {
     return (
         
         <div>
-            {console.log("ARHalfFrame render")}
-            {console.log(props)}
             <h3>{props.name}</h3>
             <ul className='local-variables'>
                 {value.map((item, index) => {
