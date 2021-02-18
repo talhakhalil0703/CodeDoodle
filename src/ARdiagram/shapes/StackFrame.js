@@ -41,9 +41,11 @@ export default class StackFrame extends Component {
   }
 
   /* handles dropping a new variable into the args variable area */
-  handleArgs(args) {
+  handleArgs(args, text) {
+    console.log("StackFrame")
+    console.log(args)
     const id = this.props.id;
-    this.props.onArgsChange(id, args);
+    this.props.onLocalChange(text, args);
   }
 
   /* handles name change of a stackframe */
@@ -84,7 +86,6 @@ export default class StackFrame extends Component {
                 name="Arguments"
                 value={args}
                 id ={this.props.id}
-
                 classes={classes}
                 drawInfoOpen={false}
                 arrowConnectionPointsOpen={arrowConnectionPointsOpen}

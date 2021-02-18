@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './ARStackArea.css'
 import StackFrame from './shapes/StackFrame'
 import { useDispatch,  useSelector} from 'react-redux'
-import {addStackFrame,addToSingleStack, selectStack} from "../components/codeDoodle/stackSlice"
+import {addStackFrame,addVarToHalfFrame, selectStack} from "../components/codeDoodle/stackSlice"
 
 /* 
     Component makes up the stack section of the application, displays and populates all stackframes
@@ -19,29 +19,29 @@ const ARStackArea = (props) => {
     /* handles drag and drop of stackframes onto stack area (not currently used) */
     const handleDrop = (text, value) => {
 
-        var st = value;
+        // var st = value;
 
-        /* checks if its a stackframe */
-        if (text !== 'stack') {
-            alert('only stack frames can be dropped here...')
-        } else {
+        // /* checks if its a stackframe */
+        // if (text !== 'stack') {
+        //     alert('only stack frames can be dropped here...')
+        // } else {
 
-            var name = 'void untitled';
+        //     var name = 'void untitled';
 
-            /* make the first stackframe main always */
-            if (st.length === 0) {
-                name = 'int main';
-            }
+        //     /* make the first stackframe main always */
+        //     if (st.length === 0) {
+        //         name = 'int main';
+        //     }
 
-            var new_frame = {
-                name: name,
-                local: [],
-                args: []
-            };
+        //     var new_frame = {
+        //         name: name,
+        //         local: [],
+        //         args: []
+        //     };
 
-            st.push(new_frame);
-        }
-        return st;
+        //     st.push(new_frame);
+        // }
+        // return st;
     }
 
     /* handles changing a stackframes name */
@@ -54,11 +54,11 @@ const ARStackArea = (props) => {
     }
 
     /* handles changing a local variable in a stackframe */
-    const handleLocalChange = (text, local) => {
+    const handleLocalChange = (text, halfFrame) => {
         console.log("ARStackArea Local")
-        console.log(local)
+        console.log(halfFrame)
         console.log(text)
-        dispatch(addToSingleStack({local, text}))
+        dispatch(addVarToHalfFrame({halfFrame, text}))
         // var frames = props.value;
         // frames[id].local = loc;
 
@@ -66,12 +66,12 @@ const ARStackArea = (props) => {
     }
 
     /* handles changing arguments of a stackframe */
-    const handleArgsChange= (id, arg)=> {
+    const handleArgsChange= (text, arg)=> {
 
-        var frames = props.value;
-        frames[id].args = arg;
-
-        props.handleChange(frames);
+        console.log("ARStackArea ARGS")
+        console.log(arg)
+        console.log(text)
+        dispatch(addVarToHalfFrame({arg, text}))
     }
 
     /* creates a new stack frame */
@@ -102,8 +102,6 @@ const ARStackArea = (props) => {
     const value = useSelector(selectStack)
     return (
         <React.Fragment>
-            {console.log("ARStackArea Render")}
-            {console.log(value)}
             <h1>Stack</h1>
             <button onClick={()=>incrementStack()}>Add</button>
             <div id="allStackFrames">
@@ -121,8 +119,10 @@ const ARStackArea = (props) => {
                                         drawInfoOpen={drawInfoOpen}
                                         arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                                         onNameChange={()=>handleNameChange()}
-                                        onLocalChange={(id, loc)=>handleLocalChange(id, loc)}
-                                        onArgsChange={()=>handleArgsChange()}
+                                        onLocalChange={(text, local)=>handleLocalChange(text, local) 
+                                        //Doing this allows for this to take in arguments REALLY USEFUL no idea how it works, without the arguments are not passed as it is functional
+                                    }
+                                        onArgsChange={(text, args)=>handleArgsChange(text, args)}
                                         toggleArrowConnectionPoints={props.toggleArrowConnectionPoints}
                                     />
                                 </li>

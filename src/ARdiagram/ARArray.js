@@ -1,15 +1,7 @@
-import React, { Component } from "react"
 import './ARArray.css'
 import ARArrayElement from "./ARArrayElement"
 
 const ARArray = (props) => {
-
-    const addElement = () => {
-        let value = props.value
-        let newElement = [...value.element, {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
-        value.element = newElement;  
-        props.onChange(value)
-    }
 
     const  removeElement =(id) => { // Need to do double array traversal... mighe be slow?
         let value = props.value
@@ -30,37 +22,6 @@ const ARArray = (props) => {
             })
         })
         props.onChange(value)
-        
-    }
-
-    const handleDrop = (text, value) => { //Reminder child's handleDrop does not have access to the this pointer
-        console.log('ARArray handleDrop props');
-        console.log(value)
-        
-
-        if (text === 'array'){
-            let newArray = [...value.array, [ {
-                elementID: Math.floor(Math.random() * 1000),
-                elementValue: " "
-            }]]
-            value.array = newArray
-            return text // Return here as we don't need to send prompt for array index
-        } 
-        
-        let index = 0
-        if (value.array.length >= 2){
-            index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
-        }
-      
-        if (text === "int"){ //TODO: instead check if text equals type we have, if so add, else don't add, add type checking into Element
-            console.log("Dropping int")
-            console.log(value.array[index])
-            let newArray = [...value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
-            value.array[index] = newArray;            
-        } else if (text === 'double'){
-            console.log("Dropping double")
-        } 
-        return value // Returns to parent of droppable
         
     }
 

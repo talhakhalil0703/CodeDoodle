@@ -6,7 +6,8 @@ export const stackSlice = createSlice({
         // when toggled, state changes for arrow, this causes a re-render
         // for now causes all arrows to re-render (easier) ????? how to make for each arrow
         stack: [],
-        test: []
+        test: [],
+        newID: 0
     },
     reducers: {
         updateStack: (state, action) => {
@@ -29,12 +30,13 @@ export const stackSlice = createSlice({
             
             state.stack.push(new_frame);
         },
-        addToSingleStack: (state, action) =>{
+        addVarToHalfFrame: (state, action) =>{
             let text = action.payload.text
-            let id = action.payload.local.id
-
-            let val  = action.payload.local.value;
-            var classes = action.payload.local.classes;
+            let id = action.payload.halfFrame.id
+            let varID = state.newID
+            state.newID++
+            let val  = action.payload.halfFrame.value;
+            var classes = action.payload.halfFrame.classes;
 
             var primitives = ['int', 'double', 'boolean', 'float', 'char'];
             var name = String.fromCharCode('a'.charCodeAt(0) + val.length)
@@ -43,6 +45,7 @@ export const stackSlice = createSlice({
                 alert('stack frames cant be dropped here...')
             } else if (text === "array") {
                 var new_var = {
+                    variableID: varID,
                     type: text,
                     name: name,
                     value: { array: [ [ {
@@ -57,32 +60,58 @@ export const stackSlice = createSlice({
                 var the_class = classes.find(item => item.name === text);
     
                 new_var = {
+                    variableID: varID,
                     type: the_class.name,
                     name: name,
                     value: the_class.variables,
                     return: '',
                 };
     
-    
             } else {
     
                  new_var = {
+                    variableID: varID,
                     type: text,
                     name: name,
                     value: '???',
                     return: ''
                 };
-
-            // val.push(new_var);
             }
-        state.stack[id].local.push(new_var);
-        state.test.push(action.payload)
+
+            if (action.payload.halfFrame.name === "Local"){
+                state.stack[id].local.push(new_var);
+            } else if(action.payload.halfFrame.name === "Arguments"){
+                state.stack[id].args.push(new_var);
+            }
+        }, addVarToArray: (state, action) =>{
+            let props = action.payload.props
+            let variableID = action.payload.props.variableID
+            let dropType = action.payload.text
+            let index = action.payload.index
+            if (dropType === "int"){
+                state.stack.map((stackFrame)=>{
+                    stackFrame.local.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            
+                            variable.value.array[index] = [...props.value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+                        }
+                        return(variable)
+                    })
+                    stackFrame.args.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            variable.value.array[index] = [...props.value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+                        }
+                        return(variable)
+                    })
+                    return stackFrame
+                })
+            }
         }
     }
 });
 
 // above is reducer functions, below is the actions. 
-export const { updateStack, addStackFrame,addToSingleStack } = stackSlice.actions;
+export const { updateStack, addStackFrame, addVarToHalfFrame, addVarToArray } = stackSlice.actions;
 
 //Hand off the state here
 export const selectStack = state => state.stack.stack;
