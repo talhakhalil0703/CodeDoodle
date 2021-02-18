@@ -33,8 +33,7 @@ export const stackSlice = createSlice({
         addVarToHalfFrame: (state, action) =>{
             let text = action.payload.text
             let id = action.payload.halfFrame.id
-            let varID = state.newID
-            state.newID++
+            let varID = state.newID++
             let val  = action.payload.halfFrame.value;
             var classes = action.payload.halfFrame.classes;
 
@@ -49,7 +48,7 @@ export const stackSlice = createSlice({
                     type: text,
                     name: name,
                     value: { array: [ [ {
-                        elementID: 1,
+                        elementID: state.newID++,
                         elementValue: " "
                     }] ]}
                 };
@@ -93,17 +92,32 @@ export const stackSlice = createSlice({
                     stackFrame.local.map((variable)=>{
                         if(variable.variableID === variableID){
                             
-                            variable.value.array[index] = [...props.value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+                            variable.value.array[index] = [...props.value.array[index], {elementID: state.newID++, elementValue: " " }]
                         }
                         return(variable)
                     })
                     stackFrame.args.map((variable)=>{
                         if(variable.variableID === variableID){
-                            variable.value.array[index] = [...props.value.array[index], {elementID: Math.floor(Math.random() * 1000), elementValue: " " }]
+                            variable.value.array[index] = [...props.value.array[index], {elementID: state.newID++, elementValue: " " }]
                         }
                         return(variable)
                     })
                     return stackFrame
+                })
+            } else if(dropType === "array"){
+                state.stack.map((stackFrame)=>{
+                    stackFrame.local.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            variable.value.array = [...props.value.array, [{elementID: state.newID++, elementValue: " " }]]
+                        }
+                        return(variable)
+                    })
+                    stackFrame.args.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            variable.value.array = [...props.value.array, [{elementID: state.newID++, elementValue: " " }]]
+                        }
+                        return(variable)
+                    })
                 })
             }
         }

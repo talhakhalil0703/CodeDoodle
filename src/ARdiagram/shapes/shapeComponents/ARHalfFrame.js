@@ -77,6 +77,11 @@ const ARHalfFrame = (props) => {
     }
 
     const handleVarChange= (var_id, name, val, ret) => {
+        console.log("Variable Chagne")
+        console.log(var_id)
+        console.log(name)
+        console.log(val)
+        console.log(ret)
         var value = props.value;
 
         value[var_id].name = name;
@@ -127,7 +132,7 @@ const ARHalfFrame = (props) => {
                                     value={item.value}
                                     ret={item.return}
                                     drawInfoOpen={drawInfoOpen}
-                                    onChange={() => handleVarChange()}
+                                    onChange={(var_id, name, val, ret) => handleVarChange(var_id, name, val, ret)}
                                     arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                                     toggleArrowConnectionPoints={props.toggleArrowConnectionPoints}
                                 />
@@ -142,7 +147,7 @@ const ARHalfFrame = (props) => {
                                 type={item.type}
                                 name={item.name}
                                 value={item.value}
-                                onChange={() =>handleVarChange()}
+                                onChange={(var_id, name, val, ret) =>handleVarChange(var_id, name, val, ret)}
                                 handleDrop={() =>handleArrayDrop()}
                                 handleChange={() =>handleArrayDrop()}
 
@@ -161,7 +166,7 @@ const ARHalfFrame = (props) => {
                                     ret={item.return}
                                     classes={classes}
                                     drawInfoOpen={drawInfoOpen}
-                                    onChange={() =>handleVarChange()}
+                                    onChange={(var_id, name, val, ret) =>handleVarChange(var_id, name, val, ret)}
                                     handleDrop={() =>handleClassDrops()}
                                     handleChange={() =>handleClassDrops()}
                                     arrowConnectionPointsOpen={arrowConnectionPointsOpen}

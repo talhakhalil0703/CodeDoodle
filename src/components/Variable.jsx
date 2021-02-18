@@ -36,21 +36,21 @@ class Variable extends Component {
 
     /* handles changing the name of a variable */
     handleNameChange(new_name) {
-        const { id, value, ret } = this.props;
-        this.props.onChange(id, new_name, value, ret);
+        const { variableID, value, ret } = this.props;
+        this.props.onChange(variableID, new_name, value, ret);
     }
 
     /* handles changing the value of a variable */
     handleValueChange(e) {
-        const { id, name, ret } = this.props;
+        const { variableID, name, ret } = this.props;
         const val = e.target.value;
-        this.props.onChange(id, name, val, ret);
+        this.props.onChange(variableID, name, val, ret);
     }
 
     handleReturnChange(e) {
-        const { id, name, value } = this.props;
+        const { variableID, name, value } = this.props;
         const ret = e.target.value;
-        this.props.onChange(id, name, value, ret);
+        this.props.onChange(variableID, name, value, ret);
     }
 
     // turns type to pointer/reference then changes type to current type + pointer/reference (doesn't do this yet)
