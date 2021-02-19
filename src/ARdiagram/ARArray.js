@@ -34,6 +34,7 @@ const ARArray = (props) => {
                     {singleArray.map((element) => (<ARArrayElement key={element.elementID}
                                                         id = {element.elementID}
                                                         name = {element.elementValue}
+                                                        arrayVariableID = {props.variableID}
                                                         removeElement = {removeElement}
                                                         changeElement={changeElementValue}
                                                         className="element"                

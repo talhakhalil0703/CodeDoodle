@@ -24,6 +24,8 @@ const ARArrayDrop = (props) => {
     const onChange = (value) =>{
        console.log("ARArrayDrop onChange")
        console.log(props)
+       console.log(value)
+       console.log(props.value)
         // const { id, name } = this.props;
         // this.props.onChange(id, name, value)
     }
@@ -32,6 +34,7 @@ const ARArrayDrop = (props) => {
         <div>
             <DroppableArray 
             id = {props.id}
+            variableID = {props.variableID}
             name = {props.name}
             type = {props.type}
             value = {props.value}

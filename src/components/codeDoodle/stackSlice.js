@@ -149,12 +149,48 @@ export const stackSlice = createSlice({
                     return stackFrame
                 })
             }      
+        }, changeArrayVariable: (state, action) =>{
+            let {value, arrayVariableID, variableID} = action.payload
+            
+            state.stack.map((stackFrame)=>{
+                stackFrame.local.map((variable)=>{
+                    if(variable.variableID === arrayVariableID){
+                        variable.value.array.map((array)=>{
+                            array.map((element)=>{
+                                if(element.elementID === variableID){
+                                    element.elementValue = value
+                                }
+                                return element
+                            })
+                            return array
+                        })
+                    }
+                    return(variable)
+                })
+                stackFrame.local.map((variable)=>{
+                    if(variable.variableID === arrayVariableID){
+                        variable.value.array.map((array)=>{
+                            array.map((element)=>{
+                                if(element.elementID === variableID){
+                                    element.elementValue = value
+                                }
+                                return element
+                            })
+                            return array
+                        })
+                    }
+                    return(variable)
+                })
+                return stackFrame
+            })
         }
     }
 });
 
+// {value, arrayVariableID, variableID}
+
 // above is reducer functions, below is the actions. 
-export const { updateStack, addStackFrame, addVarToHalfFrame, addVarToArray, handleVariableChange } = stackSlice.actions;
+export const { updateStack, addStackFrame, addVarToHalfFrame, addVarToArray, handleVariableChange, changeArrayVariable } = stackSlice.actions;
 
 //Hand off the state here
 export const selectStack = state => state.stack.stack;
