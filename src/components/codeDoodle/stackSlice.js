@@ -121,12 +121,40 @@ export const stackSlice = createSlice({
                     return stackFrame
                 })
             }
+        }, handleVariableChange: (state, action) =>{
+            const {variableID, variableName, variableValue, variableReturn, halfFrameType} = action.payload
+
+            if (halfFrameType === "Local"){
+                state.stack.map((stackFrame)=>{
+                    stackFrame.local.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            variable.name = variableName
+                            variable.return = variableReturn
+                            variable.value = variableValue
+                        }
+                        return(variable)
+                    })
+                    return stackFrame
+                })
+            } else {
+                state.stack.map((stackFrame)=>{
+                    stackFrame.args.map((variable)=>{
+                        if(variable.variableID === variableID){
+                            variable.name = variableName
+                            variable.return = variableReturn
+                            variable.value = variableValue
+                        }
+                        return(variable)
+                    })
+                    return stackFrame
+                })
+            }      
         }
     }
 });
 
 // above is reducer functions, below is the actions. 
-export const { updateStack, addStackFrame, addVarToHalfFrame, addVarToArray } = stackSlice.actions;
+export const { updateStack, addStackFrame, addVarToHalfFrame, addVarToArray, handleVariableChange } = stackSlice.actions;
 
 //Hand off the state here
 export const selectStack = state => state.stack.stack;

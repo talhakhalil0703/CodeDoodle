@@ -3,7 +3,8 @@ import Variable from '../../../components/Variable';
 import Class from '../../../components/Class';
 import Droppable from '../../../components/DroppableFunction';
 import ARArrayDrop from "../../ARArrayDrop"
-
+import {useDispatch} from "react-redux"
+import {handleVariableChange} from "../../../components/codeDoodle/stackSlice"
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -17,21 +18,14 @@ import ARArrayDrop from "../../ARArrayDrop"
 const DroppableClass = Droppable(Class);
 
 const ARHalfFrame = (props) => {
+    const dispatch = useDispatch();
 
-    const handleVarChange= (var_id, name, val, ret) => {
+    const handleVarChange= (variableID, variableName, variableValue, variableReturn) => {
         console.log("Variable Change")
-        console.log(props)
-        console.log(var_id)
-        console.log(name)
-        console.log(val)
-        console.log(ret)
-        var value = props.value;
-
-        value[var_id].name = name;
-        value[var_id].value = val;
-        value[var_id].return = ret;
-
-        props.handleChange(value);
+        let halfFrameType = props.name
+        console.log(props.value)
+        console.log({variableID, variableName, variableValue, variableReturn})
+        dispatch(handleVariableChange({variableID, variableName, variableValue, variableReturn, halfFrameType}))
     }
 
     const handleClassDrops = (val, id) => {
@@ -88,7 +82,6 @@ const ARHalfFrame = (props) => {
                                 onChange={(var_id, name, val, ret) =>handleVarChange(var_id, name, val, ret)}
                                 handleDrop={() =>handleArrayDrop()}
                                 handleChange={() =>handleArrayDrop()}
-
                                 />
                             </li>
                         );
