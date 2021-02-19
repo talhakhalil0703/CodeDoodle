@@ -3,8 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 export const stackSlice = createSlice({
     name: 'stack',
     initialState: {
-        // when toggled, state changes for arrow, this causes a re-render
-        // for now causes all arrows to re-render (easier) ????? how to make for each arrow
         stack: [],
         test: [],
         newID: 0

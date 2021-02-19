@@ -16,34 +16,6 @@ const ARStackArea = (props) => {
 
     const dispatch = useDispatch()
 
-    /* handles drag and drop of stackframes onto stack area (not currently used) */
-    const handleDrop = (text, value) => {
-
-        // var st = value;
-
-        // /* checks if its a stackframe */
-        // if (text !== 'stack') {
-        //     alert('only stack frames can be dropped here...')
-        // } else {
-
-        //     var name = 'void untitled';
-
-        //     /* make the first stackframe main always */
-        //     if (st.length === 0) {
-        //         name = 'int main';
-        //     }
-
-        //     var new_frame = {
-        //         name: name,
-        //         local: [],
-        //         args: []
-        //     };
-
-        //     st.push(new_frame);
-        // }
-        // return st;
-    }
-
     /* handles changing a stackframes name */
     const handleNameChange = (id, name) => {
 
@@ -67,7 +39,6 @@ const ARStackArea = (props) => {
 
     /* handles changing arguments of a stackframe */
     const handleArgsChange= (text, arg)=> {
-
         console.log("ARStackArea ARGS")
         console.log(arg)
         console.log(text)
@@ -76,28 +47,10 @@ const ARStackArea = (props) => {
 
     /* creates a new stack frame */
     const incrementStack = () => {
-
-        // var st = this.props.value;
-        // var name = 'void untitled';
-
-        // if (st.length === 0) {
-        //     name = 'int main';
-        // }
-
-        // var new_frame = {
-        //     name: name,
-        //     local: [],
-        //     args: []
-        // };
-
-        // st.push(new_frame);
-
-        // this.props.handleChange(st);
         console.log("incremeting stack")
         dispatch(addStackFrame());
     }
 
-   
     const {  classes, drawInfoOpen, arrowConnectionPointsOpen } = props;
     const value = useSelector(selectStack)
     return (
