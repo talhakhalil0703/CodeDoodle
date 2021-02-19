@@ -1,3 +1,4 @@
+//Don't delete this is used for Redux as it handles the changes associated with Redux
 import React, { Component } from 'react';
 
 /* 

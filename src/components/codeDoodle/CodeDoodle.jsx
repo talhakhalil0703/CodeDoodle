@@ -63,7 +63,6 @@ function CodeDoodle() {
     printf("Hello, World!");
     return 0;
     }`);
-    const [stack, setStack] = useState([]);
     const [heap, setHeap] = useState([]);
     const [stat, setStat] = useState([]);
     const [classes, setClasses] = useState([]);

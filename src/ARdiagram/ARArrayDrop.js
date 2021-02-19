@@ -9,25 +9,12 @@ const ARArrayDrop = (props) => {
     const dispatch = useDispatch();
 
     const handleDrop = (values, text) => { //In here we can handle what the drop type was and reject if it doesn't fit our data type
-        console.log('ARArrayDrop handleDrop value:');
-        console.log(props)
-        console.log(values);
-        console.log(text);
         let index = 0
         if (values.value.array.length >= 2){
             index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
         }
 
         dispatch(addVarToArray({props, text, index}))
-    }
-
-    const onChange = (value) =>{
-       console.log("ARArrayDrop onChange")
-       console.log(props)
-       console.log(value)
-       console.log(props.value)
-        // const { id, name } = this.props;
-        // this.props.onChange(id, name, value)
     }
 
     return (
@@ -39,7 +26,6 @@ const ARArrayDrop = (props) => {
             type = {props.type}
             value = {props.value}
             handleDrop={(values, text) => handleDrop(values, text)}
-            onChange = {(value) => onChange(value)}
             />
         </div>
     )

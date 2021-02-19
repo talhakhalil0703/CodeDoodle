@@ -35,16 +35,10 @@ class ARDiagramDrawArea extends Component {
   constructor(props) {
     super(props);
 
-    this.handleStackChange = this.handleStackChange.bind(this);
     this.handleHeapChange = this.handleHeapChange.bind(this);
     this.handleStaticChange = this.handleStaticChange.bind(this);
     this.generateCode = this.generateCode.bind(this);
     this.displayExtraInfo = this.displayExtraInfo.bind(this);
-  }
-
-  /* sends all stack info to parent to be updated */
-  handleStackChange(frames) {
-    this.props.onStackChange(frames);
   }
 
   handleHeapChange(heap) {
@@ -428,8 +422,6 @@ class ARDiagramDrawArea extends Component {
                 <DroppableStack
                   value={stack}
                   classes={classes}
-                  handleDrop={this.handleStackChange}
-                  handleChange={this.handleStackChange}
                   drawInfoOpen={drawInfoOpen}
                   arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                   toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}

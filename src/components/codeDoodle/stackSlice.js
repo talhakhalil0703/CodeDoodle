@@ -91,7 +91,6 @@ export const stackSlice = createSlice({
                 state.stack.map((stackFrame)=>{
                     stackFrame.local.map((variable)=>{
                         if(variable.variableID === variableID){
-                            
                             variable.value.array[index] = [...props.value.array[index], {elementID: state.newID++, elementValue: " " }]
                         }
                         return(variable)
@@ -150,18 +149,21 @@ export const stackSlice = createSlice({
                 })
             }      
         }, changeArrayVariable: (state, action) =>{
-            let {value, arrayVariableID, variableID} = action.payload
-            
+            let {value, arrayVariableID, variableID, removeElement} = action.payload
             state.stack.map((stackFrame)=>{
                 stackFrame.local.map((variable)=>{
                     if(variable.variableID === arrayVariableID){
                         variable.value.array.map((array)=>{
-                            array.map((element)=>{
-                                if(element.elementID === variableID){
-                                    element.elementValue = value
-                                }
-                                return element
-                            })
+                            if (removeElement){
+                                return array.filter(element => element.elementID !== variableID)
+                            } else{
+                                array.map((element)=>{
+                                    if(element.elementID === variableID){
+                                        element.elementValue = value
+                                    }
+                                    return element
+                                })
+                            }
                             return array
                         })
                     }
@@ -170,12 +172,16 @@ export const stackSlice = createSlice({
                 stackFrame.local.map((variable)=>{
                     if(variable.variableID === arrayVariableID){
                         variable.value.array.map((array)=>{
-                            array.map((element)=>{
-                                if(element.elementID === variableID){
-                                    element.elementValue = value
-                                }
-                                return element
-                            })
+                            if (removeElement){
+                                array = array.filter(element => element.elementID !== variableID)
+                            } else{
+                                array.map((element)=>{
+                                    if(element.elementID === variableID){
+                                        element.elementValue = value
+                                    }
+                                    return element
+                                })
+                            }
                             return array
                         })
                     }

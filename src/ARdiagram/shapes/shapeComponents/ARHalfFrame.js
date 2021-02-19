@@ -21,14 +21,14 @@ const ARHalfFrame = (props) => {
     const dispatch = useDispatch();
 
     const handleVarChange= (variableID, variableName, variableValue, variableReturn) => {
-        console.log("Variable Change")
         let halfFrameType = props.name
-        console.log(props.value)
-        console.log({variableID, variableName, variableValue, variableReturn})
         dispatch(handleVariableChange({variableID, variableName, variableValue, variableReturn, halfFrameType}))
     }
 
     const handleClassDrops = (val, id) => {
+        console.log("Classes Drop")
+        console.log(val)
+        console.log(id)
         var value = props.value;
 
         value[id].value = val;
@@ -36,15 +36,6 @@ const ARHalfFrame = (props) => {
         props.handleChange(value);
     }
    
-    const handleArrayDrop = (id, name, val) =>{
-        var value = props.value;
-        value[id].name = name;
-        value[id].value = val;
-
-        props.handleChange(value);
-    }
-
-
     const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = props;
     const primitives = ['int', 'double', 'boolean', 'float', 'char'];
     return (
@@ -79,9 +70,6 @@ const ARHalfFrame = (props) => {
                                 type={item.type}
                                 name={item.name}
                                 value={item.value}
-                                onChange={(var_id, name, val, ret) =>handleVarChange(var_id, name, val, ret)}
-                                handleDrop={() =>handleArrayDrop()}
-                                handleChange={() =>handleArrayDrop()}
                                 />
                             </li>
                         );
