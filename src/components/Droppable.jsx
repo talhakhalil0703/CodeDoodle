@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 /* 
     Higher Order Component that can be used to make another component 'droppable'
@@ -58,60 +58,62 @@ import React, { Component } from 'react';
 
 /* Droppable receives a component as an argument (i.e. Y in running example)... */
 function Droppable(WrappedComponent) {
-    /* ... and will return another component (i.e. <NewComponentName> in step 1.)*/
-    return class extends Component {
-        constructor(props) {
-            super(props);
+  /* ... and will return another component (i.e. <NewComponentName> in step 1.)*/
+  return class extends Component {
+    constructor(props) {
+      super(props);
 
-            this.dropRef = React.createRef();
-            this.handleDrop = this.handleDrop.bind(this);
-        }
+      this.dropRef = React.createRef();
+      this.handleDrop = this.handleDrop.bind(this);
+    }
 
-        /* 
+    /* 
             On mount, it will get the ref to the new component and attach event listeners for:
                 - dragover event (which will be handled by function handleDragOver)
                 - drop event (which will be handled by function handleDrop)
         */
-        componentDidMount() {
-            const drop = this.dropRef.current;
-            drop.addEventListener('dragover', this.handleDragOver);
-            drop.addEventListener('drop', this.handleDrop);
-        }
+    componentDidMount() {
+      const drop = this.dropRef.current;
+      drop.addEventListener("dragover", this.handleDragOver);
+      drop.addEventListener("drop", this.handleDrop);
+    }
 
-        /* Prevents unwanted functionality when dragging item over valid drop targets */
-        handleDragOver(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
+    /* Prevents unwanted functionality when dragging item over valid drop targets */
+    handleDragOver(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
-        /* Prevents unwanted functionality on drop, and... */
-        handleDrop(e) {
-            e.preventDefault();
-            e.stopPropagation();
+    /* Prevents unwanted functionality on drop, and... */
+    handleDrop(e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-            /* ... gets information about whats being dragged (info set in DrawingIcons)*/
-            var text = e.dataTransfer.getData('Text');
+      /* ... gets information about whats being dragged (info set in DrawingIcons)*/
+      var text = e.dataTransfer.getData("Text");
 
-            /* information that is to be handled by Y's unique handleDrop function */
-            var { value, classes, id } = this.props;
+      /* information that is to be handled by Y's unique handleDrop function */
+      var { value, classes, id } = this.props;
 
-            /* 
+      /* 
                 This is why step 3. is important!
                 This calls Y's handleDrop function and gets the new state from it
             */
-            console.log("Droppable Regular")
-            // console.log(WrappedComponent().handleDrop(text, value, classes))
-            console.log(text)
-            console.log(value)
-            console.log(classes)
-            value = WrappedComponent.prototype.handleDrop(text, value, classes);
+      console.log("Droppable Regular");
+      // console.log(WrappedComponent().handleDrop(text, value, classes))
+      console.log(e);
+      console.log(this.props);
+      console.log(text);
+      console.log(value);
+      console.log(classes);
+      value = WrappedComponent.prototype.handleDrop(text, value, classes);
 
-            console.log('returned....');
-            /* Passes the new state up to component X to be handled  */
-            this.props.handleDrop(value, id);
-        }
+      console.log("returned....");
+      /* Passes the new state up to component X to be handled  */
+      this.props.handleDrop(value, id);
+    }
 
-        /* 
+    /* 
             You can see here that the ref is wrapped around what would be component Y 
             {...this.props} is just passing all attributes you gave <NewComponentName> as props to component Y, as stated earlier these can be accessed as you would expect in component Y (again you must pass things specified in step 2., but you can pass as many extra things as you would like)
     
@@ -119,14 +121,14 @@ function Droppable(WrappedComponent) {
             as of now it tries to fit the width and height of its container, and has a min-height
             of 100px just in case it can't do this.
         */
-        render() {
-            return (
-                <div className='droppable' ref={this.dropRef} >
-                    <WrappedComponent {...this.props} />
-                </div >
-            );
-        }
+    render() {
+      return (
+        <div className="droppable" ref={this.dropRef}>
+          <WrappedComponent {...this.props} />
+        </div>
+      );
     }
+  };
 }
 
 export default Droppable;

@@ -1,35 +1,35 @@
-import ARArray from "./ARArray"
-import Droppable from '../components/DroppableFunction'
-import {useDispatch} from "react-redux"
-import {addVarToArray} from "../components/codeDoodle/stackSlice"
+import ARArray from "./ARArray";
+import Droppable from "../components/DroppableFunction";
+import { useDispatch } from "react-redux";
+import { addVarToArray } from "../components/codeDoodle/stackSlice";
 
-const DroppableArray = Droppable(ARArray)
+const DroppableArray = Droppable(ARArray);
 
 const ARArrayDrop = (props) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const handleDrop = (values, text) => { //In here we can handle what the drop type was and reject if it doesn't fit our data type
-        let index = 0
-        if (values.value.array.length >= 2){
-            index = window.prompt("Which array would you like to enter the element?") // TODO: Add error checking
-        }
-
-        dispatch(addVarToArray({props, text, index}))
+  const handleDrop = (values, text) => {
+    //In here we can handle what the drop type was and reject if it doesn't fit our data type
+    let index = 0;
+    if (values.value.array.length >= 2) {
+      index = window.prompt("Which array would you like to enter the element?"); // TODO: Add error checking
     }
 
-    return (
-        <div>
-            <DroppableArray 
-            id = {props.id}
-            variableID = {props.variableID}
-            name = {props.name}
-            type = {props.type}
-            value = {props.value}
-            handleDrop={(values, text) => handleDrop(values, text)}
-            />
-        </div>
-    )
-    
-}
+    dispatch(addVarToArray({ props, text, index }));
+  };
 
-export default ARArrayDrop
+  return (
+    <div>
+      <DroppableArray
+        id={props.id}
+        variableID={props.variableID}
+        name={props.name}
+        type={props.type}
+        value={props.value}
+        handleDrop={(values, text) => handleDrop(values, text)}
+      />
+    </div>
+  );
+};
+
+export default ARArrayDrop;
