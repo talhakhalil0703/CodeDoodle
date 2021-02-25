@@ -1,12 +1,12 @@
-import React from 'react';
-import './ObjectFrame.css'
-import '../../GeneralDiagrams/HandDrawnBoxes.css'
-import EditableText from '../../GeneralDiagrams/EditableText'
-import Variable from '../../components/Variable';
-import ARHalfFrame from './shapeComponents/ARHalfFrame'
-import Droppable from '../../components/Droppable';
+import React from "react";
+import "./ObjectFrame.css";
+import "../../GeneralDiagrams/HandDrawnBoxes.css";
+import EditableText from "../../GeneralDiagrams/EditableText";
+import Variable from "../../components/Variable";
+import ARHalfFrame from "./shapeComponents/ARHalfFrame";
+import Droppable from "../../components/DroppableFunction";
 
-const DroppableHalfFrame = Droppable(ARHalfFrame)
+const DroppableHalfFrame = Droppable(ARHalfFrame);
 
 /*  
   ObjectFrame component makes up a ObjectFrame on the application, creates a local and argument half-frame
