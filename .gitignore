@@ -12,6 +12,8 @@
 /build
 
 # misc
+/.vscode
+/code_doodle
 .DS_Store
 .env.local
 .env.development.local
