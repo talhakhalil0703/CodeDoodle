@@ -8,13 +8,14 @@ import Arrow from "../GeneralDiagrams/Arrow/Arrow";
 import ClickMenu from "../GeneralDiagrams/SmallMenu";
 import ARArrayDrop from "../ARdiagram/ARArrayDrop";
 import { selectClasses } from "./codeDoodle/classSlice";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import UniqueId from "./codeDoodle/UniqueId";
+import { changeClassVariable } from "./codeDoodle/stackSlice";
 
 /* Can display nested classes, but cannot handle dropping of classes onto classes right now */
 const Class = (props) => {
   const classRef = React.createRef();
-
+  const dispatch = useDispatch();
   const [hasArrow, setHasArrow] = useState(false);
   const [targetDiv, setTargetDiv] = useState("");
   const classes = useSelector(selectClasses);
@@ -92,17 +93,24 @@ const Class = (props) => {
 
   /* handles changing the value of a variable */
   const handleVarChange = (var_id, var_name, var_val, var_ret) => {
-    var { id, name, value, ret } = props;
     console.log("Attempting to change variable");
     console.log(var_id);
     console.log(var_name);
     console.log(var_val);
     console.log(var_ret);
-    value[var_id].name = var_name;
-    value[var_id].value = var_val;
-    value[var_id].return = var_ret;
+    console.log(props);
 
-    props.onChange(id, name, value, ret);
+    let v = { name: var_name, value: var_val, return: var_ret };
+    //Cause a dispatch to stack asking it to chagne the props.variableID and in there find this and change it, call it handleClassVarChange
+
+    dispatch(
+      changeClassVariable({
+        value: v,
+        classVariableID: props.variableID,
+        variableID: var_id,
+      })
+    );
+    // props.onChange(id, name, value, ret);
   };
 
   const handleNestedDrops = (val, nest_id) => {
@@ -160,6 +168,8 @@ const Class = (props) => {
 
       <div className="variables">
         <ul>
+          {console.log("Class Value for mapping")}
+          {console.log(value)}
           {value.map((item, index) => {
             if (primitives.includes(item.type)) {
               return (
@@ -191,7 +201,9 @@ const Class = (props) => {
                     type={item.type}
                     name={item.name}
                     value={item.value}
-                    onChange={() => handleVarChange()}
+                    onChange={(var_id, var_name, var_val, var_ret) =>
+                      handleVarChange(var_id, var_name, var_val, var_ret)
+                    }
                     handleDrop={() => handleArrayDrop()}
                     handleChange={() => handleArrayDrop()}
                   />

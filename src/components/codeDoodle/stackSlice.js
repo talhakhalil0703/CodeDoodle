@@ -236,6 +236,25 @@ export const stackSlice = createSlice({
         return stackFrame;
       });
     },
+    changeClassVariable: (state, action) => {
+      let { value, classVariableID, variableID } = action.payload;
+
+      state.stack.map((stackFrame) => {
+        stackFrame.local.map((variables) => {
+          if (variables.variableID === classVariableID) {
+            variables.value.map((variable) => {
+              if (variable.variableID === variableID) {
+                variable.name = value.name;
+                variable.value = value.value;
+              }
+              return variable;
+            });
+          }
+          return variables;
+        });
+        return stackFrame;
+      });
+    },
   },
 });
 
@@ -249,6 +268,7 @@ export const {
   addVarToArray,
   handleVariableChange,
   changeArrayVariable,
+  changeClassVariable,
 } = stackSlice.actions;
 
 //Hand off the state here

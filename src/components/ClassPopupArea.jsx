@@ -83,7 +83,7 @@ const ClassPopupArea = (props) => {
       new_var = {
         variableID: UniqueId(),
         type: text,
-        name: "fromPopup",
+        name: "name",
         value: "???",
         return: "",
       };
