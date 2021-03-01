@@ -1,11 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit'
-import arrowReducer from './GeneralDiagrams/Arrow/arrowSlice'
-import stackReducer from './components/codeDoodle/stackSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import arrowReducer from "./GeneralDiagrams/Arrow/arrowSlice";
+import stackReducer from "./components/codeDoodle/stackSlice";
+import classesReducer from "./components/codeDoodle/classSlice";
 
 export default configureStore({
-    reducer: {
-        arrow: arrowReducer,
-        stack: stackReducer
-    },
-  
-})
+  reducer: {
+    arrow: arrowReducer,
+    stack: stackReducer,
+    classes: classesReducer,
+  },
+});

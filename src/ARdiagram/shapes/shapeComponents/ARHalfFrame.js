@@ -49,7 +49,7 @@ const ARHalfFrame = (props) => {
     props.handleChange(value);
   };
 
-  const { value, drawInfoOpen, classes, arrowConnectionPointsOpen } = props;
+  const { value, drawInfoOpen, arrowConnectionPointsOpen } = props;
   const primitives = ["int", "double", "boolean", "float", "char"];
   return (
     <div>
@@ -101,7 +101,6 @@ const ARHalfFrame = (props) => {
                   name={item.name}
                   value={item.value}
                   ret={item.return}
-                  classes={classes}
                   drawInfoOpen={drawInfoOpen}
                   onChange={(var_id, name, val, ret) =>
                     handleVarChange(var_id, name, val, ret)
