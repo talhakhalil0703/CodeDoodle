@@ -7,7 +7,7 @@ export const classesSlice = createSlice({
   },
   reducers: {
     updateClasses: (state, action) => {
-      state.value = action.payload;
+      state.value.push(action.payload);
     },
   },
 });

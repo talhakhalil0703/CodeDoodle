@@ -4,11 +4,16 @@ import "../GeneralDiagrams/HandDrawnBoxes.css";
 import Popup from "reactjs-popup";
 import DrawingIcons from "./DrawingIcons";
 import ObjectFrame from "../ARdiagram/shapes/ObjectFrame";
+import { selectClasses, updateClasses } from "./codeDoodle/classSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const ClassPopupArea = (props) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [variables, setVariables] = useState([]);
   const [name, setName] = useState("Unnamed");
+
+  const classes = useSelector(selectClasses);
+  const dispatch = useDispatch();
 
   const setOpen = () => {
     setPopupOpen(true);
@@ -30,9 +35,7 @@ const ClassPopupArea = (props) => {
     setVariables([]);
     setName("Unnamed");
 
-    var updatedClassList = props.classList;
-    updatedClassList.push(newClassItem);
-    props.onClassListChange(updatedClassList);
+    dispatch(updateClasses(newClassItem));
 
     onModalClose();
   };
@@ -125,7 +128,7 @@ const ClassPopupArea = (props) => {
                   <ObjectFrame
                     id={"CustomClassCreationObject"}
                     value={variables}
-                    classes={props.classList}
+                    classes={classes}
                     handleDrop={(vars, text) => handleClass(vars, text)}
                     handleChange={(vars, text) => handleClass(vars, text)}
                     name={name}
