@@ -6,7 +6,7 @@ import DrawingIcons from "./DrawingIcons";
 import ObjectFrame from "../ARdiagram/shapes/ObjectFrame";
 import { selectClasses, updateClasses } from "./codeDoodle/classSlice";
 import { useSelector, useDispatch } from "react-redux";
-
+import UniqueId from "./codeDoodle/UniqueId";
 const ClassPopupArea = (props) => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [variables, setVariables] = useState([]);
@@ -28,6 +28,7 @@ const ClassPopupArea = (props) => {
 
     var newClassItem = {
       name: name,
+      variableID: UniqueId(),
       variables: variables,
       type: "class",
     };
@@ -52,14 +53,14 @@ const ClassPopupArea = (props) => {
       alert("stack frames cant be dropped here...");
     } else if (text === "array") {
       new_var = {
-        variableID: 0,
+        variableID: UniqueId(),
         type: text,
         name: "testname",
         value: {
           array: [
             [
               {
-                elementID: 20,
+                elementID: UniqueId(),
                 elementValue: " ",
               },
             ],
@@ -80,9 +81,9 @@ const ClassPopupArea = (props) => {
     // }
     else {
       new_var = {
-        variableID: 0,
+        variableID: UniqueId(),
         type: text,
-        name: "name",
+        name: "fromPopup",
         value: "???",
         return: "",
       };

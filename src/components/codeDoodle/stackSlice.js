@@ -32,7 +32,6 @@ export const stackSlice = createSlice({
     addVarToHalfFrame: (state, action) => {
       let text = action.payload.text;
       let id = action.payload.halfFrame.id;
-      let varID = UniqueId();
       let val = action.payload.halfFrame.value;
       var classes = action.payload.halfFrame.classes;
 
@@ -43,7 +42,7 @@ export const stackSlice = createSlice({
         alert("stack frames cant be dropped here...");
       } else if (text === "array") {
         var new_var = {
-          variableID: varID,
+          variableID: UniqueId(),
           type: text,
           name: name,
           value: {
@@ -61,16 +60,27 @@ export const stackSlice = createSlice({
         var the_class = classes.find((item) => item.name === text);
         console.log(action.payload);
 
+        let variablesWithUniqueIDs = the_class.variables.map((variable) => {
+          var { type, name, value } = variable;
+          let variableWithUniqueID = {
+            type,
+            name,
+            value,
+            variableID: UniqueId(),
+          };
+          return variableWithUniqueID;
+        });
+
         new_var = {
-          variableID: varID,
+          variableID: UniqueId(),
           type: the_class.name,
           name: name,
-          value: the_class.variables,
+          value: variablesWithUniqueIDs,
           return: "",
         };
       } else {
         new_var = {
-          variableID: varID,
+          variableID: UniqueId(),
           type: text,
           name: name,
           value: "???",
@@ -138,6 +148,9 @@ export const stackSlice = createSlice({
       }
     },
     handleVariableChange: (state, action) => {
+      console.log("Handle Variable Change Stack Redux");
+      console.log(action);
+
       const {
         variableID,
         variableName,

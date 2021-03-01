@@ -9,6 +9,7 @@ import ClickMenu from "../GeneralDiagrams/SmallMenu";
 import ARArrayDrop from "../ARdiagram/ARArrayDrop";
 import { selectClasses } from "./codeDoodle/classSlice";
 import { useSelector } from "react-redux";
+import UniqueId from "./codeDoodle/UniqueId";
 
 /* Can display nested classes, but cannot handle dropping of classes onto classes right now */
 const Class = (props) => {
@@ -35,12 +36,14 @@ const Class = (props) => {
     } else if (text === "array") {
       var new_var = {
         type: text,
+        variableID: UniqueId(),
+
         name: name,
         value: {
           array: [
             [
               {
-                elementID: 1,
+                elementID: UniqueId(),
                 elementValue: " ",
               },
             ],
@@ -53,6 +56,7 @@ const Class = (props) => {
       var the_class = classes.find((item) => item.name === text);
 
       var new_class = {
+        variableID: UniqueId(),
         type: the_class.name,
         name: name,
         value: the_class.variables,
@@ -62,9 +66,10 @@ const Class = (props) => {
       val.push(new_class);
     } else {
       var new_var = {
+        variableID: UniqueId(),
         type: text,
         name: name,
-        value: "???",
+        value: "fromClass",
         return: "",
       };
 
@@ -89,6 +94,10 @@ const Class = (props) => {
   const handleVarChange = (var_id, var_name, var_val, var_ret) => {
     var { id, name, value, ret } = props;
     console.log("Attempting to change variable");
+    console.log(var_id);
+    console.log(var_name);
+    console.log(var_val);
+    console.log(var_ret);
     value[var_id].name = var_name;
     value[var_id].value = var_val;
     value[var_id].return = var_ret;
@@ -157,12 +166,15 @@ const Class = (props) => {
                 <li key={index}>
                   <Variable
                     id={index}
+                    variableID={item.variableID}
                     type={item.type}
                     name={item.name}
                     value={item.value}
                     ret={item.return}
                     drawInfoOpen={drawInfoOpen}
-                    onChange={() => handleVarChange()}
+                    onChange={(var_id, var_name, var_val, var_ret) =>
+                      handleVarChange(var_id, var_name, var_val, var_ret)
+                    }
                     arrowConnectionPointsOpen={arrowConnectionPointsOpen}
                     toggleArrowConnectionPoints={
                       props.toggleArrowConnectionPoints
@@ -175,6 +187,7 @@ const Class = (props) => {
                 <li key={index}>
                   <ARArrayDrop
                     id={index}
+                    variableID={item.variableID}
                     type={item.type}
                     name={item.name}
                     value={item.value}
@@ -190,6 +203,7 @@ const Class = (props) => {
                   <DroppableClass
                     id={index}
                     type={item.type}
+                    variableID={item.variableID}
                     name={item.name}
                     value={item.value}
                     ret={item.return}
