@@ -1,3 +1,4 @@
+import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
 import UniqueId from "./UniqueId";
 
@@ -58,6 +59,7 @@ export const stackSlice = createSlice({
         };
       } else if (!primitives.includes(text)) {
         var the_class = classes.find((item) => item.name === text);
+        console.log(action.payload);
 
         new_var = {
           variableID: varID,

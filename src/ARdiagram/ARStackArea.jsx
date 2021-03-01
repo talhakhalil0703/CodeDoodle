@@ -7,6 +7,7 @@ import {
   addVarToHalfFrame,
   selectStack,
 } from "../components/codeDoodle/stackSlice";
+import { selectClasses } from "../components/codeDoodle/classSlice";
 
 /* 
     Component makes up the stack section of the application, displays and populates all stackframes
@@ -18,6 +19,7 @@ import {
 */
 const ARStackArea = (props) => {
   const dispatch = useDispatch();
+  const classes = useSelector(selectClasses);
 
   /* handles changing a stackframes name */
   const handleNameChange = (id, name) => {
@@ -53,7 +55,7 @@ const ARStackArea = (props) => {
     dispatch(addStackFrame());
   };
 
-  const { classes, drawInfoOpen, arrowConnectionPointsOpen } = props;
+  const { drawInfoOpen, arrowConnectionPointsOpen } = props;
   const value = useSelector(selectStack);
   return (
     <React.Fragment>

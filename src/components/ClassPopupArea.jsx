@@ -144,7 +144,6 @@ const ClassPopupArea = (props) => {
               <div id="ClassPopup_Dropbar-Container">
                 <DrawingIcons
                   onClassListChange={props.onClassListChange}
-                  classList={props.classList}
                   showButton={false}
                 />
               </div>

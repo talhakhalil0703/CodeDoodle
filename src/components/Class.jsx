@@ -88,7 +88,7 @@ const Class = (props) => {
   /* handles changing the value of a variable */
   const handleVarChange = (var_id, var_name, var_val, var_ret) => {
     var { id, name, value, ret } = props;
-
+    console.log("Attempting to change variable");
     value[var_id].name = var_name;
     value[var_id].value = var_val;
     value[var_id].return = var_ret;

@@ -19,7 +19,7 @@ const DroppableClass = Droppable(Class);
 
 const ARHalfFrame = (props) => {
   const dispatch = useDispatch();
-
+  
   const handleVarChange = (
     variableID,
     variableName,
