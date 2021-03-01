@@ -104,6 +104,7 @@ export const stackSlice = createSlice({
       if (primitives.includes(dropType)) {
         state.stack.map((stackFrame) => {
           stackFrame.local.map((variable) => {
+            //local
             if (variable.variableID === variableID) {
               variable.value.array[index] = [
                 ...props.value.array[index],
@@ -113,6 +114,7 @@ export const stackSlice = createSlice({
             return variable;
           });
           stackFrame.args.map((variable) => {
+            //args
             if (variable.variableID === variableID) {
               variable.value.array[index] = [
                 ...props.value.array[index],
@@ -125,6 +127,7 @@ export const stackSlice = createSlice({
         });
       } else if (dropType === "array") {
         state.stack.map((stackFrame) => {
+          //local
           stackFrame.local.map((variable) => {
             if (variable.variableID === variableID) {
               variable.value.array = [
@@ -135,6 +138,7 @@ export const stackSlice = createSlice({
             return variable;
           });
           stackFrame.args.map((variable) => {
+            //args
             if (variable.variableID === variableID) {
               variable.value.array = [
                 ...props.value.array,
@@ -160,6 +164,7 @@ export const stackSlice = createSlice({
       } = action.payload;
 
       if (halfFrameType === "Local") {
+        // if in local
         state.stack.map((stackFrame) => {
           stackFrame.local.map((variable) => {
             if (variable.variableID === variableID) {
@@ -172,6 +177,7 @@ export const stackSlice = createSlice({
           return stackFrame;
         });
       } else {
+        //if in args
         state.stack.map((stackFrame) => {
           stackFrame.args.map((variable) => {
             if (variable.variableID === variableID) {
@@ -192,6 +198,7 @@ export const stackSlice = createSlice({
         variableID,
         removeElement,
       } = action.payload;
+      //if in local
       state.stack.map((stackFrame) => {
         stackFrame.local.map((variable) => {
           if (variable.variableID === arrayVariableID) {
@@ -213,7 +220,8 @@ export const stackSlice = createSlice({
           }
           return variable;
         });
-        stackFrame.local.map((variable) => {
+        //if in arguments
+        stackFrame.args.map((variable) => {
           if (variable.variableID === arrayVariableID) {
             variable.value.array.map((array) => {
               if (removeElement) {
@@ -238,7 +246,7 @@ export const stackSlice = createSlice({
     },
     changeClassVariable: (state, action) => {
       let { value, classVariableID, variableID } = action.payload;
-
+      //if in local
       state.stack.map((stackFrame) => {
         stackFrame.local.map((variables) => {
           if (variables.variableID === classVariableID) {
@@ -252,6 +260,24 @@ export const stackSlice = createSlice({
           }
           return variables;
         });
+
+        return stackFrame;
+      });
+      //If in arguments
+      state.stack.map((stackFrame) => {
+        stackFrame.args.map((variables) => {
+          if (variables.variableID === classVariableID) {
+            variables.value.map((variable) => {
+              if (variable.variableID === variableID) {
+                variable.name = value.name;
+                variable.value = value.value;
+              }
+              return variable;
+            });
+          }
+          return variables;
+        });
+
         return stackFrame;
       });
     },
