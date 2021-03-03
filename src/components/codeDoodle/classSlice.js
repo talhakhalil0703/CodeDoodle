@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import updateClassesFunction from "./ClassSlice/updateClassesFunction";
 
 export const classesSlice = createSlice({
   name: "classes",
@@ -6,9 +7,7 @@ export const classesSlice = createSlice({
     value: [],
   },
   reducers: {
-    updateClasses: (state, action) => {
-      state.value.push(action.payload);
-    },
+    updateClasses: (state, action) => updateClassesFunction(state, action),
   },
 });
 
