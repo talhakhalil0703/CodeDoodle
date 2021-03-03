@@ -11,8 +11,7 @@ export default function changeArrayVariableFunction(state, action) {
               state.stack[stackIndex].local[arrayIndex].value.array.splice(
                 elementIndex
               );
-            }
-            if (element.elementID === variableID) {
+            } else if (element.elementID === variableID) {
               element.elementValue = value;
             }
             return element;
@@ -33,8 +32,7 @@ export default function changeArrayVariableFunction(state, action) {
               state.stack[stackIndex].args[arrayIndex].value.array.splice(
                 elementIndex
               );
-            }
-            if (element.elementID === variableID) {
+            } else if (element.elementID === variableID) {
               element.elementValue = value;
             }
             return element;
