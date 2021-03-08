@@ -11,8 +11,10 @@ const ARArrayElement = (props) => {
     let arrayVariableID = props.arrayVariableID;
     let variableID = props.id;
     let removeElement = false;
+    let classId = props?.classId;
+  
     dispatch(
-      changeArrayVariable({ value, arrayVariableID, variableID, removeElement })
+      changeArrayVariable({ value, arrayVariableID, variableID, removeElement,classId })
     );
   };
 

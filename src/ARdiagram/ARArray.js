@@ -10,6 +10,7 @@ const ARArray = (props) => {
         <div className="mainArray" key={Math.floor(Math.random() * 1000)}>
           {singleArray.map((element) => (
             <ARArrayElement
+              classId={props?.classId}
               key={element.elementID}
               id={element.elementID}
               name={element.elementValue}
