@@ -76,39 +76,48 @@ export default function addVarToArray(state, action) {
           }
           return cls;
         });
-        stackFrame.args.map((variable) => {
-          //args
-          if (variable.variableID === variableID) {
-            variable.value.array[index] = [
-              ...props.value.array[index],
-              { elementID: UniqueId(), elementValue: " " },
-            ];
+        stackFrame.args.map((cls) => {
+          //arguments
+          if (cls.variableID === classId) {
+            cls.value.map((variable) => {
+              variable.value.array[index] = [
+                ...props.value.array[index],
+                { elementID: UniqueId(), elementValue: " " },
+              ];
+              return variable;
+            });
           }
-          return variable;
+          return cls;
         });
         return stackFrame;
       });
     } else if (dropType === "array") {
       state.stack.map((stackFrame) => {
-        //local
-        stackFrame.local.map((variable) => {
-          if (variable.variableID === variableID) {
-            variable.value.array = [
-              ...props.value.array,
-              [{ elementID: UniqueId(), elementValue: " " }],
-            ];
+        stackFrame.local.map((cls) => {
+          //local
+          if (cls.variableID === classId) {
+            cls.value.map((variable) => {
+              variable.value.array = [
+                ...props.value.array,
+                [{ elementID: UniqueId(), elementValue: " " }],
+              ];
+              return variable;
+            });
           }
-          return variable;
+          return cls;
         });
-        stackFrame.args.map((variable) => {
+        stackFrame.args.map((cls) => {
           //args
-          if (variable.variableID === variableID) {
-            variable.value.array = [
-              ...props.value.array,
-              [{ elementID: UniqueId(), elementValue: " " }],
-            ];
+          if (cls.variableID === classId) {
+            cls.value.map((variable) => {
+              variable.value.array = [
+                ...props.value.array,
+                [{ elementID: UniqueId(), elementValue: " " }],
+              ];
+              return variable;
+            });
           }
-          return variable;
+          return cls;
         });
         return stackFrame;
       });
