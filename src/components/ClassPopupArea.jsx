@@ -25,11 +25,17 @@ const ClassPopupArea = (props) => {
 
   const saveQuit = () => {
     console.log("saving");
+    var classId = UniqueId();
+
+    var newVariables = variables.map((v) => {
+      v.classId = classId;
+      return v;
+    });
 
     var newClassItem = {
       name: name,
-      variableID: UniqueId(),
-      variables: variables,
+      variableID: classId,
+      variables: newVariables,
       type: "class",
     };
 

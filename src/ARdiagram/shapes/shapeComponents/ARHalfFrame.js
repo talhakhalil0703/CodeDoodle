@@ -4,7 +4,7 @@ import Class from "../../../components/Class";
 import Droppable from "../../../components/DroppableFunction";
 import ARArrayDrop from "../../ARArrayDrop";
 import { useDispatch } from "react-redux";
-import { handleVariableChange } from "../../../components/codeDoodle/stackSlice";
+import { changeVariable } from "../../../components/codeDoodle/stackSlice";
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -19,16 +19,17 @@ const DroppableClass = Droppable(Class);
 
 const ARHalfFrame = (props) => {
   const dispatch = useDispatch();
-  
+
   const handleVarChange = (
     variableID,
     variableName,
     variableValue,
     variableReturn
   ) => {
+    console.log("Handling Var Change");
     let halfFrameType = props.name;
     dispatch(
-      handleVariableChange({
+      changeVariable({
         variableID,
         variableName,
         variableValue,
@@ -88,6 +89,7 @@ const ARHalfFrame = (props) => {
                   type={item.type}
                   name={item.name}
                   value={item.value}
+                  classId={item?.classId}
                 />
               </li>
             );

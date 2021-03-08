@@ -1,9 +1,13 @@
 import UniqueId from "../UniqueId";
+import React from "react";
 
 export default function addVarToHalfFrameFunction(state, action) {
   let text = action.payload.text;
   let id = action.payload.halfFrame.id;
   let val = action.payload.halfFrame.value;
+  let classId = action.payload.halfFrame.classId;
+  alert(`classId: ${classId}`);
+
   var classes = action.payload.halfFrame.classes;
 
   var primitives = ["int", "double", "boolean", "float", "char"];
@@ -30,7 +34,7 @@ export default function addVarToHalfFrameFunction(state, action) {
   } else if (!primitives.includes(text)) {
     var the_class = classes.find((item) => item.name === text);
     console.log(action.payload);
-
+    let classId = UniqueId();
     let variablesWithUniqueIDs = the_class.variables.map((variable) => {
       var { type, name, value } = variable;
       let variableWithUniqueID = {
@@ -38,12 +42,13 @@ export default function addVarToHalfFrameFunction(state, action) {
         name,
         value,
         variableID: UniqueId(),
+        classId, //Used for later when inserting items into the class
       };
       return variableWithUniqueID;
     });
 
     new_var = {
-      variableID: UniqueId(),
+      variableID: classId, // Defining class here
       type: the_class.name,
       name: name,
       value: variablesWithUniqueIDs,

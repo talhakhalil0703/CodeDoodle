@@ -1,4 +1,4 @@
-export default function handleVariableChangeFunction(state, action) {
+export default function changeVariableFunction(state, action) {
   console.log("Handle Variable Change Stack Redux");
   console.log(action);
 

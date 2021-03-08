@@ -4,7 +4,7 @@ import updateStackFunction from "./StackSlice/updateStackFunction";
 import addStackFrameFunction from "./StackSlice/addStackFrameFunction";
 import addVarToHalfFrameFunction from "./StackSlice/addVarToHalfFrameFunction";
 import addVarToArrayFunction from "./StackSlice/addVarToArrayFunction";
-import handleVariableChangeFunction from "./StackSlice/handleVariableChangeFunction";
+import changeVariableFunction from "./StackSlice/changeVariableFunction";
 import changeArrayVariableFunction from "./StackSlice/changeArrayVariableFunction";
 import changeClassVariableFunction from "./StackSlice/changeClassVariableFunction";
 
@@ -19,8 +19,7 @@ export const stackSlice = createSlice({
     addVarToHalfFrame: (state, action) =>
       addVarToHalfFrameFunction(state, action),
     addVarToArray: (state, action) => addVarToArrayFunction(state, action),
-    handleVariableChange: (state, action) =>
-      handleVariableChangeFunction(state, action),
+    changeVariable: (state, action) => changeVariableFunction(state, action),
     changeArrayVariable: (state, action) =>
       changeArrayVariableFunction(state, action),
     changeClassVariable: (state, action) =>
@@ -34,7 +33,7 @@ export const {
   addStackFrame,
   addVarToHalfFrame,
   addVarToArray,
-  handleVariableChange,
+  changeVariable,
   changeArrayVariable,
   changeClassVariable,
 } = stackSlice.actions;

@@ -25,6 +25,7 @@ const Class = (props) => {
   };
 
   const handleDrop = (text, value, classes) => {
+    console.log("Recieved a Class drop");
     var val = value;
 
     var primitives = ["int", "double", "boolean", "float", "char"];
@@ -201,6 +202,7 @@ const Class = (props) => {
                     type={item.type}
                     name={item.name}
                     value={item.value}
+                    classId={props.variableID}
                     onChange={(var_id, var_name, var_val, var_ret) =>
                       handleVarChange(var_id, var_name, var_val, var_ret)
                     }
