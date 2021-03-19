@@ -1,4 +1,7 @@
 .anchor {
-    width:100px;
-    height: 43px;
+    width: 70px;
+    height: 25px;
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
 }

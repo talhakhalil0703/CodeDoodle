@@ -338,9 +338,7 @@ ${val}`;
                 </div>
 
                 {anchors.map((index) =>
-                    <Anchor key={index} number={1} >
-                        <h2 id={'anchor-1'} className='anchor'>anchor-1</h2>
-                    </Anchor>
+                    <Anchor key={index}/>
                 )}
 
             </div >

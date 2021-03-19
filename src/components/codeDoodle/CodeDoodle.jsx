@@ -7,9 +7,9 @@ import Toggalable from '../Toggalable';
 import ARDiagramDrawArea from '../../ARdiagram/ARDiagramDrawArea';
 import Droppable from '../Droppable';
 import Anchor from '../anchor/Anchor'
-import { selectReRenderToggle } from '../../GeneralDiagrams/Arrow/arrowSlice';
 import { useDispatch,  useSelector} from 'react-redux'
-import {updateStack, selectStack} from "./stackSlice"
+import { updateStack, selectStack } from "./stackSlice"
+import { selectAnchorList } from '../../components/anchor/anchorSlice'
 
 /*
     The main component.
@@ -66,7 +66,7 @@ function CodeDoodle() {
     const [heap, setHeap] = useState([]);
     const [stat, setStat] = useState([]);
     const [classes, setClasses] = useState([]);
-    const [anchors, setAnchors] = useState([{number:1}]);
+    const anchors = useSelector(selectAnchorList)
     const [arrows, setArrows] = useState([{fromRef:'var-b0', toDivID:'var-a0'}]);
 
     /* toggles the code editor */
@@ -291,10 +291,8 @@ ${val}`;
                 </Toggalable>
             </div>
 
-            {anchors.map((index) =>
-                <Anchor key={index} number={1} >
-                    <h2 id={'anchor-1'} className='anchor'>anchor-1</h2>
-                </Anchor>
+            {anchors.map((anchor,index) =>
+                <Anchor ID={anchor.ID} />
             )}
 
         </div >

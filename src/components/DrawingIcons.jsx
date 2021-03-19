@@ -4,6 +4,7 @@ import "./DrawingIcons.css";
 import ClassPopupArea from "./ClassPopupArea";
 import Pointer from "./Pointer";
 import { selectClasses } from "../components/codeDoodle/classSlice";
+import { addAnchor } from "../components/anchor/anchorSlice";
 /* 
     Component makes up the drawing tools part of the application
     To add more items to the panel add to <ul> in this format:
@@ -25,10 +26,9 @@ const DrawingIcons = (props) => {
   };
 
   const dispatchNewAnchor = () => {
-    dispatch({
-      type: "new_anchor",
-      payload: { divID: "anchor-2", initialPosition: { x: 400, y: -300 } },
-    });
+    dispatch(addAnchor({
+      type: "addAnchor",
+    }));
   };
 
   return (
