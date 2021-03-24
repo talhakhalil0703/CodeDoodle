@@ -40,9 +40,10 @@ int main()
     int *y = NULL;
     char *c = "Hello World";
     char *d = "\"Goodbye World\'";
-    int *z = new int[1000];
-    z = new int(5);
+    int *z = new int[3];
     Hello *hi = new Hello(3000, 2500);
+    int bleh = 0;
+    int *i = foo();
     return 0;
 }
 

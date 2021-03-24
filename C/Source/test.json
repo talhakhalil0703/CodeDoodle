@@ -1,1 +1,3642 @@
-{"stack": [{"identifer": "main", "args": [{"id": 140737488347564, "identifier": "argc", "value": "1", "size": 4, "type": "primative"}, {"id": 140737488347552, "identifier": "argv", "value": 140737488347832, "size": 8, "type": "pointer"}], "vars": [{"id": 140737488347576, "identifier": "x", "value": "0", "size": 4, "type": "primative"}, {"id": 140737488347580, "identifier": "y", "value": "0", "size": 4, "type": "primative"}]}], "heap": []}
+[
+    {
+        "line": "18",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085984,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "19",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": false,
+                        "value": "0",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "21",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "0",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "19",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "0",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "21",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "1",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "19",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "1",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "21",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "2",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "19",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "2",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "21",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "3",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": false,
+                    "value": "0",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "19",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176516,
+                        "identifier": "i",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "3",
+                        "type": "primative"
+                    },
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "23",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "11",
+        "stack": [
+            {
+                "identifier": "Hello::Hello",
+                "args": [
+                    {
+                        "id": 137422176488,
+                        "identifier": "this",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176484,
+                        "identifier": "x",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": false,
+                        "value": "0",
+                        "type": "primative"
+                    }
+                ],
+                "vars": []
+            },
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "13",
+        "stack": [
+            {
+                "identifier": "Hello::Hello",
+                "args": [
+                    {
+                        "id": 137422176488,
+                        "identifier": "this",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423568,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176484,
+                        "identifier": "x",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "5",
+                        "type": "primative"
+                    }
+                ],
+                "vars": []
+            },
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423568,
+                    "identifier": 81423568,
+                    "size": 12,
+                    "type_name": "Hello",
+                    "defined": null,
+                    "value": [
+                        {
+                            "id": 81423568,
+                            "identifier": "a_number",
+                            "size": 4,
+                            "type_name": "int",
+                            "defined": true,
+                            "value": "5",
+                            "type": "primative"
+                        },
+                        {
+                            "id": 81423572,
+                            "identifier": "name",
+                            "size": 6,
+                            "type_name": null,
+                            "defined": null,
+                            "value": [
+                                {
+                                    "id": 81423572,
+                                    "identifier": 81423572,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423573,
+                                    "identifier": 81423573,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423574,
+                                    "identifier": 81423574,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423575,
+                                    "identifier": 81423575,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423576,
+                                    "identifier": 81423576,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423577,
+                                    "identifier": 81423577,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                }
+                            ],
+                            "type": "array"
+                        }
+                    ],
+                    "type": "class"
+                }
+            ],
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "14",
+        "stack": [
+            {
+                "identifier": "Hello::Hello",
+                "args": [
+                    {
+                        "id": 137422176488,
+                        "identifier": "this",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423568,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176484,
+                        "identifier": "x",
+                        "size": 4,
+                        "type_name": "int",
+                        "defined": true,
+                        "value": "5",
+                        "type": "primative"
+                    }
+                ],
+                "vars": []
+            },
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 0,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423568,
+                    "identifier": 81423568,
+                    "size": 12,
+                    "type_name": "Hello",
+                    "defined": null,
+                    "value": [
+                        {
+                            "id": 81423568,
+                            "identifier": "a_number",
+                            "size": 4,
+                            "type_name": "int",
+                            "defined": true,
+                            "value": "5",
+                            "type": "primative"
+                        },
+                        {
+                            "id": 81423572,
+                            "identifier": "name",
+                            "size": 6,
+                            "type_name": null,
+                            "defined": null,
+                            "value": [
+                                {
+                                    "id": 81423572,
+                                    "identifier": 81423572,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'N'"
+                                },
+                                {
+                                    "id": 81423573,
+                                    "identifier": 81423573,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'A'"
+                                },
+                                {
+                                    "id": 81423574,
+                                    "identifier": 81423574,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'M'"
+                                },
+                                {
+                                    "id": 81423575,
+                                    "identifier": 81423575,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'E'"
+                                },
+                                {
+                                    "id": 81423576,
+                                    "identifier": 81423576,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423577,
+                                    "identifier": 81423577,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                }
+                            ],
+                            "type": "array"
+                        }
+                    ],
+                    "type": "class"
+                }
+            ],
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "24",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423568,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": false,
+                        "value": 1085568,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ],
+            [
+                {
+                    "id": 81423568,
+                    "identifier": 81423568,
+                    "size": 12,
+                    "type_name": "Hello",
+                    "defined": null,
+                    "value": [
+                        {
+                            "id": 81423568,
+                            "identifier": "a_number",
+                            "size": 4,
+                            "type_name": "int",
+                            "defined": true,
+                            "value": "5",
+                            "type": "primative"
+                        },
+                        {
+                            "id": 81423572,
+                            "identifier": "name",
+                            "size": 6,
+                            "type_name": null,
+                            "defined": null,
+                            "value": [
+                                {
+                                    "id": 81423572,
+                                    "identifier": 81423572,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'N'"
+                                },
+                                {
+                                    "id": 81423573,
+                                    "identifier": 81423573,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'A'"
+                                },
+                                {
+                                    "id": 81423574,
+                                    "identifier": 81423574,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'M'"
+                                },
+                                {
+                                    "id": 81423575,
+                                    "identifier": 81423575,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'E'"
+                                },
+                                {
+                                    "id": 81423576,
+                                    "identifier": 81423576,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423577,
+                                    "identifier": 81423577,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                }
+                            ],
+                            "type": "array"
+                        }
+                    ],
+                    "type": "class"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "26",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423568,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 1089540,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ],
+            [
+                {
+                    "id": 81423568,
+                    "identifier": 81423568,
+                    "size": 12,
+                    "type_name": "Hello",
+                    "defined": null,
+                    "value": [
+                        {
+                            "id": 81423568,
+                            "identifier": "a_number",
+                            "size": 4,
+                            "type_name": "int",
+                            "defined": true,
+                            "value": "5",
+                            "type": "primative"
+                        },
+                        {
+                            "id": 81423572,
+                            "identifier": "name",
+                            "size": 6,
+                            "type_name": null,
+                            "defined": null,
+                            "value": [
+                                {
+                                    "id": 81423572,
+                                    "identifier": 81423572,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'N'"
+                                },
+                                {
+                                    "id": 81423573,
+                                    "identifier": 81423573,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'A'"
+                                },
+                                {
+                                    "id": 81423574,
+                                    "identifier": 81423574,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'M'"
+                                },
+                                {
+                                    "id": 81423575,
+                                    "identifier": 81423575,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'E'"
+                                },
+                                {
+                                    "id": 81423576,
+                                    "identifier": 81423576,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423577,
+                                    "identifier": 81423577,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                }
+                            ],
+                            "type": "array"
+                        }
+                    ],
+                    "type": "class"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "27",
+        "stack": [
+            {
+                "identifier": "main",
+                "args": [],
+                "vars": [
+                    {
+                        "id": 137422176520,
+                        "identifier": "x",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423488,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176528,
+                        "identifier": "hi",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 81423568,
+                        "type": "pointer"
+                    },
+                    {
+                        "id": 137422176536,
+                        "identifier": "str",
+                        "size": 8,
+                        "type_name": null,
+                        "defined": true,
+                        "value": 1089540,
+                        "type": "pointer"
+                    }
+                ]
+            }
+        ],
+        "heap": [
+            [
+                {
+                    "id": 81423488,
+                    "identifier": 81423488,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "0",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423492,
+                    "identifier": 81423492,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "1",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423496,
+                    "identifier": 81423496,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "2",
+                    "type": "primative"
+                },
+                {
+                    "id": 81423500,
+                    "identifier": 81423500,
+                    "size": 4,
+                    "type_name": "int",
+                    "defined": true,
+                    "value": "3",
+                    "type": "primative"
+                }
+            ],
+            [
+                {
+                    "id": 81423568,
+                    "identifier": 81423568,
+                    "size": 12,
+                    "type_name": "Hello",
+                    "defined": null,
+                    "value": [
+                        {
+                            "id": 81423568,
+                            "identifier": "a_number",
+                            "size": 4,
+                            "type_name": "int",
+                            "defined": true,
+                            "value": "5",
+                            "type": "primative"
+                        },
+                        {
+                            "id": 81423572,
+                            "identifier": "name",
+                            "size": 6,
+                            "type_name": null,
+                            "defined": null,
+                            "value": [
+                                {
+                                    "id": 81423572,
+                                    "identifier": 81423572,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'N'"
+                                },
+                                {
+                                    "id": 81423573,
+                                    "identifier": 81423573,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'A'"
+                                },
+                                {
+                                    "id": 81423574,
+                                    "identifier": 81423574,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'M'"
+                                },
+                                {
+                                    "id": 81423575,
+                                    "identifier": 81423575,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'E'"
+                                },
+                                {
+                                    "id": 81423576,
+                                    "identifier": 81423576,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": true,
+                                    "value": "'\\0'"
+                                },
+                                {
+                                    "id": 81423577,
+                                    "identifier": 81423577,
+                                    "size": 1,
+                                    "type_name": "char",
+                                    "defined": false,
+                                    "value": "'\\0'"
+                                }
+                            ],
+                            "type": "array"
+                        }
+                    ],
+                    "type": "class"
+                }
+            ]
+        ],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    },
+    {
+        "line": "342",
+        "stack": [],
+        "heap": [],
+        "static": [
+            [
+                {
+                    "id": 1089540,
+                    "identifier": 1089540,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'H'"
+                },
+                {
+                    "id": 1089541,
+                    "identifier": 1089541,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'e'"
+                },
+                {
+                    "id": 1089542,
+                    "identifier": 1089542,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089543,
+                    "identifier": 1089543,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089544,
+                    "identifier": 1089544,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089545,
+                    "identifier": 1089545,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'"
+                },
+                {
+                    "id": 1089546,
+                    "identifier": 1089546,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'W'"
+                },
+                {
+                    "id": 1089547,
+                    "identifier": 1089547,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'o'"
+                },
+                {
+                    "id": 1089548,
+                    "identifier": 1089548,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'r'"
+                },
+                {
+                    "id": 1089549,
+                    "identifier": 1089549,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'l'"
+                },
+                {
+                    "id": 1089550,
+                    "identifier": 1089550,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'d'"
+                },
+                {
+                    "id": 1089551,
+                    "identifier": 1089551,
+                    "size": 1,
+                    "type_name": "char",
+                    "defined": true,
+                    "value": "'\\n'"
+                }
+            ]
+        ]
+    }
+][{"line": "18", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": false, "value": 1085984, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "19", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "21", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "19", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "21", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "19", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "21", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "19", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "21", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "19", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176516, "identifier": "i", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}, {"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "23", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "11", "stack": [{"identifier": "Hello::Hello", "args": [{"id": 137422176488, "identifier": "this", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176484, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}], "vars": []}, {"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "13", "stack": [{"identifier": "Hello::Hello", "args": [{"id": 137422176488, "identifier": "this", "size": 8, "type_name": null, "defined": true, "value": 81423568, "type": "pointer"}, {"id": 137422176484, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}], "vars": []}, {"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423568, "identifier": 81423568, "size": 12, "type_name": "Hello", "defined": null, "value": [{"id": 81423568, "identifier": "a_number", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 81423572, "identifier": "name", "size": 6, "type_name": null, "defined": null, "value": [{"id": 81423572, "identifier": 81423572, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}, {"id": 81423573, "identifier": 81423573, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}, {"id": 81423574, "identifier": 81423574, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}, {"id": 81423575, "identifier": 81423575, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}, {"id": 81423576, "identifier": 81423576, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}, {"id": 81423577, "identifier": 81423577, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}], "type": "array"}], "type": "class"}], [{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "14", "stack": [{"identifier": "Hello::Hello", "args": [{"id": 137422176488, "identifier": "this", "size": 8, "type_name": null, "defined": true, "value": 81423568, "type": "pointer"}, {"id": 137422176484, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}], "vars": []}, {"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": false, "value": 0, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423568, "identifier": 81423568, "size": 12, "type_name": "Hello", "defined": null, "value": [{"id": 81423568, "identifier": "a_number", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 81423572, "identifier": "name", "size": 6, "type_name": null, "defined": null, "value": [{"id": 81423572, "identifier": 81423572, "size": 1, "type_name": "char", "defined": true, "value": "'N'"}, {"id": 81423573, "identifier": 81423573, "size": 1, "type_name": "char", "defined": true, "value": "'A'"}, {"id": 81423574, "identifier": 81423574, "size": 1, "type_name": "char", "defined": true, "value": "'M'"}, {"id": 81423575, "identifier": 81423575, "size": 1, "type_name": "char", "defined": true, "value": "'E'"}, {"id": 81423576, "identifier": 81423576, "size": 1, "type_name": "char", "defined": true, "value": "'\\0'"}, {"id": 81423577, "identifier": 81423577, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}], "type": "array"}], "type": "class"}], [{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "24", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": true, "value": 81423568, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": false, "value": 1085568, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}], [{"id": 81423568, "identifier": 81423568, "size": 12, "type_name": "Hello", "defined": null, "value": [{"id": 81423568, "identifier": "a_number", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 81423572, "identifier": "name", "size": 6, "type_name": null, "defined": null, "value": [{"id": 81423572, "identifier": 81423572, "size": 1, "type_name": "char", "defined": true, "value": "'N'"}, {"id": 81423573, "identifier": 81423573, "size": 1, "type_name": "char", "defined": true, "value": "'A'"}, {"id": 81423574, "identifier": 81423574, "size": 1, "type_name": "char", "defined": true, "value": "'M'"}, {"id": 81423575, "identifier": 81423575, "size": 1, "type_name": "char", "defined": true, "value": "'E'"}, {"id": 81423576, "identifier": 81423576, "size": 1, "type_name": "char", "defined": true, "value": "'\\0'"}, {"id": 81423577, "identifier": 81423577, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}], "type": "array"}], "type": "class"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "26", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": true, "value": 81423568, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": true, "value": 1089540, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}], [{"id": 81423568, "identifier": 81423568, "size": 12, "type_name": "Hello", "defined": null, "value": [{"id": 81423568, "identifier": "a_number", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 81423572, "identifier": "name", "size": 6, "type_name": null, "defined": null, "value": [{"id": 81423572, "identifier": 81423572, "size": 1, "type_name": "char", "defined": true, "value": "'N'"}, {"id": 81423573, "identifier": 81423573, "size": 1, "type_name": "char", "defined": true, "value": "'A'"}, {"id": 81423574, "identifier": 81423574, "size": 1, "type_name": "char", "defined": true, "value": "'M'"}, {"id": 81423575, "identifier": 81423575, "size": 1, "type_name": "char", "defined": true, "value": "'E'"}, {"id": 81423576, "identifier": 81423576, "size": 1, "type_name": "char", "defined": true, "value": "'\\0'"}, {"id": 81423577, "identifier": 81423577, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}], "type": "array"}], "type": "class"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "27", "stack": [{"identifier": "main", "args": [], "vars": [{"id": 137422176520, "identifier": "x", "size": 8, "type_name": null, "defined": true, "value": 81423488, "type": "pointer"}, {"id": 137422176528, "identifier": "hi", "size": 8, "type_name": null, "defined": true, "value": 81423568, "type": "pointer"}, {"id": 137422176536, "identifier": "str", "size": 8, "type_name": null, "defined": true, "value": 1089540, "type": "pointer"}]}], "heap": [[{"id": 81423488, "identifier": 81423488, "size": 4, "type_name": "int", "defined": true, "value": "0", "type": "primative"}, {"id": 81423492, "identifier": 81423492, "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 81423496, "identifier": 81423496, "size": 4, "type_name": "int", "defined": true, "value": "2", "type": "primative"}, {"id": 81423500, "identifier": 81423500, "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}], [{"id": 81423568, "identifier": 81423568, "size": 12, "type_name": "Hello", "defined": null, "value": [{"id": 81423568, "identifier": "a_number", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 81423572, "identifier": "name", "size": 6, "type_name": null, "defined": null, "value": [{"id": 81423572, "identifier": 81423572, "size": 1, "type_name": "char", "defined": true, "value": "'N'"}, {"id": 81423573, "identifier": 81423573, "size": 1, "type_name": "char", "defined": true, "value": "'A'"}, {"id": 81423574, "identifier": 81423574, "size": 1, "type_name": "char", "defined": true, "value": "'M'"}, {"id": 81423575, "identifier": 81423575, "size": 1, "type_name": "char", "defined": true, "value": "'E'"}, {"id": 81423576, "identifier": 81423576, "size": 1, "type_name": "char", "defined": true, "value": "'\\0'"}, {"id": 81423577, "identifier": 81423577, "size": 1, "type_name": "char", "defined": false, "value": "'\\0'"}], "type": "array"}], "type": "class"}]], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}, {"line": "342", "stack": [], "heap": [], "static": [[{"id": 1089540, "identifier": 1089540, "size": 1, "type_name": "char", "defined": true, "value": "'H'"}, {"id": 1089541, "identifier": 1089541, "size": 1, "type_name": "char", "defined": true, "value": "'e'"}, {"id": 1089542, "identifier": 1089542, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089543, "identifier": 1089543, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089544, "identifier": 1089544, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089545, "identifier": 1089545, "size": 1, "type_name": "char", "defined": true, "value": "'"}, {"id": 1089546, "identifier": 1089546, "size": 1, "type_name": "char", "defined": true, "value": "'W'"}, {"id": 1089547, "identifier": 1089547, "size": 1, "type_name": "char", "defined": true, "value": "'o'"}, {"id": 1089548, "identifier": 1089548, "size": 1, "type_name": "char", "defined": true, "value": "'r'"}, {"id": 1089549, "identifier": 1089549, "size": 1, "type_name": "char", "defined": true, "value": "'l'"}, {"id": 1089550, "identifier": 1089550, "size": 1, "type_name": "char", "defined": true, "value": "'d'"}, {"id": 1089551, "identifier": 1089551, "size": 1, "type_name": "char", "defined": true, "value": "'\\n'"}]]}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}][{"line": "3", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "4", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": false, "value": "0", "type": "primative"}]}], "heap": [], "static": []}, {"line": "5", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "6", "stack": [{"identifier": "main", "args": [{"id": 137422176508, "identifier": "argc", "size": 4, "type_name": "int", "defined": true, "value": "1", "type": "primative"}, {"id": 137422176496, "identifier": "argv", "size": 8, "type_name": null, "defined": true, "value": 137422176776, "type": "pointer"}], "vars": [{"id": 137422176520, "identifier": "x", "size": 4, "type_name": "int", "defined": true, "value": "5", "type": "primative"}, {"id": 137422176524, "identifier": "y", "size": 4, "type_name": "int", "defined": true, "value": "3", "type": "primative"}]}], "heap": [], "static": []}, {"line": "342", "stack": [], "heap": [], "static": []}]

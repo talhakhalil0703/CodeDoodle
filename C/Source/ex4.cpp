@@ -13,15 +13,12 @@ Hello::Hello(int x) : a_number(x)
     strcpy(name, "NAME");
 }
 
+int x = 0;
+
 int main()
 {
-    int *x = new int[4];
-    for (int i = 0; i < 4; i++)
-    {
-        x[i] = i;
-    }
     Hello *hi = new Hello(5);
-    char *str = "Hello World\n";
+    int *number = &(hi->a_number);
     // Break Point
     return 0;
 }

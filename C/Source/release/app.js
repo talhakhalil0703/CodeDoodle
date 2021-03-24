@@ -68,7 +68,6 @@ app.use(express.urlencoded({ extended: true }));
 //   });
 // });
 
-//screen -r
 app.post("/", async (req, res) => {
   console.log("CALLED");
   const filename = Date.now() + "CSOURCE";
