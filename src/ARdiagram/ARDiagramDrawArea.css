@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */
+
+#drawArea {
+    /* font-family: 'Indie Flower', cursive; */
+    width: 100%;
+    height: 100%;
+}
+
+.drawSection {
+    width: 33.3%;
+    height: 100%;
+    overflow:hidden;
+    text-align: center;
+    background: #fee2e3;
+}
+
+#drawArea {
+    /* font-family: 'Indie Flower', cursive; */
+    width: 100%;
+    height: 100%;
+}
+
+.drawSection {
+    width: 33.3%;
+    height: 100%;
+    overflow:hidden;
+    text-align: center;
+    background: #fee2e3;
+}
+
+#stackArea {
+    background:gray;
+}
+
+#heapArea {
+    background: #cfe5f2;
+}
+
+.drawSection h1 {
+    text-decoration: underline;
+}
+
+
+.diagram-panel-header {
+    width: 100%;
+    height: 50px;
+    box-shadow: -1px 0px 8px 1px black;
+    background-color: #202020;
+}
+
+.drawing-panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.drawing-area {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}

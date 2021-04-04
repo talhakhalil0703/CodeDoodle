@@ -1,0 +1,35 @@
+/* -------------------------------- */
+/* Header with/and language buttons */
+/* -------------------------------- */
+
+.code-panel-header {
+    width: 100%;
+    height: 50px;
+    box-shadow: -1px 0px 8px 1px black;
+    background-color: #202020;
+    border: 1px solid #606060;
+}
+
+.btn {
+    margin-top: 1px;
+    display: inline-block;
+    text-align: center;
+    padding: 16px;
+    border: none;
+}
+
+.btn:hover {
+    margin-top: 0px;
+    border: 1px solid black;
+}
+
+
+/* ---------------------------- */
+/* -- Code panel related CSS -- */
+/* ---------------------------- */
+
+.code-panel {
+    background-color: #202020;
+    width: 100%;
+    height: 100%;
+}
