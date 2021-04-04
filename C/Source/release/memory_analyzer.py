@@ -64,9 +64,7 @@ class MemoryParse (gdb.Command):
                                 "heap": self.heap, "static": self.static})
             if(self.quit == True):
                 break
-        with open("test.json", "a") as f:
-            json.dump(self.output, f)
-            
+
         print("{}{}{}".format("(JSONDUMPSTART)",
                               json.dumps(self.output), "(JSONDUMPEND)"))
         self.output = []
@@ -215,8 +213,10 @@ class MemoryParse (gdb.Command):
         if (h_block[0] not in self.used_heap_blocks) or (target.sizeof > self.used_heap_blocks[h_block[0]]):
             for i in range(len(self.heap)):
                 if (self.heap[i][0]["id"] == h_block[0]):
-                    self.heap.remove(i)
-
+                    try:
+                        self.heap.remove(i)
+                    except:
+                        pass
             self.used_heap_blocks[h_block[0]] = target.sizeof
             group = []
             for i in range(h_block[0], h_block[1]+1, target.sizeof):

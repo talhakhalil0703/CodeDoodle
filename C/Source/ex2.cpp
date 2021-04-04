@@ -36,6 +36,7 @@ int *foo()
 
 int main()
 {
+    Hello greetings(3, 5);
     int *x = foo();
     int *y = NULL;
     char *c = "Hello World";
