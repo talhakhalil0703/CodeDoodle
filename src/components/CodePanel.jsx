@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CodeEditor from './CodeEditor';
 import './CodePanel.css'
+import Toggalable from './Toggalable';
+import CodePlayer from './codeToAR/CodePlayer'
 
 /*
     This component holds anything related to the code editor:
@@ -26,7 +28,9 @@ class CodePanel extends Component {
         super(props);
 
         this.state = {
-            breakpoint: [-1]
+            breakpoint: [-1],
+            generatedCode: false,
+            ARInfo: {}
         }
 
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -94,7 +98,7 @@ class CodePanel extends Component {
         where the first breakpoint is and only emits code before it, 
         alerts for now just to show code 
     */
-    handleConvert() {
+    async handleConvert() {
         const text = this.props.value;
         var bp = this.state.breakpoint[0];
 
@@ -110,7 +114,28 @@ class CodePanel extends Component {
             output += lines[i];
         }
 
-        alert(output);
+        //alert(output);
+        try {
+            console.log(text);
+            const res = await fetch("http://ec2-3-135-65-201.us-east-2.compute.amazonaws.com:3000/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ code: text }),
+            });
+            if(res.status == 200)
+            {
+                const ARInfo = await res.json();
+                await this.setState({ARInfo:ARInfo, generatedCode: true});
+                this.setState({generatedCode: false});
+                this.setState({generatedCode: true});
+                console.log("Setting State");
+            }
+            
+          } catch (error) {
+            console.log(error);
+          }
     }
 
     /* handles toggling a breakpoint and updates state accordingly */
@@ -163,15 +188,19 @@ class CodePanel extends Component {
                     <button className='btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
                     <button className='btn' onClick={this.handleConvert}>Create Diagram</button>
                 </div>
-
-                <CodeEditor
-                    value={this.props.value}
-                    language={this.props.language}
-                    onChange={this.handleEditorChange}
-                    onKeyDown={this.handleKeyDown}
-                    onClick={this.handleBreakpoint}
-                    onUpload={this.handleFileUpload}
-                />
+                <div className='code-to-ar-base'>
+                    <CodeEditor
+                        value={this.props.value}
+                        language={this.props.language}
+                        onChange={this.handleEditorChange}
+                        onKeyDown={this.handleKeyDown}
+                        onClick={this.handleBreakpoint}
+                        onUpload={this.handleFileUpload}
+                    /> 
+                    <Toggalable toggle={this.state.generatedCode} alt={null}>
+                        <CodePlayer ARInfo={this.state.ARInfo}/>
+                    </Toggalable>
+                </div>
             </div >
         );
     }
