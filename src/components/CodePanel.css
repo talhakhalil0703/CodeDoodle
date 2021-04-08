@@ -38,3 +38,16 @@
   width: 100%;
   height: 100%;
 }
+.error {
+  display: flex;
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  padding-left: 10px;
+}
+
+.error-btn {
+  margin-left: auto;
+  background: #ffe0e0;
+  border: none;
+}

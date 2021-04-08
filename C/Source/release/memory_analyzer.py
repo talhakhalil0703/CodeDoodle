@@ -100,10 +100,12 @@ class MemoryParse (gdb.Command):
                     address = int(
                         str(symbol.value(frame).address).split()[0], 0)
                     static_addr_space = self.get_static_file_address_space()
-                    if (static_addr_space[0] <= address <= static_addr_space[1]) and (address not in self.staticvars):
-                        self.staticvars.add(address)
-                        self.static.append(self.symbol_parse(
-                            symbol.name, symbol.value(frame)))
+                    if (static_addr_space[0] <= address <= static_addr_space[1]):
+                        if (address not in self.staticvars):
+                            self.staticvars.add(address)
+                            self.static.append([self.symbol_parse(
+                                symbol.name, symbol.value(frame))])
+
                     else:
                         blk["vars"].append(self.symbol_parse(
                             symbol.name, symbol.value(frame)))
@@ -111,7 +113,6 @@ class MemoryParse (gdb.Command):
             block = block.superblock
         self.stack.append(blk)
 
-    # TODO add static check and global vars to static
     def symbol_parse(self, name, value):
         try:
             address = int(str(value.address).split()[0], 0)
@@ -142,6 +143,7 @@ class MemoryParse (gdb.Command):
                 elif(s_block):
                     pass
         elif(type.code == gdb.TYPE_CODE_REF):
+            v["id"] = str(int(str(value).replace('@', ''), 0)) + "REF"
             v["value"] = int(str(value).replace('@', ''), 0)
             v["type"] = "reference"
         elif(type.code == gdb.TYPE_CODE_ARRAY):
@@ -211,12 +213,16 @@ class MemoryParse (gdb.Command):
         # n_values = h_block/target.sizeof
 
         if (h_block[0] not in self.used_heap_blocks) or (target.sizeof > self.used_heap_blocks[h_block[0]]):
+            self.heap[:] = [x for x in self.heap if (x[0]["id"] != h_block[0])]
+            '''
             for i in range(len(self.heap)):
+
+
                 if (self.heap[i][0]["id"] == h_block[0]):
-                    try:
-                        self.heap.remove(i)
-                    except:
-                        pass
+                    print(self.heap[i])
+                    self.heap.remove(i)
+                    break
+            '''
             self.used_heap_blocks[h_block[0]] = target.sizeof
             group = []
             for i in range(h_block[0], h_block[1]+1, target.sizeof):

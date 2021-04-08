@@ -10,7 +10,8 @@ class KeyValuePair extends React.Component {
   }
 
   componentDidMount() {
-    this.props.addMembers(this.props.varID, this.selector.current.getBoundingClientRect());
+    //this.props.addMembers(this.props.varID, this.selector.current.getBoundingClientRect());
+    this.props.addElementRef(this.props.varID, this.selector);
     if (this.props.type === "pointer") {
       this.props.addPointer(this.props.target, this.props.varID);
     } else if (this.props.type === "reference") {
@@ -19,7 +20,7 @@ class KeyValuePair extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.addMembers(this.props.varID, this.selector.current.getBoundingClientRect());
+    //this.props.addMembers(this.props.varID, this.selector.current.getBoundingClientRect());
     if (this.props.type === "pointer") {
       this.props.addPointer(this.props.target, this.props.varID);
     } else if (this.props.type === "reference") {
@@ -30,8 +31,13 @@ class KeyValuePair extends React.Component {
   render() {
     return (
       <tr>
-        <td>{this.props.name}</td>
-        <td style={{ borderStyle: "solid", padding: 4, borderWidth: 1, textAlign: "center" }} ref={this.selector}>
+        <td style={{ zIndex: 10 }}>
+          <b>{this.props.name}</b>
+        </td>
+        <td
+          style={{ borderStyle: "solid", padding: 4, borderWidth: 1, textAlign: "center", background: "#B6E3F6" }}
+          ref={this.selector}
+        >
           {this.props.children}
         </td>
       </tr>

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+int global = 5;
 //disable warnings with -w
 class Goodbye
 {
@@ -40,6 +41,7 @@ int main()
     int *x = foo();
     int *y = NULL;
     char *c = "Hello World";
+    char *&u = c;
     char *d = "\"Goodbye World\'";
     int *z = new int[3];
     Hello *hi = new Hello(3000, 2500);

@@ -8,7 +8,7 @@ class MethodFrame extends React.Component {
     this.state = { locals: [], args: [], identifier: "" };
   }
 
-  async parseMethod() {
+  parseMethod() {
     let locals = [],
       args = [];
     this.props.stackFrameInfo.vars.forEach((ele) => {
@@ -19,6 +19,7 @@ class MethodFrame extends React.Component {
           addMembers={this.props.addMembers}
           addPointer={this.props.addPointer}
           addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
         ></Member>
       );
     });
@@ -30,10 +31,28 @@ class MethodFrame extends React.Component {
           addMembers={this.props.addMembers}
           addPointer={this.props.addPointer}
           addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
         ></Member>
       );
     });
-    await this.setState({ locals: locals, args: args, identifier: this.props.stackFrameInfo.identifier });
+    return (
+      <React.Fragment>
+        <div>
+          <h4 style={{ margin: 0 }}>Locals</h4>
+          <table>
+            <tbody>{locals}</tbody>
+          </table>
+        </div>
+        <hr></hr>
+        <div>
+          <h4 style={{ margin: 0 }}>Args</h4>
+          <table>
+            <tbody>{args}</tbody>
+          </table>
+        </div>
+      </React.Fragment>
+    );
+    //await this.setState({ locals: locals, args: args, identifier: this.props.stackFrameInfo.identifier });
   }
 
   componentDidMount() {
@@ -42,25 +61,7 @@ class MethodFrame extends React.Component {
 
   render() {
     return (
-      <div style={{ display: "flex", margin: 30 }}>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <h2>{this.state.identifier}</h2>
-        </div>
-        <div style={{ margin: 30, padding: 10, borderStyle: "solid" }}>
-          <div>
-            <h4 style={{ margin: 0 }}>Locals</h4>
-            <table>
-              <tbody>{this.state.locals}</tbody>
-            </table>
-          </div>
-          <div>
-            <h4 style={{ margin: 0 }}>Args</h4>
-            <table>
-              <tbody>{this.state.args}</tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+      <div style={{ margin: 30, padding: 10, borderStyle: "solid", background: "#B6E3F6" }}>{this.parseMethod()}</div>
     );
   }
 }

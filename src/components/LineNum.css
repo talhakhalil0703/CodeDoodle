@@ -1,53 +1,50 @@
 .line-container {
-    margin-right: 5px;
-    width: 8%;
-    overflow: hidden;
-    text-align: center;
-    color: #606060;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: Consolas,
-        Monaco,
-        'Andale Mono',
-        'Ubuntu Mono',
-        monospace;
-    font-size: 1em;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
+  margin-right: 5px;
+  width: 8%;
+  overflow: hidden;
+  text-align: center;
+  color: #606060;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
 }
 
 .a-line {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .line-num {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
-
+/*
 .a-line:hover>.breakpoint {
     background-color: #660903;
 }
+*/
 
 .breakpoint {
-    margin: 0 auto;
-    margin-top: 4px;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    display: inline-block;
+  margin: 0 auto;
+  margin-top: 4px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .active-breakpoint {
-    margin: 0 auto;
-    margin-top: 4px;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #E51506;
+  margin: 0 auto;
+  margin-top: 4px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #e51506;
 }

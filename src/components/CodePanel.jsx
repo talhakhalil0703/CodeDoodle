@@ -30,7 +30,10 @@ class CodePanel extends Component {
         this.state = {
             breakpoint: [-1],
             generatedCode: false,
-            ARInfo: {}
+            errorDialog: false,
+            ARInfo: {},
+            showARDiagram: false,
+            activeLine: -1
         }
 
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
@@ -127,10 +130,12 @@ class CodePanel extends Component {
             if(res.status == 200)
             {
                 const ARInfo = await res.json();
-                await this.setState({ARInfo:ARInfo, generatedCode: true});
+                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true});
                 this.setState({generatedCode: false});
                 this.setState({generatedCode: true});
-                console.log("Setting State");
+            }
+            else {
+                this.setState({errorDialog: true})
             }
             
           } catch (error) {
@@ -179,6 +184,23 @@ class CodePanel extends Component {
         }));
     }
 
+    handleCloseError = () =>
+    {
+        this.setState({errorDialog: !this.state.errorDialog})
+    }
+
+    handleHideARDiagram = () => {
+        if (this.state.generatedCode === true)
+        {
+            this.setState({showARDiagram: !this.state.showARDiagram});
+        }
+
+    }
+
+    setActiveLine = (activeLine) => {
+        this.setState({activeLine})
+    }
+
     render() {
         return (
             <div className='code-panel'>
@@ -187,20 +209,29 @@ class CodePanel extends Component {
                     <button className='btn' onClick={this.handleLanguageChange.bind(this, 'c')} autoFocus>C</button>
                     <button className='btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
                     <button className='btn' onClick={this.handleConvert}>Create Diagram</button>
+                    <button className='btn' onClick={this.handleHideARDiagram}>{this.state.showARDiagram ? "Hide AR Diagram" : "Show AR Diagram"}</button>
                 </div>
+                <Toggalable toggle={this.state.errorDialog} handleCloseError={this.closeError} alt={null}>
+                        <div className='error'><p className='error-message'>Sorry, there was a problem either with your code or there was a server issue</p>
+                        <button className="error-btn" onClick={this.handleCloseError}>X</button>
+                        </div>
+                </Toggalable>
                 <div className='code-to-ar-base'>
                     <CodeEditor
                         value={this.props.value}
                         language={this.props.language}
                         onChange={this.handleEditorChange}
                         onKeyDown={this.handleKeyDown}
-                        onClick={this.handleBreakpoint}
+                        //onClick={this.handleBreakpoint}
                         onUpload={this.handleFileUpload}
+                        activeLine={this.state.activeLine}
+                        key={this.state.activeLine + "CodeEditor"}
                     /> 
-                    <Toggalable toggle={this.state.generatedCode} alt={null}>
-                        <CodePlayer ARInfo={this.state.ARInfo}/>
+                    <Toggalable toggle={this.state.showARDiagram} alt={null}>
+                        <CodePlayer ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
                     </Toggalable>
                 </div>
+
             </div >
         );
     }

@@ -108,13 +108,28 @@ class CodeEditor extends Component {
                 <div ref={this.linesRef} className='line-container'>
                     {
                         /* For each line of code, create a corresponding LineNum component */
-                        Array.from({ length: num_lines }, (_, k) => (
-                            <LineNum
+                        Array.from({ length: num_lines }, (_, k) => {
+                            console.log(this.props.activeLine, k+1)
+                            if(k+1 == this.props.activeLine)
+                            {
+                                return(
+                                    <LineNum
+                                    key={k}
+                                    num={k + 1}
+                                    // onClick={this.handleBreakpoint}
+                                    isActive={true}
+                                    />
+                            )}
+                            else {
+                                return(
+                                <LineNum
                                 key={k}
                                 num={k + 1}
-                                onClick={this.handleBreakpoint}
-                            />
-                        ))
+                                // onClick={this.handleBreakpoint}
+                                isActive={false}
+                                />
+                            )}
+                        })
                     }
                 </div>
 

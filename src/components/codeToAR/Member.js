@@ -21,8 +21,22 @@ class Member extends React.Component {
 
   parseInfo() {
     let temp = [];
-
-    if (this.props.variable.type == "class") {
+    if (this.props.variable.defined === false) {
+      temp.push(
+        <KeyValuePair
+          name={this.props.variable.identifier}
+          key={"KeyValuePair-" + this.props.variable.id}
+          varID={this.props.variable.id}
+          addMembers={this.props.addMembers}
+          addPointer={this.props.addPointer}
+          addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
+          type="primative"
+        >
+          {"???"}
+        </KeyValuePair>
+      );
+    } else if (this.props.variable.type === "class") {
       let member_renders = [];
       this.props.variable.value.forEach((ele) => {
         member_renders.push(
@@ -32,6 +46,7 @@ class Member extends React.Component {
             addMembers={this.props.addMembers}
             addPointer={this.props.addPointer}
             addReference={this.props.addReference}
+            addElementRef={this.props.addElementRef}
           ></Member>
         );
       });
@@ -43,6 +58,7 @@ class Member extends React.Component {
           addMembers={this.props.addMembers}
           addPointer={this.props.addPointer}
           addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
           type="class"
         >
           <table>
@@ -50,7 +66,7 @@ class Member extends React.Component {
           </table>
         </KeyValuePair>
       );
-    } else if (this.props.variable.type == "primative" || this.props.variable.type_name == "char") {
+    } else if (this.props.variable.type === "primative" || this.props.variable.type_name === "char") {
       temp.push(
         <KeyValuePair
           name={this.props.variable.identifier}
@@ -59,12 +75,13 @@ class Member extends React.Component {
           addMembers={this.props.addMembers}
           addPointer={this.props.addPointer}
           addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
           type="primative"
         >
           {this.props.variable.value}
         </KeyValuePair>
       );
-    } else if (this.props.variable.type == "pointer") {
+    } else if (this.props.variable.type === "pointer") {
       temp.push(
         <KeyValuePair
           name={this.props.variable.identifier}
@@ -73,6 +90,7 @@ class Member extends React.Component {
           addMembers={this.props.addMembers}
           addPointer={this.props.addPointer}
           addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
           type="pointer"
           target={this.props.variable.value}
         >
@@ -81,22 +99,57 @@ class Member extends React.Component {
           </svg>
         </KeyValuePair>
       );
-    } else if (this.props.variable.type == "reference") {
-      <KeyValuePair
-        name={this.props.variable.identifier}
-        key={"KeyValuePair-" + this.props.variable.id}
-        varID={this.props.variable.id}
-        addMembers={this.props.addMembers}
-        addPointer={this.props.addPointer}
-        addReference={this.props.addReference}
-        type="reference"
-        target={this.props.variable.value}
-      >
-        <svg height="15" width="15">
-          <circle cx="7.5" cy="7.5" r="5" stroke="black" strokeWidth="1" fill="black"></circle>
-        </svg>
-      </KeyValuePair>;
-    } else {
+    } else if (this.props.variable.type === "reference") {
+      temp.push(
+        <KeyValuePair
+          name={this.props.variable.identifier}
+          key={"KeyValuePair-" + this.props.variable.id}
+          varID={this.props.variable.id}
+          addMembers={this.props.addMembers}
+          addPointer={this.props.addPointer}
+          addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
+          type="reference"
+          target={this.props.variable.value}
+        >
+          <svg height="15" width="15">
+            <circle cx="7.5" cy="7.5" r="5" stroke="black" strokeWidth="1" fill="black"></circle>
+          </svg>
+        </KeyValuePair>
+      );
+    } else if (this.props.variable.type === "array") {
+      let member_renders = [],
+        count = 0;
+      this.props.variable.value.forEach((ele) => {
+        ele.identifier = `${this.props.variable.identifier}[${count}]`;
+        member_renders.push(
+          <Member
+            variable={ele}
+            key={"KeyValuePairMember-" + ele.id}
+            addMembers={this.props.addMembers}
+            addPointer={this.props.addPointer}
+            addReference={this.props.addReference}
+            addElementRef={this.props.addElementRef}
+          ></Member>
+        );
+        count += 1;
+      });
+      temp.push(
+        <KeyValuePair
+          name={this.props.variable.identifier}
+          key={"KeyValuePair-" + this.props.variable.id}
+          varID={this.props.variable.id}
+          addMembers={this.props.addMembers}
+          addPointer={this.props.addPointer}
+          addReference={this.props.addReference}
+          addElementRef={this.props.addElementRef}
+          type="array"
+        >
+          <table>
+            <tbody>{member_renders}</tbody>
+          </table>
+        </KeyValuePair>
+      );
     }
     this.member_render = temp;
   }
