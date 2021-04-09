@@ -133,7 +133,7 @@ class CodeEditor extends Component {
                     }
                 </div>
 
-                <DragAndDropFiles onUpload={this.handleFileUpload}>
+                <DragAndDropFiles onUpload={this.handleFileUpload} className='editor-container'>
                     <textarea ref={this.editorRef} className='code-input' value={value} spellCheck='false' onChange={this.handleEditorChange} onKeyDown={this.handleKeyDown} />
                     <pre ref={this.outRef} className='code-output'><code className='language-clike'>{value}
                     </code></pre>

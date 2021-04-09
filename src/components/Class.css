@@ -8,14 +8,14 @@
     border: 1px solid black;
 }
 
-.class-name {
+/* .class-name {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: blue;
     width: 100%;
     height: 25px;
-}
+} */
 
 .variables {
     background-color: green;

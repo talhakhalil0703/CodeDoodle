@@ -133,6 +133,7 @@ class CodePanel extends Component {
                 await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true});
                 this.setState({generatedCode: false});
                 this.setState({generatedCode: true});
+                console.log(ARInfo);
             }
             else {
                 this.setState({errorDialog: true})
