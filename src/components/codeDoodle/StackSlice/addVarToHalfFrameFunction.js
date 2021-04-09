@@ -1,72 +1,81 @@
 import UniqueId from "../UniqueId";
-import React from "react";
 
 export default function addVarToHalfFrameFunction(state, action) {
   let text = action.payload.text;
   let id = action.payload.halfFrame.id;
   let val = action.payload.halfFrame.value;
+  let arrows = action.payload.halfFrame.arrows;
   let classId = action.payload.halfFrame.classId;
-  alert(`classId: ${classId}`);
-
   var classes = action.payload.halfFrame.classes;
 
-  var primitives = ["int", "double", "boolean", "float", "char"];
-  var name = String.fromCharCode("a".charCodeAt(0) + val.length);
+  var unique = UniqueId();
 
-  if (text === "stack") {
-    alert("stack frames cant be dropped here...");
-  } else if (text === "array") {
-    var new_var = {
-      variableID: UniqueId(),
-      type: text,
-      name: name,
-      value: {
-        array: [
-          [
-            {
-              elementID: UniqueId(),
-              elementValue: " ",
-            },
-          ],
-        ],
-      },
-    };
-  } else if (!primitives.includes(text)) {
-    var the_class = classes.find((item) => item.name === text);
-    console.log(action.payload);
-    let classId = UniqueId();
-    let variablesWithUniqueIDs = the_class.variables.map((variable) => {
-      var { type, name, value } = variable;
-      let variableWithUniqueID = {
-        type,
-        name,
-        value,
-        variableID: UniqueId(),
-        classId, //Used for later when inserting items into the class
+  var primitives = ["int", "double", "boolean", "float", "char", "pointer"];
+  var name = String.fromCharCode("a".charCodeAt(0) + unique);
+
+  if (text) {
+    if (text === "stack") {
+      alert("stack frames cant be dropped here...");
+    } else if (text === "array") {
+      var new_unique = UniqueId();
+      var new_var = {
+        variableID: unique,
+        type: text,
+        name: name,
+        arrows: [],
+        elements: 0,
+            value: [
+                  {
+                    variableID: new_unique,
+                    rend: 'char',
+                    type: '',
+                    name: '0',
+                    value: "'\\0'",
+                    arrows: [],
+                    return: null,
+                  }
+            ]
+            }
+    } else if (!primitives.includes(text)) {
+      var the_class = classes.find((item) => item.name === text);
+      console.log(action.payload);
+      let classId = unique;
+      let variablesWithUniqueIDs = the_class.variables.map((variable) => {
+        var { type, name, value } = variable;
+        let variableWithUniqueID = {
+          type,
+          name,
+          value,
+          arrows: [],
+          variableID: unique,
+          classId, //Used for later when inserting items into the class
+        };
+        return variableWithUniqueID;
+      });
+
+      new_var = {
+        variableID: classId, // Defining class here
+        type: the_class.name,
+        name: name,
+        arrows: [],
+        value: variablesWithUniqueIDs,
+        return: "",
       };
-      return variableWithUniqueID;
-    });
+    } else {
+      new_var = {
+        variableID: unique,
+        type: text,
+        name: name,
+        arrows: [],
+        value: "???",
+        return: "",
+      };
+    }
 
-    new_var = {
-      variableID: classId, // Defining class here
-      type: the_class.name,
-      name: name,
-      value: variablesWithUniqueIDs,
-      return: "",
-    };
-  } else {
-    new_var = {
-      variableID: UniqueId(),
-      type: text,
-      name: name,
-      value: "???",
-      return: "",
-    };
-  }
-
-  if (action.payload.halfFrame.name === "Local") {
-    state.stack[id].local.push(new_var);
-  } else if (action.payload.halfFrame.name === "Arguments") {
-    state.stack[id].args.push(new_var);
+    if (action.payload.halfFrame.name === "Local") {
+      state.stack[id].local[unique] = new_var;
+    } else if (action.payload.halfFrame.name === "Arguments") {
+      state.stack[id].args[unique] = new_var;
+    }
   }
 }

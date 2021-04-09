@@ -101,11 +101,7 @@ function Droppable(WrappedComponent) {
             */
       console.log("Droppable Regular");
       // console.log(WrappedComponent().handleDrop(text, value, classes))
-      console.log(e);
-      console.log(this.props);
-      console.log(text);
-      console.log(value);
-      console.log(classes);
+      
       value = WrappedComponent.prototype.handleDrop(text, value, classes);
 
       console.log("returned....");

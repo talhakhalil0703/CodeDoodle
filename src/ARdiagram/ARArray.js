@@ -1,26 +1,96 @@
 import "./ARArray.css";
-import ARArrayElement from "./ARArrayElement";
+import Pointer from '../components/PointerNEW'
+import Variable from '../components/Variable'
 
 const ARArray = (props) => {
+
+  const { drawInfoOpen, value } = props;
+  const primitives = ["int", "double", "boolean", "float", "char"];
+
+  console.log(value);
+
   return (
-    <div className="array">
-      {props.value.array.map((
-        singleArray //Map only works with arrays, you can nest maps
-      ) => (
-        <div className="mainArray" key={Math.floor(Math.random() * 1000)}>
-          {singleArray.map((element) => (
-            <ARArrayElement
-              classId={props?.classId}
-              key={element.elementID}
-              id={element.elementID}
-              name={element.elementValue}
-              arrayVariableID={props.variableID}
-              className="element"
+
+    <ul className="array">
+      {value.map((item, index) => {
+        if(item.rend === 'pointer') {
+          return (
+          <li className='array-elem' key={index}>
+            <Pointer
+              id={index}
+              variableID={item.variableID}
+              type={item.type}
+              name={item.name}
+              value={item.value}
+              ret={item.return}
+              arrows={item.arrows}
+              drawInfoOpen={drawInfoOpen}
+              // onChange={(var_id, name, val, ret, arrows) =>
+              //   handleVarChange(var_id, name, val, ret, arrows)
+              // }
             />
-          ))}
-        </div>
-      ))}
-    </div>
+          </li>
+          );
+        }
+
+else if (primitives.includes(item.rend)) {
+return (
+  <li key={index}>
+    <Variable
+      id={index}
+      variableID={item.variableID}
+      type={item.type}
+      name={item.name}
+      value={item.value}
+      ret={item.return}
+      arrows={item.arrows}
+      drawInfoOpen={drawInfoOpen}
+      // onChange={(var_id, name, val, ret, arrows) =>
+      //   handleVarChange(var_id, name, val, ret, arrows)
+      // }
+    />
+  </li>
+);
+// } else if (item.type === "array") {
+// return (
+//   <li key={index}>
+//     <ARArrayDrop
+//       id={index}
+//       variableID={item.variableID}
+//       type={item.type}
+//       name={item.name}
+//       value={item.value}
+//       classId={item?.classId}
+//     />
+//   </li>
+// );
+// } 
+//     } else {
+// return (
+//   <li key={index}>
+//     <DroppableClass
+//       id={index}
+//       variableID={item.variableID}
+//       type={item.type}
+//       name={item.name}
+//       value={item.value}
+//       ret={item.return}
+//       drawInfoOpen={drawInfoOpen}
+//       onChange={(var_id, name, val, ret) =>
+//         handleVarChange(var_id, name, val, ret)
+//       }
+//       handleDrop={(val, id) => handleClassDrops(val, id)}
+//       handleChange={(val, id) => handleClassDrops(val, id)}
+//       arrowConnectionPointsOpen={arrowConnectionPointsOpen}
+//       toggleArrowConnectionPoints={
+//         props.toggleArrowConnectionPoints
+//       }
+//     />
+//   </li>
+// );
+}
+})}
+    </ul>
   );
 };
 

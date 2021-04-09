@@ -36,7 +36,7 @@ const ARArrayElement = (props) => {
         value={props.name}
         onChange={(event) => handleChange(event)}
       />
-      <button onClick={() => removeElement()}>-</button>{" "}
+      <button className='remove' onClick={() => removeElement()}>-</button>{" "}
       {/*You need to use ()=>f() as then it won't get called in creation*/}
     </div>
   );

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import updateStackFunction from "./StackSlice/updateStackFunction";
 import addStackFrameFunction from "./StackSlice/addStackFrameFunction";
 import addVarToHalfFrameFunction from "./StackSlice/addVarToHalfFrameFunction";
-import addVarToArrayFunction from "./StackSlice/addVarToArrayFunction";
+import addVarArrayFunction from "./StackSlice/addVarToArrayFunction";
 import changeVariableFunction from "./StackSlice/changeVariableFunction";
 import changeArrayVariableFunction from "./StackSlice/changeArrayVariableFunction";
 import changeClassVariableFunction from "./StackSlice/changeClassVariableFunction";
@@ -11,14 +11,19 @@ import changeClassVariableFunction from "./StackSlice/changeClassVariableFunctio
 export const stackSlice = createSlice({
   name: "stack",
   initialState: {
-    stack: [],
+    stack: [{
+        index: 0,
+        name: 'int main',
+        local: [],
+        args: [],
+    }]
   },
   reducers: {
     updateStack: (state, action) => updateStackFunction(state, action),
     addStackFrame: (state) => addStackFrameFunction(state),
     addVarToHalfFrame: (state, action) =>
       addVarToHalfFrameFunction(state, action),
-    addVarToArray: (state, action) => addVarToArrayFunction(state, action),
+    addVarArray: (state, action) => addVarArrayFunction(state, action),
     changeVariable: (state, action) => changeVariableFunction(state, action),
     changeArrayVariable: (state, action) =>
       changeArrayVariableFunction(state, action),
@@ -32,7 +37,7 @@ export const {
   updateStack,
   addStackFrame,
   addVarToHalfFrame,
-  addVarToArray,
+  addVarArray,
   changeVariable,
   changeArrayVariable,
   changeClassVariable,

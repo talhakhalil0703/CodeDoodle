@@ -15,7 +15,7 @@ import { addAnchor } from "../components/anchor/anchorSlice";
     be shown when class creator renders this menu ('new class' button, anchor button, and stackframe)
 */
 const DrawingIcons = (props) => {
-  const anchors = useSelector((state) => state.anchors);
+  // const anchors = useSelector((state) => state.anchors);
   const dispatch = useDispatch();
   const classes = useSelector(selectClasses);
   /* 
@@ -25,23 +25,18 @@ const DrawingIcons = (props) => {
     e.dataTransfer.setData("Text", e.target.id);
   };
 
-  const dispatchNewAnchor = () => {
-    dispatch(addAnchor({
-      type: "addAnchor",
-    }));
-  };
+  // const dispatchNewAnchor = () => {
+  //   dispatch(addAnchor({
+  //     type: "addAnchor",
+  //   }));
+  // };
 
   return (
     <div className="drawing-icons">
       <ul>
-        {props.showButton ? (
-          <li id="stack" draggable={true} onDragStart={handleDrag}>
-            Stack Frame
-          </li>
-        ) : (
-          <React.Fragment />
-        )}
-
+        <li id="stack" draggable={true} onDragStart={handleDrag}>
+          Stack Frame
+        </li>
         <li id="int" draggable={true} onDragStart={handleDrag}>
           Int
         </li>
@@ -56,6 +51,9 @@ const DrawingIcons = (props) => {
         </li>
         <li id="array" draggable={true} onDragStart={handleDrag}>
           Array
+        </li>
+        <li id="pointer" draggable={true} onDragStart={handleDrag}>
+          Pointer
         </li>
 
         <li>
@@ -79,13 +77,6 @@ const DrawingIcons = (props) => {
               onClassListChange={props.onClassListChange}
               showButton={props.showButton}
             />
-
-            <li>
-              <h4>General</h4>
-            </li>
-            <li id="anchor" onClick={dispatchNewAnchor}>
-              <button>Anchor</button>
-            </li>
           </React.Fragment>
         ) : (
           <React.Fragment />

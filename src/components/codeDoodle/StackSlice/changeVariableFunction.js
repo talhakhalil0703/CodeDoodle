@@ -1,40 +1,20 @@
 export default function changeVariableFunction(state, action) {
-  console.log("Handle Variable Change Stack Redux");
-  console.log(action);
 
-  const {
-    variableID,
-    variableName,
-    variableValue,
-    variableReturn,
-    halfFrameType,
-  } = action.payload;
+  const { id, var_id, name, val, ret, half_frame, arrows } = action.payload;
 
-  if (halfFrameType === "Local") {
-    // if in local
-    state.stack.map((stackFrame) => {
-      stackFrame.local.map((variable) => {
-        if (variable.variableID === variableID) {
-          variable.name = variableName;
-          variable.return = variableReturn;
-          variable.value = variableValue;
-        }
-        return variable;
-      });
-      return stackFrame;
-    });
+  console.log(half_frame);
+
+  if(half_frame === 'Local') {
+    console.log(state.stack[id].local[var_id]);
+    state.stack[id].local[var_id].name = name;
+    state.stack[id].local[var_id].value = val;
+    state.stack[id].local[var_id].return = ret;
+    state.stack[id].local[var_id].arrows = arrows;
   } else {
-    //if in args
-    state.stack.map((stackFrame) => {
-      stackFrame.args.map((variable) => {
-        if (variable.variableID === variableID) {
-          variable.name = variableName;
-          variable.return = variableReturn;
-          variable.value = variableValue;
-        }
-        return variable;
-      });
-      return stackFrame;
-    });
+    console.log(state.stack[id].args[var_id]);
+    state.stack[id].args[var_id].name = name;
+    state.stack[id].args[var_id].value = val;
+    state.stack[id].args[var_id].return = ret;
+    state.stack[id].args[var_id].arrows = arrows;
   }
 }

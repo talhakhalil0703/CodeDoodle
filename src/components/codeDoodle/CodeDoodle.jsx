@@ -9,6 +9,8 @@ import Droppable from '../Droppable';
 import Anchor from '../anchor/Anchor'
 import { useDispatch,  useSelector} from 'react-redux'
 import { updateStack, selectStack } from "./stackSlice"
+import { updateHeap, selectHeap } from "./heapSlice"
+import { updateStatic, selectStatic } from "./staticSlice"
 import { selectAnchorList } from '../../components/anchor/anchorSlice'
 
 /*
@@ -29,7 +31,7 @@ import { selectAnchorList } from '../../components/anchor/anchorSlice'
     Xarrows must be rendered last in the DOM in order to show up on top of everything else
 */
 
-const DroppableDrawArea = Droppable(ARDiagramDrawArea);
+//const DroppableDrawArea = Droppable(ARDiagramDrawArea);
 
 function CodeDoodle() {
     const dispatch = useDispatch()
@@ -61,8 +63,6 @@ function CodeDoodle() {
     int x = 5;
     return 0;
     }`);
-    const [heap, setHeap] = useState([]);
-    const [stat, setStat] = useState([]);
     const [classes, setClasses] = useState([]);
     const anchors = useSelector(selectAnchorList)
     const [arrows, setArrows] = useState([{fromRef:'var-b0', toDivID:'var-a0'}]);
@@ -170,14 +170,19 @@ ${val}`;
     }
 
     /* updates state of the stack section */
-    const handleStack= (frames) => {
+    const handleStack = (frames) => {
         // setStack(frames);
         dispatch(updateStack(frames))   
         toggleRender()
     }
 
-    const handleStatic= (frames) => {
-        setStat(frames)
+    const handleStatic = (stat) => {
+        dispatch(updateStatic(stat))   
+        toggleRender()
+    }
+
+    const handleHeap = (heap) => {
+        dispatch(updateHeap(heap))   
         toggleRender()
     }
 
@@ -245,26 +250,19 @@ ${val}`;
 
             <div className='base'>
                 <Toggalable toggle={drawOpen} alt={null}>
-                    {
-                        //Remove me later
-                        console.log("Codedoodle")
-                       
-                    }
-                    {
-                         console.log(useSelector(selectStack))
-                    }
-                    <DroppableDrawArea
+
+                    <ARDiagramDrawArea
                         drawInfoOpen={drawInfoOpen}
                         arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                        static={stat}
                         staticOpen={staticOpen}
                         stack={useSelector(selectStack)}
                         stackOpen={stackOpen}
-                        heap={heap}
+                        heap={useSelector(selectHeap)}
                         heapOpen={heapOpen}
-                        stat={stat}
+                        stat={useSelector(selectStatic)}
                         classes={classes}
                         onStackChange={handleStack}
+                        onHeapChange={handleHeap}
                         onStaticChange={handleStatic}
                         onClassesChange={handleClasses}
                         generateCode={generateCode}

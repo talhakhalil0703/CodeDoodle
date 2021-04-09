@@ -27,3 +27,7 @@ body {
   width: 100%;
   height: 48px;
 }
+
+svg {
+  z-index: 10;
+}

@@ -4,7 +4,8 @@ import Class from "../../../components/Class";
 import Droppable from "../../../components/DroppableFunction";
 import ARArrayDrop from "../../ARArrayDrop";
 import { useDispatch } from "react-redux";
-import { changeVariable } from "../../../components/codeDoodle/stackSlice";
+import { changeVariable, addVarArray } from "../../../components/codeDoodle/stackSlice";
+import Pointer from '../../../components/PointerNEW';
 /* 
     Component that makes up half of a stackframe, displays and populates all variables
     Manages no state
@@ -20,24 +21,17 @@ const DroppableClass = Droppable(Class);
 const ARHalfFrame = (props) => {
   const dispatch = useDispatch();
 
-  const handleVarChange = (
-    variableID,
-    variableName,
-    variableValue,
-    variableReturn
-  ) => {
-    console.log("Handling Var Change");
-    let halfFrameType = props.name;
-    dispatch(
-      changeVariable({
-        variableID,
-        variableName,
-        variableValue,
-        variableReturn,
-        halfFrameType,
-      })
-    );
+  const handleVarChange = (var_id, name, val, ret, arrows) => {
+    let half_frame = props.name;
+    var id = props.id;
+    console.log(props.value);
+    dispatch(changeVariable({id, var_id, name, val, ret, half_frame, arrows}));
   };
+
+  const addVarArrayStack = (text, values) => {
+    const {name, id} = props;
+    dispatch(addVarArray({text, values, id, name}))
+  }
 
   const handleClassDrops = (val, id) => {
     console.log("Classes Drop");
@@ -56,10 +50,29 @@ const ARHalfFrame = (props) => {
     <div>
       <h3>{props.name}</h3>
       <ul className="local-variables">
-        {console.log("ARHalfFrame Value")}
-        {console.log(value)}
         {value.map((item, index) => {
-          if (primitives.includes(item.type)) {
+
+          if(item.type === 'pointer') {
+              return (
+              <li key={index}>
+              <Pointer
+                id={index}
+                variableID={item.variableID}
+                type={item.type}
+                name={item.name}
+                value={item.value}
+                ret={item.return}
+                arrows={item.arrows}
+                drawInfoOpen={drawInfoOpen}
+                onChange={(var_id, name, val, ret, arrows) =>
+                  handleVarChange(var_id, name, val, ret, arrows)
+                }
+              />
+            </li>
+            );
+          }
+
+          else if (primitives.includes(item.type)) {
             return (
               <li key={index}>
                 <Variable
@@ -69,13 +82,10 @@ const ARHalfFrame = (props) => {
                   name={item.name}
                   value={item.value}
                   ret={item.return}
+                  arrows={item.arrows}
                   drawInfoOpen={drawInfoOpen}
-                  onChange={(var_id, name, val, ret) =>
-                    handleVarChange(var_id, name, val, ret)
-                  }
-                  arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                  toggleArrowConnectionPoints={
-                    props.toggleArrowConnectionPoints
+                  onChange={(var_id, name, val, ret, arrows) =>
+                    handleVarChange(var_id, name, val, ret, arrows)
                   }
                 />
               </li>
@@ -90,6 +100,7 @@ const ARHalfFrame = (props) => {
                   name={item.name}
                   value={item.value}
                   classId={item?.classId}
+                  handleDrop={addVarArrayStack}
                 />
               </li>
             );
@@ -109,10 +120,6 @@ const ARHalfFrame = (props) => {
                   }
                   handleDrop={(val, id) => handleClassDrops(val, id)}
                   handleChange={(val, id) => handleClassDrops(val, id)}
-                  arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                  toggleArrowConnectionPoints={
-                    props.toggleArrowConnectionPoints
-                  }
                 />
               </li>
             );

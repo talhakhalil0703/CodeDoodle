@@ -1,20 +1,29 @@
 .variable {
-    padding-bottom: 10px;
     width: 100%;
     max-height: 50px;
     text-align: center;
     display: flex;
 }
 
+.var-name {
+    padding-right: 10px;
+    padding-top: 7.5px;
+}
+
+
 .var-content {
-    width: 100%;
+    padding-top: 5px;
+    display: flex;
+    min-width: 75px;
+    margin: 0 auto;
 }
 
 .return-container {
     text-align: center;
     height: 100%;
     margin-top: 20px;
-    width: 100%;
+    min-width: 75px;
+    margin: 0 auto;
 }
 
 .var-return {
@@ -28,8 +37,8 @@
 
 .var-value {
     background-color: white;
-    max-width: 35px;
-    max-height: 35px;
+    max-width: 37px;
+    max-height: 37px;
     line-height: 30px;
 }
 

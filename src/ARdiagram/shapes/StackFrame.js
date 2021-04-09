@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./StackFrame.css";
-import "../../GeneralDiagrams/HandDrawnBoxes.css";
+// import "./StackFrame.css";
+// import "../../GeneralDiagrams/HandDrawnBoxes.css";
 import ARHalfFrame from "./shapeComponents/ARHalfFrame";
 import EditableText from "../../GeneralDiagrams/EditableText";
 import Droppable from "../../components/DroppableFunction";
@@ -32,19 +32,14 @@ export default class StackFrame extends Component {
 
   /* handles dropping a new variable into the local variable area */
   handleLocal(local, text) {
-    console.log("StackFrame");
-    console.log(local);
     const id = this.props.id;
-    console.log(text);
     this.props.onLocalChange(text, local);
   }
 
   /* handles dropping a new variable into the args variable area */
   handleArgs(args, text) {
-    console.log("StackFrame");
-    console.log(args);
     const id = this.props.id;
-    this.props.onLocalChange(text, args);
+    this.props.onArgsChange(text, args);
   }
 
   /* handles name change of a stackframe */
@@ -54,14 +49,7 @@ export default class StackFrame extends Component {
   }
 
   render() {
-    const {
-      name,
-      local,
-      args,
-      classes,
-      drawInfoOpen,
-      arrowConnectionPointsOpen,
-    } = this.props;
+    const { name, local, args, classes, drawInfoOpen, } = this.props;
     return (
       <React.Fragment>
         <EditableText
@@ -79,10 +67,6 @@ export default class StackFrame extends Component {
                 value={local}
                 classes={classes}
                 drawInfoOpen={drawInfoOpen}
-                arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                toggleArrowConnectionPoints={
-                  this.props.toggleArrowConnectionPoints
-                }
                 handleDrop={this.handleLocal}
                 handleChange={this.handleLocal}
               />
@@ -95,10 +79,6 @@ export default class StackFrame extends Component {
                 id={this.props.id}
                 classes={classes}
                 drawInfoOpen={false}
-                arrowConnectionPointsOpen={arrowConnectionPointsOpen}
-                toggleArrowConnectionPoints={
-                  this.props.toggleArrowConnectionPoints
-                }
                 handleDrop={this.handleArgs}
                 handleChange={this.handleArgs}
               />

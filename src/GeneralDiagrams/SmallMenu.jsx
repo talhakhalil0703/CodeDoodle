@@ -46,7 +46,7 @@ export default function SmallMenu(props) {
             Enter arrow target ID
             <input 
               style={{background:"lightGray"}} 
-              autocomplete="off" 
+              autoComplete="off" 
               value={input} 
               onInput={e => setInput(e.target.value)}
             />

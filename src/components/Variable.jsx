@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Variable.css';
+import './PointerNEW.css'
 import EditableText from '../GeneralDiagrams/EditableText';
 import Toggalable from './Toggalable';
-import ClickMenu from '../GeneralDiagrams/SmallMenu'
-import Arrow from "../GeneralDiagrams/Arrow/Arrow"
+import Xarrow from 'react-xarrows';
 
 /* 
     Component that makes up the variables of the application
@@ -24,59 +24,66 @@ class Variable extends Component {
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
         this.handleReturnChange = this.handleReturnChange.bind(this);
-        this.convertTo = this.convertTo.bind(this);
+        // this.convertTo = this.convertTo.bind(this);
 
-        this.variableRef = React.createRef()
+        this.arrowRef = React.createRef();
+        this.handleDrop = this.handleDrop.bind(this);
+    }
 
-        this.state = {
-            hasArrow:false, 
-            targetDiv:''
+    componentDidMount() {
+        const arrow = this.arrowRef.current;
+        arrow.addEventListener('drop', this.handleDrop);
+    }
+
+    handleDrop(e) {
+        var start_id = e.dataTransfer.getData('arrow');
+
+        const {type, name, value, ret, variableID, arrows} = this.props;
+        var arr = Array.from(arrows);
+
+        var end_id = type + '-' + name + '-' + variableID;
+
+        var arrow = {
+            start: start_id,
+            end: end_id,
+            value: value
+        }
+
+        arr.push(arrow);
+
+        if(this.props.onChange) {
+            this.props.onChange(variableID, name, value, ret, arr);
         }
     }
 
+
     /* handles changing the name of a variable */
     handleNameChange(new_name) {
-        const { variableID, value, ret } = this.props;
-        this.props.onChange(variableID, new_name, value, ret);
+        const { variableID, value, ret, arrows} = this.props;
+        this.props.onChange(variableID, new_name, value, ret, arrows);
     }
 
     /* handles changing the value of a variable */
     handleValueChange(e) {
-        const { variableID, name, ret } = this.props;
+        const { variableID, name, ret, arrows } = this.props;
         const val = e.target.value;
-        this.props.onChange(variableID, name, val, ret);
+        this.props.onChange(variableID, name, val, ret, arrows);
     }
 
     handleReturnChange(e) {
-        const { variableID, name, value } = this.props;
+        const { variableID, name, value, arrows } = this.props;
         const ret = e.target.value;
-        this.props.onChange(variableID, name, value, ret);
-    }
-
-    // turns type to pointer/reference then changes type to current type + pointer/reference (doesn't do this yet)
-    // and connects an pointer/reference arrow to the target
-    convertTo(newType, target) {
-        // ToDo: change the type
-
-        this.setState(state => ({
-            hasArrow: true,
-            targetDiv: target,
-        }));
+        this.props.onChange(variableID, name, value, ret, arrows);
     }
 
     render() {
-        const { name, type, value, ret, drawInfoOpen, id, arrowConnectionPointsOpen } = this.props;
-        const { hasArrow, targetDiv } = this.state
+        const { name, type, value, ret, drawInfoOpen, variableID, arrows } = this.props;
+
+        console.log(arrows);
 
         return (
             // this id is used to connect it to other arrows
-            <div ref={this.variableRef} id={ type + '-' + name + id } className='variable'>
-                <ClickMenu 
-                    id={name+id} 
-                    arrowConnectionPointsOpen={arrowConnectionPointsOpen} 
-                    toggleArrowConnectionPoints={this.props.toggleArrowConnectionPoints}
-                    convertTo={this.convertTo}
-                />
+            <div draggable={false} className='variable'>
 
                 <Toggalable toggle={drawInfoOpen} alt={null}>
                     <div className='return-container'>
@@ -89,14 +96,23 @@ class Variable extends Component {
                         {`${type} `}
                         <EditableText onChange={this.handleNameChange} value={name} editClassName="stackframeName" />
                     </div>
-                    <textarea className='var-value' value={value} onChange={this.handleValueChange} />
+                    <div ref={this.arrowRef}>
+                        <textarea id={type + '-' + name + '-' + variableID} className='var-value' value={value} onChange={this.handleValueChange} />
+                    </div> 
                 </div>
 
-                <Toggalable toggle={arrowConnectionPointsOpen} alt={null}>
-                    <p>{type + '-' + name + id}</p>
-                </Toggalable>
-
-                {hasArrow ?  <Arrow start={this.variableRef} end={targetDiv} path={"grid"} />:<React.Fragment/>}
+                {arrows.map(arrow => (
+                    <Xarrow 
+                        color='black'
+                        className='arrow'
+                        start={arrow.start} 
+                        end={arrow.end} 
+                        key={arrow.start + '-' + arrow.end}
+                        endAnchor={'auto'}
+                        startAnchor={"auto"}
+                        path={'straight'}
+                    />
+                ))}
             </div>
         );
     }

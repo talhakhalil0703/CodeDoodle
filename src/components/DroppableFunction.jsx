@@ -100,8 +100,7 @@ function Droppable (WrappedComponent) {
                 This is why step 3. is important!
                 This calls Y's handleDrop function and gets the new state from it
             */
-            console.log("Droppable Function")
-            console.log(text);
+            
             this.props.handleDrop(this.props, text);
 
             // value = WrappedComponent.prototype.handleDrop(text, value, classes);
@@ -121,8 +120,6 @@ function Droppable (WrappedComponent) {
         render() {
             return (
                 <div className='droppable' ref={this.dropRef} >
-                    {console.log("DroppableFunction Return")}
-                    {console.log(this.props)}
                     <WrappedComponent {...this.props} />
                 </div >
             );
