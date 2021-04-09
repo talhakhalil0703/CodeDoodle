@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import CodeEditor from './CodeEditor';
 import './CodePanel.css'
+import Toggalable from './Toggalable';
+import CodePlayer from './codeToAR/CodePlayer'
+import BounceLoader from "react-spinners/BounceLoader";
 
 /*
     This component holds anything related to the code editor:
@@ -20,14 +23,30 @@ import './CodePanel.css'
      - onClick: access to CodeDoodles onClick function
      - onKeydown: access to CodeDoodles onKeyDown function
 */
+
+const BounceLoaderCSS = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+`
 class CodePanel extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            breakpoint: [-1]
+            breakpoint: [-1],
+            generatedCode: false,
+            errorDialog: false,
+            ARInfo: {},
+            showARDiagram: false,
+            activeLine: -1,
+            loadingARDiagram: false
         }
+
+        this.controller = new AbortController();
 
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
         this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -94,7 +113,10 @@ class CodePanel extends Component {
         where the first breakpoint is and only emits code before it, 
         alerts for now just to show code 
     */
-    handleConvert() {
+    async handleConvert() {
+        this.controller = new AbortController
+        this.signal = this.controller.signal
+        this.setState({loadingARDiagram: true})
         const text = this.props.value;
         var bp = this.state.breakpoint[0];
 
@@ -110,7 +132,31 @@ class CodePanel extends Component {
             output += lines[i];
         }
 
-        alert(output);
+        //alert(output);
+        try {
+            console.log(text);
+            const res = await fetch("http://ec2-3-135-65-201.us-east-2.compute.amazonaws.com:3000/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ code: text }),
+              signal: this.signal,
+            });
+            if(res.status == 200)
+            {
+                const ARInfo = await res.json();
+                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true, loadingARDiagram: false});
+                this.setState({generatedCode: false});
+                this.setState({generatedCode: true});
+            }
+            else {
+                this.setState({errorDialog: true, loadingARDiagram: false})
+            }
+            
+          } catch (error) {
+            console.log(error);
+          }
     }
 
     /* handles toggling a breakpoint and updates state accordingly */
@@ -154,6 +200,29 @@ class CodePanel extends Component {
         }));
     }
 
+    handleCloseError = () =>
+    {
+        this.setState({errorDialog: !this.state.errorDialog})
+    }
+
+    handleHideARDiagram = () => {
+        if (this.state.generatedCode === true)
+        {
+            this.setState({showARDiagram: !this.state.showARDiagram});
+        }
+
+    }
+
+    handleCancelLoad = () => {
+        this.setState({loadingARDiagram: false})
+        this.controller.abort();
+    }
+
+    setActiveLine = (activeLine) => {
+        this.setState({activeLine})
+    }
+
+
     render() {
         return (
             <div className='code-panel'>
@@ -162,16 +231,38 @@ class CodePanel extends Component {
                     <button className='btn' onClick={this.handleLanguageChange.bind(this, 'c')} autoFocus>C</button>
                     <button className='btn' onClick={this.handleLanguageChange.bind(this, 'cpp')}>C++</button>
                     <button className='btn' onClick={this.handleConvert}>Create Diagram</button>
+                    <button className='btn' onClick={this.handleHideARDiagram}>{this.state.showARDiagram ? "Hide AR Diagram" : "Show AR Diagram"}</button>
+                </div>
+                <Toggalable toggle={this.state.errorDialog} handleCloseError={this.closeError} alt={null}>
+                        <div className='error'><p className='error-message'>Sorry, there was a problem either with your code or there was a server issue</p>
+                        <button className="error-btn" onClick={this.handleCloseError}>X</button>
+                        </div>
+                </Toggalable>
+                <div className='code-to-ar-base'>
+                    <CodeEditor
+                        value={this.props.value}
+                        language={this.props.language}
+                        onChange={this.handleEditorChange}
+                        onKeyDown={this.handleKeyDown}
+                        //onClick={this.handleBreakpoint}
+                        onUpload={this.handleFileUpload}
+                        activeLine={this.state.activeLine}
+                        key={this.state.activeLine + "CodeEditor"}
+                    /> 
+                    <Toggalable toggle={this.state.showARDiagram} alt={null}>
+                        <CodePlayer ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
+                    </Toggalable>
+                    <Toggalable toggle={this.state.loadingARDiagram} alt={null}>
+                        <div className='overlay'></div>
+                        <div className='loading-elements'>
+                            <button className='btn' onClick={this.handleCancelLoad}>Cancel</button>
+                        </div>
+                        <BounceLoader color={"#000000"} loading={true} size={150} css={BounceLoaderCSS}/>
+                        
+                    </Toggalable>
+                    
                 </div>
 
-                <CodeEditor
-                    value={this.props.value}
-                    language={this.props.language}
-                    onChange={this.handleEditorChange}
-                    onKeyDown={this.handleKeyDown}
-                    onClick={this.handleBreakpoint}
-                    onUpload={this.handleFileUpload}
-                />
             </div >
         );
     }

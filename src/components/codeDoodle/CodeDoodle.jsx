@@ -44,8 +44,7 @@ function CodeDoodle() {
     const [staticOpen, setStaticOpen] = useState(true);
     const [user_c_code, set_user_c_code] = useState(`#include <stdio.h>
     int main() {
-    // printf() displays the string inside quotation
-    printf("Hello, World!");
+    int x = 5;
     return 0;
     }`);
     const [user_cpp_code, set_user_cpp_code] = useState( `// Your First C++ Program
@@ -53,14 +52,13 @@ function CodeDoodle() {
     #include <iostream>
     
     int main() {
-    std::cout << "Hello World!";
+    int x = 5;
     return 0;
     }`);
     const [language, setLanguage] = useState('c');
     const [value, setValue] = useState(`#include <stdio.h>
     int main() {
-    // printf() displays the string inside quotation
-    printf("Hello, World!");
+    int x = 5;
     return 0;
     }`);
     const [heap, setHeap] = useState([]);

@@ -20,7 +20,6 @@ class LineNum extends Component {
 
         this.handleClick = this.handleClick.bind(this);
     }
-
     /* When any part of a line number is clicked, change the state (basically an on/off switch) */
     handleClick() {
         this.setState(state => ({
@@ -29,16 +28,22 @@ class LineNum extends Component {
 
         this.props.onClick(this.props.num);
     }
-
+    
+    componentDidMount()
+    {
+        this.setState({isActive: this.props.isActive})
+    }
+    //onClick={this.handleClick} />
+    // onClick={this.handleClick}>
     render() {
         const { num } = this.props;
         return (
             <div className='a-line'>
-                <div className={this.state.isActive ? 'active-breakpoint' : 'breakpoint'} onClick={this.handleClick} />
-                <div className='line-num' onClick={this.handleClick}>
+                <div className={this.state.isActive ? 'active-breakpoint' : 'breakpoint'}></div>
+                <div className='line-num' >
                     {num}
                 </div>
-            </div >
+            </div>
         );
     }
 }
