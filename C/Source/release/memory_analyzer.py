@@ -270,7 +270,7 @@ class MemoryParse (gdb.Command):
 
                 # Start, End, Size, String
                 addr_strings.append(
-                    (address, address+offset-1, offset, string_literal))
+                    (address, address+offset, offset, string_literal))
 
         return addr_strings
 

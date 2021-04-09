@@ -166,15 +166,17 @@ class ARDiagram extends React.Component {
   };
   createArrow = (source, target) => {
     const start = this.members[source],
-      end = this.members[target];
+      end = this.members[target],
+      color = this.getRandomColor();
+
     if (start !== undefined && end !== undefined) {
       // const x1 = start.x + start.width / 2 + window.pageXOffset,
       //   y1 = start.y + start.height / 2 + window.pageYOffset,
       //   closestEdge = this.getNearestPointInPerimeter(end, x1, y1),
       //   x2 = closestEdge.x + window.pageXOffset,
       //   y2 = closestEdge.y + window.pageYOffset;
-      const coords = this.getLinePathFinding(start, end),
-        color = this.getRandomColor();
+      const coords = this.getLinePathFinding(start, end);
+
       this.arrows.push(
         <svg
           height={this.selfRef.current.getBoundingClientRect().bottom + window.pageYOffset}
@@ -198,6 +200,31 @@ class ARDiagram extends React.Component {
             y2={coords.lastPointY}
             markerEnd="url(#arrowhead)"
           ></line>
+        </svg>
+      );
+    } else if (target == 0) {
+      const x1 = start.x + start.width / 2 + window.pageXOffset,
+        y1 = start.y + start.height / 2 + window.pageYOffset;
+      let x2 = x1,
+        y2 = start.y + start.height + window.pageYOffset,
+        x3 =
+          this.heapRef.current.getBoundingClientRect().left +
+          window.pageXOffset -
+          45 +
+          this.arrows.length * this.lineSeperation,
+        y3 = y2;
+      this.arrows.push(
+        <svg
+          height={this.selfRef.current.getBoundingClientRect().bottom + window.pageYOffset}
+          width="100%"
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+        >
+          <marker id="nullhead" markerWidth="5" markerHeight="20" refX="" refY="10" orient="auto">
+            <line stroke={"black"} strokeWidth="4" x1={0} y1={0} x2={0} y2={20}></line>
+            <line stroke={"black"} strokeWidth="4" x1={5} y1={5} x2={5} y2={15}></line>
+          </marker>
+          <line stroke={color} strokeWidth="2" x1={x1} y1={y1} x2={x2} y2={y2}></line>
+          <line stroke={color} strokeWidth="2" x1={x2} y1={y2} x2={x3} y2={y3} markerEnd="url(#nullhead)"></line>
         </svg>
       );
     }
@@ -285,7 +312,6 @@ class ARDiagram extends React.Component {
         );
       });
     }
-
     this.staticRender = staticRender;
     this.stackRender = stackRender;
     this.heapRender = heapRender;
@@ -294,19 +320,20 @@ class ARDiagram extends React.Component {
       <React.Fragment>
         <table style={{ height: "100%", width: "100%" }}>
           <tbody>
-            <td style={{ padding: 50, background: "#7E3D3A" }} ref={this.staticRef}>
-              <h1 style={sectionStyle}>Static</h1>
-              {this.staticRender}
-            </td>
-            <td style={{ background: "#493843" }}>
-              <h1 style={sectionStyle}>Stack</h1>
-              {this.stackRender}
-            </td>
-
-            <td style={{ padding: 50, background: "#61988E" }} ref={this.heapRef}>
-              <h1 style={sectionStyle}>Heap</h1>
-              {this.heapRender}
-            </td>
+            <tr>
+              <td style={{ padding: 50, background: "#7E3D3A" }} ref={this.staticRef}>
+                <h1 style={sectionStyle}>Static</h1>
+                {this.staticRender}
+              </td>
+              <td style={{ background: "#493843" }}>
+                <h1 style={sectionStyle}>Stack</h1>
+                {this.stackRender}
+              </td>
+              <td style={{ padding: 50, background: "#61988E" }} ref={this.heapRef}>
+                <h1 style={sectionStyle}>Heap</h1>
+                {this.heapRender}
+              </td>
+            </tr>
           </tbody>
         </table>
         {/* <div style={{ margin: 30, padding: 10 }}>{this.staticRender}</div>

@@ -104,12 +104,10 @@ class CodeEditor extends Component {
         const num_lines = this.getLineCount();
         return (
             <div className='editor-panel'>
-
                 <div ref={this.linesRef} className='line-container'>
                     {
                         /* For each line of code, create a corresponding LineNum component */
                         Array.from({ length: num_lines }, (_, k) => {
-                            console.log(this.props.activeLine, k+1)
                             if(k+1 == this.props.activeLine)
                             {
                                 return(
@@ -132,7 +130,6 @@ class CodeEditor extends Component {
                         })
                     }
                 </div>
-
                 <DragAndDropFiles onUpload={this.handleFileUpload}>
                     <textarea ref={this.editorRef} className='code-input' value={value} spellCheck='false' onChange={this.handleEditorChange} onKeyDown={this.handleKeyDown} />
                     <pre ref={this.outRef} className='code-output'><code className='language-clike'>{value}
