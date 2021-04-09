@@ -43,7 +43,8 @@ class CodePanel extends Component {
             ARInfo: {},
             showARDiagram: false,
             activeLine: -1,
-            loadingARDiagram: false
+            loadingARDiagram: false,
+            diagramCount: 0,
         }
 
         this.controller = new AbortController();
@@ -146,7 +147,7 @@ class CodePanel extends Component {
             if(res.status == 200)
             {
                 const ARInfo = await res.json();
-                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true, loadingARDiagram: false});
+                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true, loadingARDiagram: false, diagramCount: this.state.diagramCount + 1});
                 this.setState({generatedCode: false});
                 this.setState({generatedCode: true});
             }
@@ -250,7 +251,7 @@ class CodePanel extends Component {
                         key={this.state.activeLine + "CodeEditor"}
                     /> 
                     <Toggalable toggle={this.state.showARDiagram} alt={null}>
-                        <CodePlayer ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
+                        <CodePlayer key={"CodePlayer" + this.state.diagramCount} ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
                     </Toggalable>
                     <Toggalable toggle={this.state.loadingARDiagram} alt={null}>
                         <div className='overlay'></div>

@@ -32,8 +32,9 @@ class CodePlayer extends React.Component {
   componentDidUpdate() {}
 
   componentDidMount() {
+    console.log("remount");
     this.step = 0;
-    console.log(this.props.ARInfo);
+    this.forceUpdate();
     this.props.setActiveLine(this.props.ARInfo[this.step].line);
   }
 
