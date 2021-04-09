@@ -47,6 +47,12 @@ int main()
     Hello *hi = new Hello(3000, 2500);
     int bleh = 0;
     int *i = foo();
+    int *arr = new int[30];
+    int k = 0;
+    for (k = 0; k < 30; k++)
+    {
+        arr[k] = k;
+    }
     return 0;
 }
 

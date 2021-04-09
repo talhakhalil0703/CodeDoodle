@@ -2,6 +2,7 @@ import React from "react";
 import MethodFrame from "./MethodFrame";
 import Member from "./Member";
 import ARDiagram from "./ARDiagram";
+import "./CodePlayer.css";
 
 //Pass down the json information from fetch call to back down as a prop.ARInfo
 class CodePlayer extends React.Component {
@@ -31,6 +32,8 @@ class CodePlayer extends React.Component {
   componentDidUpdate() {}
 
   componentDidMount() {
+    this.step = 0;
+    this.forceUpdate();
     this.props.setActiveLine(this.props.ARInfo[this.step].line);
   }
 
@@ -42,15 +45,17 @@ class CodePlayer extends React.Component {
             onClick={() => {
               this.reverse();
             }}
+            className="player-btn"
           >
-            Reverse
+            <i class="arrow left" />
           </button>
           <button
             onClick={() => {
               this.advance();
             }}
+            className="player-btn"
           >
-            Advance
+            <i class="arrow right" />
           </button>
         </div>
         <ARDiagram key={"ARD" + this.step} step={this.step} ARInfo={this.props.ARInfo}></ARDiagram>

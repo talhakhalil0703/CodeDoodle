@@ -3,6 +3,7 @@ import CodeEditor from './CodeEditor';
 import './CodePanel.css'
 import Toggalable from './Toggalable';
 import CodePlayer from './codeToAR/CodePlayer'
+import BounceLoader from "react-spinners/BounceLoader";
 
 /*
     This component holds anything related to the code editor:
@@ -22,6 +23,14 @@ import CodePlayer from './codeToAR/CodePlayer'
      - onClick: access to CodeDoodles onClick function
      - onKeydown: access to CodeDoodles onKeyDown function
 */
+
+const BounceLoaderCSS = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+`
 class CodePanel extends Component {
 
     constructor(props) {
@@ -33,8 +42,12 @@ class CodePanel extends Component {
             errorDialog: false,
             ARInfo: {},
             showARDiagram: false,
-            activeLine: -1
+            activeLine: -1,
+            loadingARDiagram: false,
+            diagramCount: 0,
         }
+
+        this.controller = new AbortController();
 
         this.handleLanguageChange = this.handleLanguageChange.bind(this);
         this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -102,6 +115,9 @@ class CodePanel extends Component {
         alerts for now just to show code 
     */
     async handleConvert() {
+        this.controller = new AbortController
+        this.signal = this.controller.signal
+        this.setState({loadingARDiagram: true})
         const text = this.props.value;
         var bp = this.state.breakpoint[0];
 
@@ -126,17 +142,18 @@ class CodePanel extends Component {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({ code: text }),
+              signal: this.signal,
             });
             if(res.status == 200)
             {
                 const ARInfo = await res.json();
-                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true});
+                await this.setState({ARInfo:ARInfo, generatedCode: true, showARDiagram: true, loadingARDiagram: false, diagramCount: this.state.diagramCount + 1});
                 this.setState({generatedCode: false});
                 this.setState({generatedCode: true});
                 console.log(ARInfo);
             }
             else {
-                this.setState({errorDialog: true})
+                this.setState({errorDialog: true, loadingARDiagram: false})
             }
             
           } catch (error) {
@@ -198,9 +215,15 @@ class CodePanel extends Component {
 
     }
 
+    handleCancelLoad = () => {
+        this.setState({loadingARDiagram: false})
+        this.controller.abort();
+    }
+
     setActiveLine = (activeLine) => {
         this.setState({activeLine})
     }
+
 
     render() {
         return (
@@ -229,8 +252,17 @@ class CodePanel extends Component {
                         key={this.state.activeLine + "CodeEditor"}
                     /> 
                     <Toggalable toggle={this.state.showARDiagram} alt={null}>
-                        <CodePlayer ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
+                        <CodePlayer key={"CodePlayer" + this.state.diagramCount} ARInfo={this.state.ARInfo} setActiveLine={this.setActiveLine}/>
                     </Toggalable>
+                    <Toggalable toggle={this.state.loadingARDiagram} alt={null}>
+                        <div className='overlay'></div>
+                        <div className='loading-elements'>
+                            <button className='btn' onClick={this.handleCancelLoad}>Cancel</button>
+                        </div>
+                        <BounceLoader color={"#000000"} loading={true} size={150} css={BounceLoaderCSS}/>
+                        
+                    </Toggalable>
+                    
                 </div>
 
             </div >

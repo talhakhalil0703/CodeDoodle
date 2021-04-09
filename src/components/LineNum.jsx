@@ -31,7 +31,6 @@ class LineNum extends Component {
     
     componentDidMount()
     {
-        console.log(this.props.num, this.props.isActive)
         this.setState({isActive: this.props.isActive})
     }
     //onClick={this.handleClick} />

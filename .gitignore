@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-/Gatsby/codedoodle/node_modules
+Gatsby/codedoodle/node_modules
+C/Source/node_modules
+
 # testing
 /coverage
 
