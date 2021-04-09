@@ -33,7 +33,7 @@ class Member extends React.Component {
           addElementRef={this.props.addElementRef}
           type="primative"
         >
-          {"???"}
+          {`???${this.props.variable.type === "pointer" ? "" : ""}`}
         </KeyValuePair>
       );
     } else if (this.props.variable.type === "class") {
