@@ -95,6 +95,6 @@ app.post("/", async (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("server started at port 3000");
+app.listen(8000, () => {
+  console.log("server started at port 8000");
 });

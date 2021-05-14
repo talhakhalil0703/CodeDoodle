@@ -136,7 +136,7 @@ class CodePanel extends Component {
         //alert(output);
         try {
             console.log(text);
-            const res = await fetch("http://ec2-3-135-65-201.us-east-2.compute.amazonaws.com:3000/", {
+            const res = await fetch("http://localhost:8000/", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
