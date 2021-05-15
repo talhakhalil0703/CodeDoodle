@@ -1,0 +1,1 @@
+bash -c "cd ~; cd CodeDoodle; cd C; cd Source; sudo npm start; pause"
