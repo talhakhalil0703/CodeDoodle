@@ -1,27 +1,45 @@
 # CodeDoodle
 
-## Available Scripts
+## Source Code
 
-In the project directory, you can run:
+Server Code is Located Under: CodeDoodle/C/Source
+Frontend Code is Located Under: CodeDoodle/src
 
-### `npm install`
+## Installation Steps
 
-This will install all the packages needed for this repository.
+The installation scripts are located under CodeDoodle/Installation Scripts, these will help automate the installation and setup process.
 
-### `npm start`
+## Windows Systems
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Please follow these instructions to install [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+For the virtual machine please enable virtualization in your BIOS as well: [Instructions](https://support.bluestacks.com/hc/en-us/articles/115003174386-How-to-enable-Virtualization-VT-on-Windows-10-for-BlueStacks-4#%E2%80%9C9%E2%80%9D)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Run ubuntu as admin (First time WSL Setup)
 
-### `npm run build`
+```
+In the ubunutu terminal type in unix name
+In the ubunutu terminal type in admin password
+In the ubunutu terminal type in: explorer.exe .
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Drag in setup.sh to the folder that just opened
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+In the ubunutu terminal type in: sudo chmod u+x setup.sh
+In the ubunutu terminal type in: sudo ./setup.sh
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After installing launch the backend_server and frontend_server from anywhere by double clicking, and type in your linux root password.
+
+## Linux Systems
+
+```
+In the terminal type in: sudo chmod u+x setup.sh
+In the terminal type in: sudo ./setup.sh
+In the terminal type in: sudo chmod u+x backend_server.sh
+In the terminal type in: sudo chmod u+x frontend_server.sh
+```
+
+To launch the servers:
+sudo ./backend_server.sh
+sudo ./frontend_server.sh
